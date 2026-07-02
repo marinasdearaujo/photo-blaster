@@ -3,168 +3,98 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Photo Blaster · Plano de Monetização</title>
-<meta name="description" content="Plano completo de monetização com fotografia — Fabio Scheffer Dombrate / Photo Blaster">
-<meta name="robots" content="noindex">
-<script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
+<title>Fabio Dombrate · Fotografia</title>
+<meta name="description" content="Fabio Dombrate, fotógrafo. Ensaios em estúdio que capturam a essência, e o material que ensina você a usar sua câmera de verdade.">
+<meta property="og:title" content="Fabio Dombrate · Fotografia">
+<meta property="og:description" content="Ensaios que capturam a essência e material pra você fotografar melhor.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#0e0e10; --bg-soft:#17171b; --card:#1d1d23;
-    --text:#f4f2ee; --muted:#9b9890;
-    --gold:#d8a94e; --gold-soft:rgba(216,169,78,.12); --radius:12px;
-  }
+  :root{ --bg:#0c0c0f; --card:#17171b; --line:#26262e; --text:#f4f2ee; --muted:#9b9890;
+    --gold:#f5b62e; --gold-soft:rgba(245,182,46,.10); --purple:#7c3aed; --radius:16px; }
   *{margin:0;padding:0;box-sizing:border-box}
-  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:920px;margin:0 auto;padding:0 20px}
+  html{scroll-behavior:smooth}
+  body{ background:var(--bg); color:var(--text); line-height:1.6; -webkit-font-smoothing:antialiased;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    background-image:
+      radial-gradient(800px 500px at 82% -5%, rgba(124,58,237,.28), transparent 60%),
+      radial-gradient(700px 500px at 5% 105%, rgba(124,58,237,.14), transparent 55%),
+      radial-gradient(500px 380px at 95% 100%, rgba(245,182,46,.06), transparent 60%);
+    background-attachment:fixed; }
+  .wrap{ max-width:960px; margin:0 auto; padding:0 22px; }
+  .anton{ font-family:'Anton',Impact,sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:.5px; line-height:1.05; }
 
-  header{border-bottom:1px solid #232329;padding:26px 0 0;background:var(--bg-soft)}
-  .head-top{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:6px;padding-bottom:18px}
-  .logo{font-weight:800;font-size:20px;letter-spacing:.02em}
-  .logo span{color:var(--gold)}
-  .head-top .sub{font-size:13px;color:var(--muted)}
+  header{ padding:34px 0 0; }
+  .brand{ font-family:'Anton'; font-size:20px; letter-spacing:2px; color:var(--gold); text-transform:uppercase; }
+  .brand small{ display:block; color:#7c7c85; font-family:'Inter'; font-weight:600; letter-spacing:3px; font-size:11px; margin-top:3px; }
 
-  nav{display:flex;gap:4px;overflow-x:auto;padding-bottom:0;-webkit-overflow-scrolling:touch}
-  nav button{
-    appearance:none;border:none;background:transparent;color:var(--muted);
-    font-size:14px;font-weight:600;padding:12px 14px;cursor:pointer;white-space:nowrap;
-    border-bottom:2.5px solid transparent;font-family:inherit;
-  }
-  nav button:hover{color:var(--text)}
-  nav button.active{color:var(--gold);border-bottom-color:var(--gold)}
-  nav button .n{opacity:.55;font-weight:700;margin-right:4px;font-size:12px}
+  .hero{ padding:60px 0 46px; }
+  .hero h1{ font-size:clamp(40px,8vw,74px); }
+  .hero h1 .hl{ color:var(--gold); }
+  .hero p{ font-family:'Fraunces'; font-style:italic; font-size:clamp(18px,3.2vw,24px); color:#d9d5cc;
+    margin-top:20px; max-width:620px; }
 
-  main{padding:38px 0 80px}
-  .tab{display:none}
-  .tab.active{display:block;animation:fade .25s ease}
-  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .paths{ display:grid; grid-template-columns:1fr 1fr; gap:20px; padding:6px 0 40px; }
+  @media(max-width:720px){ .paths{ grid-template-columns:1fr; } }
+  .path{ display:flex; flex-direction:column; background:var(--card); border:1px solid var(--line);
+    border-radius:var(--radius); padding:30px 28px; text-decoration:none; color:inherit;
+    transition:transform .18s ease, border-color .18s ease; position:relative; overflow:hidden; }
+  .path:hover{ transform:translateY(-4px); border-color:var(--gold); }
+  .path .tag{ font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; }
+  .path h2{ font-size:27px; margin-bottom:10px; }
+  .path p{ color:var(--muted); font-size:15.5px; flex:1; }
+  .path .go{ margin-top:22px; font-weight:600; color:var(--text); font-size:15px; }
+  .path .go span{ color:var(--gold); }
+  .path.ebook{ background:linear-gradient(160deg,#1b1622,#141319); }
 
-  /* markdown rendering */
-  .md{max-width:760px}
-  .md h1{font-family:Georgia,'Times New Roman',serif;font-weight:600;font-size:30px;line-height:1.2;margin-bottom:18px}
-  .md h2{font-family:Georgia,serif;font-weight:600;font-size:22px;margin:34px 0 12px;color:var(--gold)}
-  .md h3{font-size:17px;margin:24px 0 10px}
-  .md p{margin-bottom:14px}
-  .md p,.md li{color:#d6d3cc;font-size:15.5px}
-  .md strong{color:var(--text)}
-  .md em{color:var(--muted)}
-  .md ul,.md ol{margin:0 0 16px 22px}
-  .md li{margin-bottom:6px}
-  .md blockquote{border-left:3px solid var(--gold);background:var(--gold-soft);padding:12px 16px;border-radius:0 var(--radius) var(--radius) 0;margin-bottom:16px}
-  .md blockquote p{margin:0;color:#e8e2d4}
-  .md code{background:#26262e;border-radius:5px;padding:2px 6px;font-size:13.5px;color:#e8c98a}
-  .md pre{background:#16161a;border:1px solid #26262e;border-radius:var(--radius);padding:16px;overflow-x:auto;margin-bottom:16px}
-  .md pre code{background:none;padding:0;color:#cfccc5;font-size:13.5px;line-height:1.7}
-  .md table{width:100%;border-collapse:collapse;margin-bottom:18px;font-size:14.5px}
-  .md th{text-align:left;color:var(--gold);font-weight:700;border-bottom:1.5px solid var(--gold);padding:8px 10px}
-  .md td{border-bottom:1px solid #26262e;padding:8px 10px;color:#d6d3cc;vertical-align:top}
-  .md hr{border:none;border-top:1px solid #2a2a32;margin:30px 0}
-  .md input[type=checkbox]{accent-color:var(--gold);margin-right:6px}
-  .md a{color:var(--gold)}
+  .closing{ border-top:1px solid var(--line); padding:34px 0 12px; color:var(--muted); font-size:15px; }
+  .closing .q{ font-family:'Fraunces'; font-style:italic; color:#cfcabf; font-size:17px; max-width:560px; margin-bottom:20px; }
 
-  /* LP preview tabs */
-  .lp-bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px}
-  .lp-open{
-    display:inline-block;background:var(--gold);color:#15120a;text-decoration:none;
-    font-weight:800;font-size:14px;padding:11px 20px;border-radius:99px;
-  }
-  .lp-note{font-size:13px;color:var(--muted);max-width:48ch}
-  .lp-frame{
-    width:100%;height:78vh;border:1px solid #2a2a32;border-radius:var(--radius);
-    background:#0a0a0c;
-  }
-  .loading{color:var(--muted);font-size:14px;padding:30px 0}
-
-  footer{border-top:1px solid #232329;padding:26px 0;text-align:center;font-size:12.5px;color:#5d5d66}
+  footer{ padding:26px 0 46px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px;
+    border-top:1px solid var(--line); margin-top:20px; color:var(--muted); font-size:14px; }
+  footer a{ color:var(--gold); text-decoration:none; font-weight:600; }
+  footer a:hover{ text-decoration:underline; }
 </style>
 </head>
 <body>
+<div class="wrap">
 
-<header>
-  <div class="wrap">
-    <div class="head-top">
-      <div class="logo">PHOTO <span>BLASTER</span> · Plano de Monetização</div>
-      <div class="sub">Fabio Scheffer Dombrate · jun/2026</div>
-    </div>
-    <nav id="nav">
-      <button data-tab="visao" class="active">Visão Geral</button>
-      <button data-tab="campanha"><span class="n">1</span>Campanha Google Ads</button>
-      <button data-tab="lp-ensaios"><span class="n">2</span>LP Ensaios</button>
-      <button data-tab="ebook"><span class="n">3</span>Ebook</button>
-      <button data-tab="lp-ebook"><span class="n">4</span>LP Ebook</button>
-      <button data-tab="tracao-ebook"><span class="n">5</span>Tração do Ebook</button>
-      <button data-tab="instagram"><span class="n">6</span>Instagram</button>
-      <button data-tab="tiktok"><span class="n">7</span>TikTok + Shop</button>
-    </nav>
-  </div>
-</header>
+  <header>
+    <div class="brand">FABIO DOMBRATE<small>FOTOGRAFIA · PHOTO BLASTER</small></div>
+  </header>
 
-<main class="wrap">
-  <div class="tab active" id="tab-visao"><div class="md" data-md="visao-geral.md"><p class="loading">Carregando…</p></div></div>
-  <div class="tab" id="tab-campanha"><div class="md" data-md="campanha/estrutura-campanha-google-ads.md"><p class="loading">Carregando…</p></div></div>
+  <section class="hero">
+    <h1 class="anton">CAPTURAR A<br><span class="hl">ESSÊNCIA.</span></h1>
+    <p>Uma foto boa não é sobre equipamento caro. É sobre olhar. Seja do outro lado da câmera, no seu ensaio, ou aprendendo a usar a sua, é disso que eu cuido aqui.</p>
+  </section>
 
-  <div class="tab" id="tab-lp-ensaios">
-    <div class="lp-bar">
-      <a class="lp-open" href="lp-ensaios/" target="_blank" rel="noopener">Abrir página completa ↗</a>
-      <div class="lp-note">Preview abaixo. A página tem um checklist nos comentários do código com tudo o que falta preencher (fotos, WhatsApp, preços, formação, prazo).</div>
-    </div>
-    <iframe class="lp-frame" data-src="lp-ensaios/" title="LP Ensaios"></iframe>
-  </div>
+  <section class="paths">
+    <a class="path ensaios" href="/ensaios/">
+      <div class="tag">Para você ser fotografado</div>
+      <h2 class="anton">Ensaios em estúdio</h2>
+      <p>Um ensaio pensado com calma, luz trabalhada e o tempo certo pra você se reconhecer nas fotos. Em Curitiba.</p>
+      <div class="go">Ver os ensaios <span>→</span></div>
+    </a>
 
-  <div class="tab" id="tab-ebook"><div class="md" data-md="ebook/esqueleto-ebook.md"><p class="loading">Carregando…</p></div></div>
+    <a class="path ebook" href="/ebook/">
+      <div class="tag">Para você aprender</div>
+      <h2 class="anton">O Manual Que Não Veio na Caixa</h2>
+      <p>O ebook com os recursos escondidos da sua câmera e o olhar pra usá-los como um fotógrafo de verdade.</p>
+      <div class="go">Conhecer o manual <span>→</span></div>
+    </a>
+  </section>
 
-  <div class="tab" id="tab-lp-ebook">
-    <div class="lp-bar">
-      <a class="lp-open" href="lp-ebook/" target="_blank" rel="noopener">Abrir página completa ↗</a>
-      <div class="lp-note">Preview abaixo. Checklist de pendências nos comentários do código (link Kiwify, mockup da capa, prints de páginas, números reais).</div>
-    </div>
-    <iframe class="lp-frame" data-src="lp-ebook/" title="LP Ebook"></iframe>
-  </div>
+  <section class="closing">
+    <p class="q">"Sua câmera é melhor do que você imagina. Você é que ainda não recebeu o manual certo."</p>
+  </section>
 
-  <div class="tab" id="tab-tracao-ebook"><div class="md" data-md="ebook/plano-tracao-ebook.md"><p class="loading">Carregando…</p></div></div>
-  <div class="tab" id="tab-instagram"><div class="md" data-md="instagram/plano-tracao-instagram.md"><p class="loading">Carregando…</p></div></div>
-  <div class="tab" id="tab-tiktok"><div class="md" data-md="tiktok/plano-tracao-tiktok-shop.md"><p class="loading">Carregando…</p></div></div>
-</main>
+  <footer>
+    <span>© Fabio Dombrate · Photo Blaster</span>
+    <span>Instagram: <a href="https://instagram.com/fabio.dombrate" target="_blank" rel="noopener">@fabio.dombrate</a></span>
+  </footer>
 
-<footer>
-  <div class="wrap">Plano preparado com ♥ pela Marina · Photo Blaster · Curitiba/PR</div>
-</footer>
-
-<script>
-  // tabs
-  var nav = document.getElementById("nav");
-  nav.addEventListener("click", function (e) {
-    var btn = e.target.closest("button");
-    if (!btn) return;
-    nav.querySelectorAll("button").forEach(function (b) { b.classList.remove("active"); });
-    document.querySelectorAll(".tab").forEach(function (t) { t.classList.remove("active"); });
-    btn.classList.add("active");
-    var tab = document.getElementById("tab-" + btn.dataset.tab);
-    tab.classList.add("active");
-    // lazy-load iframe da aba aberta
-    var frame = tab.querySelector("iframe[data-src]");
-    if (frame && !frame.src) frame.src = frame.dataset.src;
-    // hash pra compartilhar aba direta
-    history.replaceState(null, "", "#" + btn.dataset.tab);
-    window.scrollTo({ top: 0 });
-  });
-
-  // markdown
-  marked.setOptions({ gfm: true, breaks: false });
-  document.querySelectorAll(".md[data-md]").forEach(function (el) {
-    fetch(el.dataset.md)
-      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
-      .then(function (md) { el.innerHTML = marked.parse(md); })
-      .catch(function () {
-        el.innerHTML = '<p class="loading">Não consegui carregar este documento aqui. Abra o arquivo <code>' + el.dataset.md + '</code> direto no repositório.</p>';
-      });
-  });
-
-  // abrir aba via hash (ex.: #instagram)
-  var hash = location.hash.replace("#", "");
-  if (hash) {
-    var target = nav.querySelector('button[data-tab="' + hash + '"]');
-    if (target) target.click();
-  }
-</script>
+</div>
 </body>
 </html>
