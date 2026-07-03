@@ -3,98 +3,120 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fabio Dombrate · Fotografia</title>
-<meta name="description" content="Fabio Dombrate, fotógrafo. Ensaios em estúdio que capturam a essência, e o material que ensina você a usar sua câmera de verdade.">
-<meta property="og:title" content="Fabio Dombrate · Fotografia">
-<meta property="og:description" content="Ensaios que capturam a essência e material pra você fotografar melhor.">
+<title>Fábio Dombrate · Fotografia de Posicionamento</title>
+<meta name="description" content="Fábio Dombrate, fotógrafo. Retratos com elegância e propósito para quem quer se posicionar. Posicionamento começa pela imagem.">
+<meta property="og:title" content="Fábio Dombrate · Fotografia">
+<meta property="og:description" content="Posicionamento começa pela imagem. Retratos com elegância e propósito.">
 <meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{ --bg:#0c0c0f; --card:#17171b; --line:#26262e; --text:#f4f2ee; --muted:#9b9890;
-    --gold:#f5b62e; --gold-soft:rgba(245,182,46,.10); --purple:#7c3aed; --radius:16px; }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{ background:var(--bg); color:var(--text); line-height:1.6; -webkit-font-smoothing:antialiased;
-    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-    background-image:
-      radial-gradient(800px 500px at 82% -5%, rgba(124,58,237,.28), transparent 60%),
-      radial-gradient(700px 500px at 5% 105%, rgba(124,58,237,.14), transparent 55%),
-      radial-gradient(500px 380px at 95% 100%, rgba(245,182,46,.06), transparent 60%);
-    background-attachment:fixed; }
-  .wrap{ max-width:960px; margin:0 auto; padding:0 22px; }
-  .anton{ font-family:'Anton',Impact,sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:.5px; line-height:1.05; }
-
-  header{ padding:34px 0 0; }
-  .brand{ font-family:'Anton'; font-size:20px; letter-spacing:2px; color:var(--gold); text-transform:uppercase; }
-  .brand small{ display:block; color:#7c7c85; font-family:'Inter'; font-weight:600; letter-spacing:3px; font-size:11px; margin-top:3px; }
-
-  .hero{ padding:60px 0 46px; }
-  .hero h1{ font-size:clamp(40px,8vw,74px); }
-  .hero h1 .hl{ color:var(--gold); }
-  .hero p{ font-family:'Fraunces'; font-style:italic; font-size:clamp(18px,3.2vw,24px); color:#d9d5cc;
-    margin-top:20px; max-width:620px; }
-
-  .paths{ display:grid; grid-template-columns:1fr 1fr; gap:20px; padding:6px 0 40px; }
-  @media(max-width:720px){ .paths{ grid-template-columns:1fr; } }
-  .path{ display:flex; flex-direction:column; background:var(--card); border:1px solid var(--line);
-    border-radius:var(--radius); padding:30px 28px; text-decoration:none; color:inherit;
-    transition:transform .18s ease, border-color .18s ease; position:relative; overflow:hidden; }
-  .path:hover{ transform:translateY(-4px); border-color:var(--gold); }
-  .path .tag{ font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; }
-  .path h2{ font-size:27px; margin-bottom:10px; }
-  .path p{ color:var(--muted); font-size:15.5px; flex:1; }
-  .path .go{ margin-top:22px; font-weight:600; color:var(--text); font-size:15px; }
-  .path .go span{ color:var(--gold); }
-  .path.ebook{ background:linear-gradient(160deg,#1b1622,#141319); }
-
-  .closing{ border-top:1px solid var(--line); padding:34px 0 12px; color:var(--muted); font-size:15px; }
-  .closing .q{ font-family:'Fraunces'; font-style:italic; color:#cfcabf; font-size:17px; max-width:560px; margin-bottom:20px; }
-
-  footer{ padding:26px 0 46px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px;
-    border-top:1px solid var(--line); margin-top:20px; color:var(--muted); font-size:14px; }
-  footer a{ color:var(--gold); text-decoration:none; font-weight:600; }
-  footer a:hover{ text-decoration:underline; }
-</style>
+<link rel="stylesheet" href="/css/site.css">
 </head>
 <body>
-<div class="wrap">
 
-  <header>
-    <div class="brand">FABIO DOMBRATE<small>FOTOGRAFIA · PHOTO BLASTER</small></div>
-  </header>
+<header class="nav">
+  <div class="nav-in">
+    <a href="/" class="logo">fábio <b>dombrate</b><span class="dot">.</span></a>
+    <nav class="nav-links">
+      <a href="/" class="active">início</a>
+      <a href="/ensaios/">ensaios</a>
+      <a href="/sobre/">sobre</a>
+      <a href="/ebook/">o manual</a>
+    </nav>
+  </div>
+</header>
 
-  <section class="hero">
-    <h1 class="anton">CAPTURAR A<br><span class="hl">ESSÊNCIA.</span></h1>
-    <p>Uma foto boa não é sobre equipamento caro. É sobre olhar. Seja do outro lado da câmera, no seu ensaio, ou aprendendo a usar a sua, é disso que eu cuido aqui.</p>
-  </section>
+<!-- HERO -->
+<section class="hero" style="padding-top:0">
+  <div class="wrap" style="display:contents"></div>
+  <div class="txt" style="padding-left:max(30px, calc((100vw - 1080px)/2 + 30px))">
+    <div class="eyebrow">Fotografia de posicionamento</div>
+    <h1 class="display mt-s">Posicionamento<br>começa pela<br><span class="accent">imagem.</span></h1>
+    <p class="lead mt-m">Retratos com elegância e propósito, para quem entende que a forma como se apresenta ao mundo diz muito sobre quem é.</p>
+    <div class="cta-row">
+      <a href="/ensaios/" class="btn btn-solid">Agende seu ensaio</a>
+      <a href="/ebook/" class="btn btn-ghost">Conheça o Manual</a>
+    </div>
+  </div>
+  <div class="img"><img src="/img/colunata.jpg" alt="Retrato de posicionamento"></div>
+</section>
 
-  <section class="paths">
-    <a class="path ensaios" href="/ensaios/">
-      <div class="tag">Para você ser fotografado</div>
-      <h2 class="anton">Ensaios em estúdio</h2>
-      <p>Um ensaio pensado com calma, luz trabalhada e o tempo certo pra você se reconhecer nas fotos. Em Curitiba.</p>
-      <div class="go">Ver os ensaios <span>→</span></div>
-    </a>
+<div class="divider"></div>
 
-    <a class="path ebook" href="/ebook/">
-      <div class="tag">Para você aprender</div>
-      <h2 class="anton">O Manual Que Não Veio na Caixa</h2>
-      <p>O ebook com os recursos escondidos da sua câmera e o olhar pra usá-los como um fotógrafo de verdade.</p>
-      <div class="go">Conhecer o manual <span>→</span></div>
-    </a>
-  </section>
+<!-- QUEM SOU -->
+<section class="narrow center">
+  <div class="eyebrow">Fábio Dombrate</div>
+  <p class="pull mt-m">Uma foto boa não é sobre equipamento caro.<br>É sobre <span class="accent">olhar</span>. E olhar é o que eu faço.</p>
+  <p class="big mt-m">Aprendi a enxergar arte antes de aprender a fotografá-la, nas viagens, nos livros e nas conversas com meu pai. Hoje uso esse olhar para construir a imagem de pessoas que querem se posicionar, com clientes, com seu público, com o próprio tempo.</p>
+  <a href="/sobre/" class="btn-line mt-s" style="display:inline-block">Conheça minha história</a>
+</section>
 
-  <section class="closing">
-    <p class="q">"Sua câmera é melhor do que você imagina. Você é que ainda não recebeu o manual certo."</p>
-  </section>
+<!-- DOIS CAMINHOS -->
+<section class="tight">
+  <div class="wrap">
+    <div class="paths">
+      <a href="/ensaios/">
+        <div class="k">Do outro lado da câmera</div>
+        <h3>Ensaios de Posicionamento</h3>
+        <p>Um ensaio pensado com calma, luz trabalhada e direção, para você se reconhecer e se posicionar nas suas próprias imagens.</p>
+        <span class="btn-line">Ver os ensaios →</span>
+      </a>
+      <a href="/ebook/">
+        <div class="k">Aprendendo a olhar</div>
+        <h3>O Manual Que Não Veio na Caixa</h3>
+        <p>Os recursos escondidos da sua câmera e o olhar para usá-los como um fotógrafo de verdade.</p>
+        <span class="btn-line">Conhecer o Manual →</span>
+      </a>
+    </div>
+  </div>
+</section>
 
-  <footer>
-    <span>© Fabio Dombrate · Photo Blaster</span>
-    <span>Instagram: <a href="https://instagram.com/fabio.dombrate" target="_blank" rel="noopener">@fabio.dombrate</a></span>
-  </footer>
+<!-- PORTFÓLIO -->
+<section class="tight">
+  <div class="wrap">
+    <div class="eyebrow center">Portfólio</div>
+    <p class="head jost center" style="margin:10px auto 40px; max-width:640px">Cada imagem é um momento que não volta. Meu trabalho é fazer ele durar.</p>
+    <div class="gallery">
+      <div class="g"><img src="/img/executivo.jpg" alt=""></div>
+      <div class="g"><img src="/img/elegante.jpg" alt=""></div>
+      <div class="g"><img src="/img/business.jpg" alt=""></div>
+      <div class="g"><img src="/img/pb-mulher.jpg" alt=""></div>
+      <div class="g"><img src="/img/luznatural.jpg" alt=""></div>
+      <div class="g"><img src="/img/contempla.jpg" alt=""></div>
+      <div class="g"><img src="/img/business2.jpg" alt=""></div>
+      <div class="g"><img src="/img/arqvestido.jpg" alt=""></div>
+      <div class="g"><img src="/img/violao.jpg" alt=""></div>
+    </div>
+  </div>
+</section>
 
-</div>
+<!-- CTA FINAL -->
+<section class="narrow center">
+  <h2 class="head">Sua imagem merece intenção.</h2>
+  <p class="lead mt-s" style="max-width:560px;margin-left:auto;margin-right:auto">Se você quer se posicionar com uma imagem que transmite presença e profissionalismo, vamos conversar.</p>
+  <div class="mt-m"><a href="https://wa.me/5541000000000" class="btn btn-solid">Falar comigo no WhatsApp</a></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ft">
+  <div class="wrap">
+    <div class="col">
+      <a href="/" class="logo">fábio <b>dombrate</b><span class="dot">.</span></a>
+      <p style="margin-top:14px;max-width:280px">Elegância com propósito.<br>Posicionamento começa pela imagem.</p>
+    </div>
+    <div class="col">
+      <h5>Navegar</h5>
+      <a href="/ensaios/">Ensaios de Posicionamento</a>
+      <a href="/sobre/">Sobre</a>
+      <a href="/ebook/">O Manual</a>
+    </div>
+    <div class="col">
+      <h5>Contato</h5>
+      <a href="https://wa.me/5541000000000">WhatsApp</a>
+      <a href="https://instagram.com/fabio.dombrate" target="_blank" rel="noopener">@fabio.dombrate</a>
+      <p>Curitiba · PR</p>
+    </div>
+  </div>
+  <div class="wrap"><div class="base" style="width:100%">© 2026 Fábio Dombrate · Dombrate Fotografia</div></div>
+</footer>
+
 </body>
 </html>

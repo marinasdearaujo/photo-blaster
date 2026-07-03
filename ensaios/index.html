@@ -1,462 +1,147 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<!--
-  PHOTO BLASTER — Landing Page de Ensaios
-  ========================================
-  ANTES DE PUBLICAR, o Fabio precisa trocar:
-  1. NÚMERO DO WHATSAPP: buscar por "5541999999999" e trocar pelo número real (com 55 + DDD)
-  2. FOTOS: todos os blocos cinza marcados com [FOTO] — trocar por <img> reais
-  3. VÍDEO: bloco [VÍDEO] no topo (hero) — vídeo curto dele (30-60s), embed ou <video>
-  4. PREÇOS: os valores são sugestão inicial, buscar por "R$" e ajustar
-  5. PRAZO DE ENTREGA: está "até 7 dias" — confirmar prazo que ele cumpre com folga
-     (regra: prometer o dobro do que acha que leva; melhor surpreender do que atrasar)
-  6. FORMAÇÃO: buscar [INSTITUIÇÃO/CURSO] e preencher (barra de prova + seção sobre)
-  7. MANIFESTO: a frase é sugestão — ideal ele reescrever com as palavras dele
-  8. DEPOIMENTOS: trocar os 3 exemplos por depoimentos reais (pedir pra clientes antigos!)
-  9. TAG DO GOOGLE: colar o snippet do Google Ads no lugar marcado [GOOGLE TAG] abaixo
-  + TAREFA PARALELA: pedir avaliação no Google pra todo cliente antigo/novo.
-    Quando tiver 5+, voltar a citar avaliações na página.
-
-  Âncoras para os anúncios:
-  - Grupo Retrato/LinkedIn aponta para  /#retrato
-  - Grupo Ensaio Feminino aponta para   /#ensaio
-  - Grupo Genérico aponta para a raiz   /
--->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Photo Blaster · Ensaio Fotográfico em Estúdio em Curitiba</title>
-<meta name="description" content="Ensaio feminino e retrato profissional em estúdio em Curitiba. Direção de pose completa, tratamento minucioso foto a foto, preço fechado. Agende pelo WhatsApp.">
-
-<!-- [GOOGLE TAG]: colar aqui o snippet gtag.js do Google Ads quando criar a conversão -->
-
-<style>
-  :root{
-    --bg:#0e0e10;
-    --bg-soft:#17171b;
-    --card:#1d1d23;
-    --text:#f4f2ee;
-    --muted:#9b9890;
-    --gold:#d8a94e;
-    --gold-soft:rgba(216,169,78,.12);
-    --whatsapp:#22c15e;
-    --radius:14px;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
-  section{padding:72px 0}
-  h1,h2{font-family:Georgia,'Times New Roman',serif;line-height:1.18;font-weight:600;letter-spacing:0}
-  h3{line-height:1.2;font-weight:700}
-  h2{font-size:clamp(26px,4vw,38px);margin-bottom:14px}
-  .kicker{
-    display:inline-block;color:var(--gold);font-size:13px;font-weight:700;
-    text-transform:uppercase;letter-spacing:.14em;margin-bottom:14px;
-  }
-  .muted{color:var(--muted)}
-
-  /* placeholder de foto — Fabio troca por <img> */
-  .ph{
-    background:linear-gradient(135deg,#222229,#191920);
-    border:1.5px dashed #3a3a44;border-radius:var(--radius);
-    display:flex;align-items:center;justify-content:center;text-align:center;
-    color:#6d6d78;font-size:13px;padding:18px;
-  }
-
-  /* ===== topo ===== */
-  header{
-    position:sticky;top:0;z-index:50;
-    background:rgba(14,14,16,.88);backdrop-filter:blur(10px);
-    border-bottom:1px solid #232329;
-  }
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-  .logo{font-weight:800;font-size:18px;letter-spacing:.02em}
-  .logo span{color:var(--gold)}
-  .nav a.cta-mini{
-    background:var(--whatsapp);color:#fff;text-decoration:none;font-weight:700;
-    font-size:14px;padding:10px 18px;border-radius:99px;
-  }
-
-  /* ===== hero ===== */
-  .hero{padding:84px 0 64px}
-  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
-  .hero h1{font-size:clamp(32px,5.2vw,52px);margin-bottom:18px}
-  .hero h1 em{font-style:normal;color:var(--gold)}
-  .hero p.sub{font-size:18px;color:var(--muted);max-width:46ch;margin-bottom:28px}
-  .hero .ph{aspect-ratio:4/5}
-  .btn-wa{
-    display:inline-flex;align-items:center;gap:10px;
-    background:var(--whatsapp);color:#fff;text-decoration:none;
-    font-weight:800;font-size:17px;padding:16px 28px;border-radius:99px;
-    box-shadow:0 8px 30px rgba(34,193,94,.25);
-    transition:transform .15s ease;
-  }
-  .btn-wa:hover{transform:translateY(-2px)}
-  .btn-wa svg{width:22px;height:22px;flex-shrink:0}
-  .hero-note{font-size:13px;color:var(--muted);margin-top:12px}
-  .badges{display:flex;gap:22px;margin-top:34px;flex-wrap:wrap}
-  .badge{font-size:14px;color:var(--muted)}
-  .badge b{color:var(--text);display:block;font-size:16px}
-
-  /* ===== manifesto ===== */
-  .manifesto{padding:70px 0;text-align:center}
-  .manifesto blockquote{
-    font-family:Georgia,'Times New Roman',serif;font-style:italic;
-    font-size:clamp(21px,3.2vw,30px);line-height:1.5;max-width:36ch;margin:0 auto;
-  }
-  .manifesto blockquote::before{content:"“";color:var(--gold);font-size:1.4em}
-  .manifesto .who{margin-top:18px;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.14em}
-
-  /* ===== barra de prova ===== */
-  .proof{background:var(--bg-soft);padding:26px 0;border-top:1px solid #232329;border-bottom:1px solid #232329}
-  .proof .wrap{display:flex;gap:14px;justify-content:space-between;flex-wrap:wrap;text-align:center}
-  .proof div{font-size:14px;color:var(--muted)}
-  .proof b{color:var(--gold)}
-
-  /* ===== ofertas ===== */
-  .offer-head{max-width:60ch}
-  .pack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
-  .pack{
-    background:var(--card);border:1px solid #2a2a32;border-radius:var(--radius);
-    padding:28px 24px;display:flex;flex-direction:column;position:relative;
-  }
-  .pack.featured{border-color:var(--gold);background:linear-gradient(180deg,var(--gold-soft),var(--card) 40%)}
-  .pack .tag{
-    position:absolute;top:-12px;left:24px;background:var(--gold);color:#15120a;
-    font-size:12px;font-weight:800;padding:4px 12px;border-radius:99px;
-  }
-  .pack h3{font-size:19px;margin-bottom:4px}
-  .pack .price{font-size:34px;font-weight:800;margin:10px 0 2px}
-  .pack .price small{font-size:14px;font-weight:600;color:var(--muted)}
-  .pack ul{list-style:none;margin:18px 0 24px;flex-grow:1}
-  .pack li{padding:7px 0;font-size:15px;color:#cfccc5;border-bottom:1px solid #26262e}
-  .pack li::before{content:"✓";color:var(--gold);font-weight:800;margin-right:10px}
-  .pack .btn-wa{justify-content:center;font-size:15px;padding:13px 18px}
-  .ensaio-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:38px}
-  .ensaio-gallery .ph{aspect-ratio:3/4}
-
-  /* ===== como funciona ===== */
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:38px}
-  .step{background:var(--card);border-radius:var(--radius);padding:26px 22px;border:1px solid #2a2a32}
-  .step .n{
-    width:38px;height:38px;border-radius:99px;background:var(--gold);color:#15120a;
-    font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:14px;
-  }
-  .step h3{font-size:16px;margin-bottom:6px}
-  .step p{font-size:14px;color:var(--muted)}
-
-  /* ===== depoimentos ===== */
-  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
-  .testi{background:var(--card);border:1px solid #2a2a32;border-radius:var(--radius);padding:26px 24px}
-  .testi p{font-size:15px;color:#cfccc5;margin-bottom:16px}
-  .testi .who{font-size:13px;color:var(--muted);font-weight:600}
-  .stars{color:var(--gold);letter-spacing:3px;margin-bottom:12px;font-size:14px}
-
-  /* ===== sobre ===== */
-  .about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center}
-  .about-grid .ph{aspect-ratio:4/5}
-
-  /* ===== faq ===== */
-  details{
-    background:var(--card);border:1px solid #2a2a32;border-radius:var(--radius);
-    padding:20px 24px;margin-bottom:12px;
-  }
-  details summary{font-weight:700;cursor:pointer;font-size:16px;list-style:none;display:flex;justify-content:space-between;align-items:center}
-  details summary::after{content:"+";color:var(--gold);font-size:22px;font-weight:400}
-  details[open] summary::after{content:"–"}
-  details p{margin-top:12px;color:var(--muted);font-size:15px}
-
-  /* ===== cta final ===== */
-  .final{
-    background:linear-gradient(180deg,var(--bg-soft),var(--bg));
-    text-align:center;border-top:1px solid #232329;
-  }
-  .final h2{font-size:clamp(28px,4.5vw,42px)}
-  .final p{max-width:52ch;margin:14px auto 30px;color:var(--muted);font-size:17px}
-
-  footer{padding:34px 0;border-top:1px solid #232329;text-align:center;font-size:13px;color:#5d5d66}
-  footer a{color:var(--muted)}
-
-  /* botão flutuante mobile */
-  .float-wa{
-    position:fixed;bottom:18px;right:18px;z-index:60;display:none;
-    width:58px;height:58px;border-radius:99px;background:var(--whatsapp);
-    align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.4);
-  }
-  .float-wa svg{width:30px;height:30px}
-
-  @media (max-width:820px){
-    section{padding:54px 0}
-    .hero{padding:48px 0 40px}
-    .hero-grid,.about-grid{grid-template-columns:1fr;gap:30px}
-    .hero .ph{aspect-ratio:16/10;order:-1}
-    .pack-grid,.steps,.testi-grid{grid-template-columns:1fr}
-    .ensaio-gallery{grid-template-columns:repeat(2,1fr)}
-    .nav a.cta-mini{display:none}
-    .float-wa{display:flex}
-    .proof .wrap{flex-direction:column;gap:8px}
-  }
-</style>
+<title>Ensaios de Posicionamento · Fábio Dombrate</title>
+<meta name="description" content="Um ensaio de posicionamento é a forma como você quer ser visto, traduzida em imagem. Direção, luz e olhar para construir a sua presença.">
+<link rel="stylesheet" href="/css/site.css">
 </head>
 <body>
 
-<header>
-  <div class="wrap nav">
-    <div class="logo">PHOTO <span>BLASTER</span></div>
-    <a class="cta-mini" href="#" data-wa data-msg="Oi Fabio! Vi o site e quero saber mais sobre os ensaios.">Agendar pelo WhatsApp</a>
+<header class="nav">
+  <div class="nav-in">
+    <a href="/" class="logo">fábio <b>dombrate</b><span class="dot">.</span></a>
+    <nav class="nav-links">
+      <a href="/">início</a>
+      <a href="/ensaios/" class="active">ensaios</a>
+      <a href="/sobre/">sobre</a>
+      <a href="/ebook/">o manual</a>
+    </nav>
   </div>
 </header>
 
-<!-- ============ HERO ============ -->
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="kicker">Estúdio fotográfico em Curitiba</span>
-      <h1>Fotos que capturam a sua <em>essência</em>, não só a sua imagem</h1>
-      <p class="sub">Retrato profissional e ensaio em estúdio, feitos com calma e atenção a cada detalhe. A luz, a pose e o momento certos para revelar o que há de melhor em você, com direção do início ao fim.</p>
-      <a class="btn-wa" href="#" data-wa data-msg="Oi Fabio! Vi o site e quero agendar um ensaio.">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3Z"/></svg>
-        Agendar meu ensaio
-      </a>
-      <div class="hero-note">Resposta rápida · sem compromisso · preço fechado na hora</div>
-      <div class="badges">
-        <div class="badge"><b>Direção de pose</b>inclusa em todo ensaio</div>
-        <div class="badge"><b>Tratamento minucioso</b>foto a foto, sem pressa</div>
-        <div class="badge"><b>Estúdio próprio</b>em Curitiba</div>
-      </div>
+<!-- HERO -->
+<section class="hero" style="padding-top:0">
+  <div class="txt" style="padding-left:max(30px, calc((100vw - 1080px)/2 + 30px))">
+    <div class="eyebrow">Ensaios de Posicionamento</div>
+    <h1 class="display mt-s">Sua imagem,<br>construída com<br><span class="accent">intenção.</span></h1>
+    <p class="lead mt-m">Um ensaio de posicionamento é mais do que fotos bonitas. É a forma como você quer ser visto, traduzida em imagem.</p>
+    <div class="cta-row">
+      <a href="https://wa.me/5541000000000" class="btn btn-solid">Agendar pelo WhatsApp</a>
     </div>
-    <div class="ph">[VÍDEO]<br>Vídeo curto do Fabio (30-60s): quem ele é, como funciona um ensaio, bastidor do estúdio.<br>Vertical, falando com calma, do jeito dele.<br>Embed do YouTube/Instagram ou &lt;video&gt; direto.</div>
   </div>
+  <div class="img"><img src="/img/executivo2.jpg" alt="Ensaio de posicionamento"></div>
 </section>
 
-<!-- ============ BARRA DE PROVA ============ -->
-<div class="proof">
-  <div class="wrap">
-    <div><b>+XX</b> ensaios realizados <span style="opacity:.5">(trocar pelo número real)</span></div>
-    <div><b>Formação</b> em fotografia [INSTITUIÇÃO/CURSO]</div>
-    <div><b>Estúdio próprio</b> em Curitiba</div>
-  </div>
-</div>
+<div class="divider"></div>
 
-<!-- ============ MANIFESTO ============ -->
-<!-- Ideal: o Fabio escrever essa frase com as palavras dele. Esta é uma sugestão de partida. -->
-<section class="manifesto">
-  <div class="wrap">
-    <blockquote>Fotografar, pra mim, é capturar emoção através de um olhar. Toda pessoa carrega uma essência. Meu trabalho é revelá-la.”</blockquote>
-    <div class="who">Fabio Scheffer Dombrate · Photo Blaster</div>
-  </div>
-</section>
-
-<!-- ============ OFERTA 1: RETRATO PROFISSIONAL ============ -->
-<section id="retrato">
-  <div class="wrap">
-    <div class="offer-head">
-      <span class="kicker">Retrato profissional · LinkedIn</span>
-      <h2>A sua foto profissional diz muito sobre você, antes de qualquer palavra</h2>
-      <p class="muted">Um bom retrato profissional não é só uma foto bem iluminada. É a expressão certa, a postura certa, a imagem que transmite quem você é no seu melhor. A sessão é tranquila, você recebe orientação de pose e expressão o tempo todo, e cada foto entregue passa por tratamento individual, com o cuidado que a sua imagem merece.</p>
-    </div>
-    <div class="pack-grid">
-      <div class="pack">
-        <h3>Essencial</h3>
-        <div class="price">R$ 197</div>
-        <ul>
-          <li>Sessão de 30 minutos</li>
-          <li>1 fundo à escolha</li>
-          <li>3 fotos tratadas</li>
-          <li>Entrega em até 7 dias</li>
-        </ul>
-        <a class="btn-wa" href="#" data-wa data-msg="Oi Fabio! Quero agendar o retrato profissional Essencial.">Quero esse</a>
-      </div>
-      <div class="pack featured">
-        <span class="tag">Mais escolhido</span>
-        <h3>Profissional</h3>
-        <div class="price">R$ 297</div>
-        <ul>
-          <li>Sessão de 45 minutos</li>
-          <li>2 fundos + troca de roupa</li>
-          <li>6 fotos tratadas</li>
-          <li>Versões para LinkedIn e currículo</li>
-          <li>Entrega em até 7 dias</li>
-        </ul>
-        <a class="btn-wa" href="#" data-wa data-msg="Oi Fabio! Quero agendar o retrato profissional Profissional.">Quero esse</a>
-      </div>
-      <div class="pack">
-        <h3>Executivo</h3>
-        <div class="price">R$ 447</div>
-        <ul>
-          <li>Sessão de 1h15</li>
-          <li>Fundos e looks à vontade</li>
-          <li>12 fotos tratadas</li>
-          <li>Fotos de corpo e ambiente</li>
-          <li>Entrega prioritária</li>
-        </ul>
-        <a class="btn-wa" href="#" data-wa data-msg="Oi Fabio! Quero agendar o retrato profissional Executivo.">Quero esse</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ OFERTA 2: ENSAIO FEMININO ============ -->
-<section id="ensaio" style="background:var(--bg-soft)">
-  <div class="wrap">
-    <div class="offer-head">
-      <span class="kicker">Ensaio feminino em estúdio</span>
-      <h2>Um ensaio pensado para quem nunca se sentiu à vontade na frente da câmera</h2>
-      <p class="muted">Ninguém nasce sabendo posar, e você não precisa saber. Durante todo o ensaio o Fabio orienta cada pose, cada ângulo e cada expressão, com calma e sem pressa. O objetivo não é uma foto qualquer: é capturar a sua essência, do seu jeito. Muitas clientes chegam nervosas e saem perguntando quando podem voltar.</p>
-    </div>
-
-    <div class="ensaio-gallery">
-      <div class="ph">[FOTO]<br>Ensaio feminino 1</div>
-      <div class="ph">[FOTO]<br>Ensaio feminino 2</div>
-      <div class="ph">[FOTO]<br>Ensaio feminino 3</div>
-    </div>
-
-    <div class="pack-grid">
-      <div class="pack">
-        <h3>Descoberta</h3>
-        <div class="price">R$ 397</div>
-        <ul>
-          <li>1 hora de ensaio</li>
-          <li>2 cenários no estúdio</li>
-          <li>10 fotos tratadas</li>
-          <li>Direção de pose completa</li>
-        </ul>
-        <a class="btn-wa" href="#" data-wa data-msg="Oi Fabio! Quero agendar o ensaio feminino Descoberta.">Quero esse</a>
-      </div>
-      <div class="pack featured">
-        <span class="tag">Mais escolhido</span>
-        <h3>Completo</h3>
-        <div class="price">R$ 597</div>
-        <ul>
-          <li>1h30 de ensaio</li>
-          <li>3 cenários + trocas de look</li>
-          <li>20 fotos tratadas</li>
-          <li>Direção de pose completa</li>
-          <li>Guia de preparação antes do ensaio</li>
-        </ul>
-        <a class="btn-wa" href="#" data-wa data-msg="Oi Fabio! Quero agendar o ensaio feminino Completo.">Quero esse</a>
-      </div>
-      <div class="pack">
-        <h3>Experiência</h3>
-        <div class="price">R$ 897</div>
-        <ul>
-          <li>2h30 de ensaio</li>
-          <li>Cenários e looks à vontade</li>
-          <li>35 fotos tratadas</li>
-          <li>Acompanhamento de make (parceria)</li>
-          <li>Mini álbum impresso</li>
-        </ul>
-        <a class="btn-wa" href="#" data-wa data-msg="Oi Fabio! Quero agendar o ensaio feminino Experiência.">Quero esse</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ COMO FUNCIONA ============ -->
+<!-- PRA QUEM -->
 <section>
   <div class="wrap">
-    <span class="kicker">Como funciona</span>
-    <h2>Do primeiro oi até as fotos na sua mão</h2>
+  <div class="two">
+    <div>
+      <div class="eyebrow">Para quem é</div>
+      <h2 class="head mt-s">Para quem entende que a primeira impressão hoje é visual.</h2>
+      <p class="big mt-m">Empreendedores, profissionais, criadores. Pessoas que precisam de imagem para se posicionar: no trabalho, nas redes, diante de clientes e do próprio mercado.</p>
+      <p class="big">Se você já se sentiu inseguro com a própria imagem, ou cansou de fotos que não parecem você, é disso que eu cuido.</p>
+    </div>
+    <div class="figure"><img src="/img/business.jpg" alt="" class="bw"></div>
+  </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- O QUE LEVA -->
+<section>
+  <div class="narrow center">
+    <div class="eyebrow">O que você leva, além das fotos</div>
+    <p class="pull mt-m">Presença e profissionalismo<br>transmitidos em <span class="accent">cada imagem</span>.</p>
+  </div>
+  <div class="wrap mt-l">
     <div class="steps">
-      <div class="step"><div class="n">1</div><h3>Chama no WhatsApp</h3><p>Você conta o que procura e já recebe valores e datas disponíveis. Sem formulário, sem espera.</p></div>
-      <div class="step"><div class="n">2</div><h3>Reserva sua data</h3><p>Escolhe o pacote, agenda e recebe um guia de como se preparar (roupas, make, o que levar).</p></div>
-      <div class="step"><div class="n">3</div><h3>Dia do ensaio</h3><p>Você chega e o Fabio cuida do resto: luz, pose, expressão. É mais leve (e divertido) do que você imagina.</p></div>
-      <div class="step"><div class="n">4</div><h3>Suas fotos, tratadas uma a uma</h3><p>Você escolhe suas favoritas e cada uma recebe tratamento individual. Entrega em até 7 dias, em alta resolução.</p></div>
+      <div class="s"><div class="n jost">01</div><h4>Direção</h4><p>Você não precisa saber posar. Eu conduzo o ensaio inteiro, com calma.</p></div>
+      <div class="s"><div class="n jost">02</div><h4>Luz e olhar</h4><p>Luz trabalhada para valorizar exatamente quem você é.</p></div>
+      <div class="s"><div class="n jost">03</div><h4>Verdade</h4><p>As melhores fotos acontecem quando você relaxa e esquece a câmera.</p></div>
+      <div class="s"><div class="n jost">04</div><h4>Prontas pra usar</h4><p>Imagens para o seu posicionamento profissional e social.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ============ DEPOIMENTOS ============ -->
-<section style="background:var(--bg-soft);padding-top:54px">
-  <div class="wrap">
-    <span class="kicker">Quem já fez</span>
-    <h2>O que os clientes falam depois do ensaio</h2>
-    <p class="muted" style="font-size:14px">[TROCAR pelos depoimentos reais — pedir para 3 clientes antigos, de preferência com print do WhatsApp ou avaliação no Google]</p>
-    <div class="testi-grid">
-      <div class="testi"><div class="stars">★★★★★</div><p>"Eu tava super insegura porque nunca tinha feito ensaio, mas o Fabio me deixou à vontade desde o começo. Quando vi as fotos eu chorei. Sério."</p><div class="who">[Nome da cliente] · Ensaio feminino</div></div>
-      <div class="testi"><div class="stars">★★★★★</div><p>"Precisava de uma foto decente pro LinkedIn fazia anos. Em 40 minutos estava resolvido. Já recebi elogio de recrutador na primeira semana."</p><div class="who">[Nome do cliente] · Retrato profissional</div></div>
-      <div class="testi"><div class="stars">★★★★★</div><p>"O diferencial é a direção. Ele fala exatamente o que fazer com a mão, o queixo, o olhar. Você não fica perdida na frente da câmera em nenhum momento."</p><div class="who">[Nome da cliente] · Ensaio feminino</div></div>
-    </div>
-  </div>
-</section>
+<div class="divider"></div>
 
-<!-- ============ SOBRE ============ -->
+<!-- PACOTES -->
 <section>
-  <div class="wrap about-grid">
-    <div class="ph">[FOTO]<br>Fabio no estúdio, com a câmera.<br>Foto de bastidor funciona bem aqui.</div>
-    <div>
-      <span class="kicker">Quem vai te fotografar</span>
-      <h2>Fabio Scheffer Dombrate</h2>
-      <p class="muted" style="margin-bottom:14px">Filho de arquiteto, o Fabio cresceu cercado por traço, proporção e luz. Estudou arquitetura seguindo esse olhar, até perceber que o que o movia de verdade não era projetar espaços: era capturar emoções. Foi a fotografia que uniu tudo o que ele sempre amou — a arte, a técnica e as pessoas.</p>
-      <p class="muted" style="margin-bottom:14px">Com formação em fotografia [INSTITUIÇÃO/CURSO] e estúdio próprio em Curitiba, ele é inspirado por fotógrafos como Sebastião Salgado, que provam que uma fotografia pode carregar significado profundo. É esse o padrão que ele persegue em cada ensaio: nenhuma foto é só uma foto.</p>
-      <p class="muted">Na prática, isso significa um trabalho minucioso do começo ao fim: o planejamento do ensaio, a direção de cada pose e o tratamento individual de cada imagem entregue.</p>
+  <div class="wrap">
+    <div class="eyebrow center">Os pacotes</div>
+    <p class="head jost center" style="margin:10px auto 44px;max-width:560px">Escolha o que faz sentido para o seu momento.</p>
+    <div class="pkgs">
+      <div class="pkg">
+        <div class="name jost">Essencial</div>
+        <div class="fotos">5 a 10 fotos</div>
+        <div class="desc">Um primeiro ensaio, o essencial para começar a se posicionar.</div>
+        <div class="price">a partir de R$ 500</div>
+      </div>
+      <div class="pkg feat">
+        <div class="tagf">Recomendado</div>
+        <div class="name jost">Posicionamento</div>
+        <div class="fotos">15 a 20 fotos</div>
+        <div class="desc">O equilíbrio ideal: variedade de imagens para redes, trabalho e portfólio.</div>
+        <div class="price">sob consulta</div>
+      </div>
+      <div class="pkg">
+        <div class="name jost">Premium</div>
+        <div class="fotos">30 fotos</div>
+        <div class="desc">Cobertura completa, para quem quer um acervo de imagem robusto.</div>
+        <div class="price">sob consulta</div>
+      </div>
+    </div>
+    <p class="center mt-m" style="font-size:14px;color:var(--muted)">Todos os pacotes incluem direção durante o ensaio e edição das imagens selecionadas.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FAQ -->
+<section>
+  <div class="narrow">
+    <div class="eyebrow center">Perguntas frequentes</div>
+    <div class="mt-l">
+      <div class="faq"><div class="faq-q">Não sei posar, e agora?</div><p>Esse é o meu trabalho. Eu conduzo o ensaio inteiro, com direção e calma. A maioria das melhores fotos acontece quando você relaxa e esquece a câmera.</p></div>
+      <div class="faq"><div class="faq-q">Onde é o ensaio?</div><p>A gente combina o melhor cenário para a sua imagem. Me chama que eu te explico as opções.</p></div>
+      <div class="faq"><div class="faq-q">Quanto tempo para receber as fotos?</div><p>Combinamos o prazo na nossa conversa inicial, sempre com o cuidado de entregar no ponto certo.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ============ FAQ ============ -->
-<section style="background:var(--bg-soft)">
-  <div class="wrap" style="max-width:760px">
-    <span class="kicker">Dúvidas comuns</span>
-    <h2 style="margin-bottom:30px">Perguntas que todo mundo faz antes de agendar</h2>
-    <details><summary>Nunca fiz ensaio e sou travada em foto. Vai dar certo?</summary><p>Vai, e esse é o caso da maioria das clientes. A direção de pose existe exatamente pra isso: o Fabio orienta cada posição, ângulo e expressão durante todo o ensaio. Você nunca fica sem saber o que fazer.</p></details>
-    <details><summary>O que eu devo levar/vestir?</summary><p>Depois de agendar você recebe um guia de preparação com sugestões de looks, make e o que levar pro seu tipo de ensaio. Tudo pensado antes, zero surpresa no dia.</p></details>
-    <details><summary>Em quanto tempo recebo as fotos?</summary><p>Em até 7 dias depois da sua seleção. Cada foto é tratada individualmente, sem linha de produção: é esse cuidado que faz a diferença no resultado. Entrega em alta resolução, por galeria online.</p></details>
-    <details><summary>Posso comprar fotos extras?</summary><p>Pode. Depois do ensaio você vê todas as fotos e, se quiser mais do que o pacote inclui, adiciona fotos avulsas por [R$ XX] cada.</p></details>
-    <details><summary>Onde fica o estúdio?</summary><p>Em Curitiba, no bairro [BAIRRO], com fácil acesso e [estacionamento]. O endereço completo é enviado na confirmação do agendamento.</p></details>
-    <details><summary>Como funciona o pagamento?</summary><p>Pix, cartão ou dinheiro. Para reservar a data é só um sinal de [XX]%, e o restante no dia do ensaio.</p></details>
-  </div>
+<!-- CTA -->
+<section class="narrow center">
+  <h2 class="head">Vamos construir a sua imagem?</h2>
+  <div class="mt-m"><a href="https://wa.me/5541000000000" class="btn btn-solid">Agendar pelo WhatsApp</a></div>
 </section>
 
-<!-- ============ CTA FINAL ============ -->
-<section class="final">
+<footer class="ft">
   <div class="wrap">
-    <h2>Que tal transformar o "um dia eu faço um ensaio" em uma data marcada?</h2>
-    <p>Chame no WhatsApp, conte o que você procura e receba valores e datas na hora. Sem compromisso: se não fizer sentido pra você, tudo bem.</p>
-    <a class="btn-wa" href="#" data-wa data-msg="Oi Fabio! Vi o site e quero saber as datas disponíveis para ensaio.">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3Z"/></svg>
-      Ver datas disponíveis
-    </a>
+    <div class="col">
+      <a href="/" class="logo">fábio <b>dombrate</b><span class="dot">.</span></a>
+      <p style="margin-top:14px;max-width:280px">Elegância com propósito.<br>Posicionamento começa pela imagem.</p>
+    </div>
+    <div class="col">
+      <h5>Navegar</h5>
+      <a href="/ensaios/">Ensaios de Posicionamento</a>
+      <a href="/sobre/">Sobre</a>
+      <a href="/ebook/">O Manual</a>
+    </div>
+    <div class="col">
+      <h5>Contato</h5>
+      <a href="https://wa.me/5541000000000">WhatsApp</a>
+      <a href="https://instagram.com/fabio.dombrate" target="_blank" rel="noopener">@fabio.dombrate</a>
+      <p>Curitiba · PR</p>
+    </div>
   </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    Photo Blaster · Fabio Scheffer Dombrate · Curitiba/PR ·
-    <a href="https://instagram.com/fabio.dombrate" target="_blank" rel="noopener">@fabio.dombrate</a>
-  </div>
+  <div class="wrap"><div class="base" style="width:100%">© 2026 Fábio Dombrate · Dombrate Fotografia</div></div>
 </footer>
 
-<!-- botão flutuante (mobile) -->
-<a class="float-wa" href="#" data-wa data-msg="Oi Fabio! Vi o site e quero saber mais sobre os ensaios." aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3Z"/></svg>
-</a>
-
-<script>
-  // Número do WhatsApp do Fabio — TROCAR (55 + DDD + número, só dígitos)
-  var WA_NUMBER = "5541999999999";
-
-  // Monta os links de WhatsApp com a mensagem pré-preenchida de cada botão
-  // e dispara a conversão do Google Ads no clique.
-  document.querySelectorAll("[data-wa]").forEach(function (el) {
-    var msg = el.getAttribute("data-msg") || "Oi Fabio! Quero saber mais sobre os ensaios.";
-    el.setAttribute("href", "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg));
-    el.setAttribute("target", "_blank");
-    el.setAttribute("rel", "noopener");
-    el.addEventListener("click", function () {
-      if (typeof gtag === "function") {
-        // TROCAR AW-XXXXXXXXX/YYYYYYYY pelo rótulo da conversão criada no Google Ads
-        gtag("event", "conversion", { send_to: "AW-XXXXXXXXX/YYYYYYYY" });
-      }
-    });
-  });
-</script>
 </body>
 </html>
