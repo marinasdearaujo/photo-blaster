@@ -73,8 +73,9 @@
 <section class="tight">
   <div class="wrap">
     <div class="eyebrow center">Portfólio</div>
-    <p class="head jost center" style="margin:10px auto 40px; max-width:640px">Cada imagem é um momento que não volta. Meu trabalho é fazer ele durar.</p>
-    <div class="gallery">
+    <p class="head jost center" style="margin:10px auto 14px; max-width:640px">Cada imagem é um momento que não volta. Meu trabalho é fazer ele durar.</p>
+    <p class="center" style="font-size:13px; letter-spacing:.04em; color:var(--muted); margin-bottom:38px">Passe o mouse nas fotos para vê-las ganharem cor.</p>
+    <div class="gallery" id="galeria">
       <div class="g"><img src="/img/executivo.jpg" alt=""></div>
       <div class="g"><img src="/img/elegante.jpg" alt=""></div>
       <div class="g"><img src="/img/business.jpg" alt=""></div>
@@ -118,5 +119,13 @@
   <div class="wrap"><div class="base" style="width:100%">© 2026 Fábio Dombrate · Dombrate Fotografia</div></div>
 </footer>
 
+<script>
+  // Em telas de toque (sem hover), tocar na foto revela a cor
+  if (window.matchMedia('(hover: none)').matches) {
+    document.querySelectorAll('#galeria .g').forEach(function(g){
+      g.addEventListener('click', function(){ g.classList.toggle('color'); });
+    });
+  }
+</script>
 </body>
 </html>
