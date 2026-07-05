@@ -1,0 +1,226 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Manual Que Não Veio na Caixa · Fábio Dombrate</title>
+<meta name="description" content="Aprender a ver, antes de aprender a fotografar">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  :root{ --navy:#101826; --navy2:#0b111c; --panel:#141d2c; --cream:#efe7d7; --ink:#16130e;
+    --accent:#c06a30; --gold:#c9a45f; --ctext:#e7e0d2; --cmuted:#8b93a2; --line:#26303f; }
+  *{margin:0;padding:0;box-sizing:border-box} html{scroll-behavior:smooth}
+  body{ background:var(--navy); color:var(--ctext); font-family:'Jost',sans-serif; font-weight:300; line-height:1.85; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  h1,h2,.po-t,.lo-t,.pullq{ overflow-wrap:break-word; }
+  img{max-width:100%;display:block} a{color:var(--gold)}
+  .serif{font-family:'Cormorant Garamond',serif}
+
+  .topbar{ position:sticky; top:0; z-index:50; background:rgba(16,24,38,.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);
+    display:flex; align-items:center; justify-content:space-between; padding:14px 22px; }
+  .topbar .b{ display:flex; align-items:center; gap:10px; text-decoration:none; color:inherit; }
+  .topbar .mono{ width:34px;height:34px;border:1px solid var(--gold);color:var(--gold);border-radius:3px;font-family:'Cormorant Garamond',serif;font-weight:600;display:flex;align-items:center;justify-content:center;font-size:16px }
+  .topbar .b b{ font-family:'Cormorant Garamond',serif;font-weight:600;font-size:16px;letter-spacing:.1em;text-transform:uppercase;color:#fff }
+  .topbar a.back{ font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cmuted);text-decoration:none }
+  .topbar a.back:hover{ color:var(--gold) }
+
+  /* CAPA */
+  .cover{ min-height:88vh; display:flex; flex-direction:column; justify-content:flex-end; padding:40px 22px 56px; position:relative; overflow:hidden;
+    background:linear-gradient(180deg,rgba(11,17,28,.45),rgba(11,17,28,.5) 40%,rgba(11,17,28,.9)),url('/img/colunata.jpg'); background-size:cover; background-position:60% 30%; }
+  .cover .in{ max-width:760px; margin:0 auto; width:100%; }
+  .cover .eyebrow{ font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold) }
+  .cover h1{ font-family:'Cormorant Garamond',serif; font-weight:500; font-size:clamp(27px,6.4vw,60px); line-height:1.06; color:#fff; margin:14px 0 0; padding-right:6px }
+  .cover .sub{ font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(17px,3vw,22px); color:#e0d9c9; margin-top:16px; max-width:560px }
+  .cover .by{ margin-top:26px; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--cmuted) }
+  .cover .by b{ color:var(--gold); font-weight:400 }
+
+  /* LEITURA */
+  .rwrap{ max-width:720px; margin:0 auto; padding:8px 22px; }
+  .rwrap.front{ padding-top:60px }
+  .rwrap p{ font-size:17.5px; margin:0 0 18px; color:#d7d1c4 }
+  .rwrap p.big, .front p{ font-size:18px }
+  .rwrap strong{ color:#fff; font-weight:400 }
+  .rwrap em{ color:#e7e0d2; font-style:italic }
+  h2{ font-family:'Cormorant Garamond',serif; font-weight:600; font-size:29px; color:#fff; margin:44px 0 14px; line-height:1.15 }
+  h2 .cn{ color:var(--accent); font-weight:500; margin-right:12px }
+  h3{ font-family:'Cormorant Garamond',serif; font-weight:600; font-size:22px; color:var(--gold); margin:26px 0 8px }
+  .subhead{ color:#fff!important; font-weight:400; margin-top:26px!important; font-size:15px; letter-spacing:.02em }
+  .subhead strong{ color:#fff }
+
+  /* capitular */
+  .rwrap > h2.plain:first-child + p::first-letter,
+  .rwrap > h2:first-of-type + p::first-letter{ font-family:'Cormorant Garamond',serif; font-weight:600; float:left; font-size:74px; line-height:.72; padding:8px 12px 0 0; color:var(--accent) }
+
+  /* abertura de parte (full-bleed) */
+  .popen{ min-height:64vh; display:flex; align-items:flex-end; background-size:cover; background-position:center; margin:20px 0; }
+  .po-in{ max-width:760px; margin:0 auto; width:100%; padding:0 22px 52px; }
+  .po-eye{ font-size:11px; letter-spacing:.32em; text-transform:uppercase; color:var(--gold) }
+  .po-t{ font-family:'Cormorant Garamond',serif; font-weight:500; font-size:clamp(34px,7vw,56px); color:#fff; line-height:1.03; margin-top:8px }
+  .po-l{ font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(16px,2.6vw,20px); color:#e0d9c9; margin-top:14px; max-width:520px }
+  .lopen{ padding:40px 0 10px; border-bottom:1px solid var(--line); margin-bottom:24px }
+  .po-eye.d{ color:var(--accent) } .lo-t{ font-family:'Cormorant Garamond',serif; font-weight:500; font-size:34px; color:#fff }
+
+  /* figura */
+  figure{ margin:30px 0 }
+  figure img{ width:100%; border-radius:2px }
+  figcaption{ font-family:'Cormorant Garamond',serif; font-style:italic; font-size:15px; color:var(--cmuted); margin-top:10px }
+
+  /* citação */
+  .pullq{ font-family:'Cormorant Garamond',serif; font-weight:500; font-size:clamp(23px,4vw,30px); line-height:1.32; color:#fff;
+    margin:34px 0; padding:6px 0 6px 22px; border-left:2px solid var(--accent) }
+
+  /* convite */
+  .convite{ background:var(--panel); border-left:2px solid var(--gold); border-radius:0 8px 8px 0; padding:16px 20px; margin:24px 0; font-size:16px!important; color:#cfc8ba!important }
+  .convite strong{ color:var(--gold) }
+
+  ul{ list-style:none; margin:10px 0 20px }
+  li{ font-size:17px; margin:10px 0; padding-left:22px; position:relative; color:#d7d1c4 }
+  li:before{ content:'—'; position:absolute; left:0; color:var(--accent) }
+  li.chk:before{ content:'○'; color:var(--gold) }
+
+  hr{ border:none; border-top:1px solid var(--line); margin:34px 0 }
+
+  .tbl{ overflow-x:auto; margin:22px 0; -webkit-overflow-scrolling:touch }
+  table{ width:100%; border-collapse:collapse; font-size:14px; min-width:460px }
+  th{ background:#0c1320; color:var(--gold); text-align:left; padding:10px 12px; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:16px; white-space:nowrap }
+  td{ border-bottom:1px solid var(--line); padding:9px 12px; color:#cfc8ba; vertical-align:top }
+
+  .endcap{ text-align:center; padding:50px 22px 80px; border-top:1px solid var(--line); margin-top:40px }
+  .endcap a{ display:inline-flex; gap:10px; align-items:center; text-decoration:none; background:var(--accent); color:#fff; padding:15px 30px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase }
+  .endcap .sig{ font-family:'Pinyon Script',cursive; font-size:34px; color:var(--gold); margin-bottom:24px }
+
+  @media(max-width:560px){ h2{font-size:25px} .rwrap p{font-size:17px} }
+</style></head>
+<body>
+
+  <div class="topbar">
+    <a class="b" href="/"><span class="mono">FD</span><b>Fábio Dombrate</b></a>
+    <a class="back" href="/ebook/">← voltar</a>
+  </div>
+
+  <header class="cover">
+    <div class="in">
+      <div class="eyebrow">O Manual</div>
+      <h1>O Manual Que Não<br>Veio na Caixa</h1>
+      <div class="sub">Aprender a ver, antes de aprender a fotografar</div>
+      <div class="by"><b>Fábio Dombrate</b> · Elegância com propósito.</div>
+    </div>
+  </header>
+
+  <div class="rwrap front"><h2 class="plain">Antes de tudo</h2>
+<p>Toda câmera vem com um manual na caixa. Aquele livrinho de tabelas e siglas que ninguém lê até o fim, e que ensina onde ficam os botões sem nunca explicar a única coisa que importa: <strong>como enxergar</strong>.</p>
+<p>Este é o outro manual. O que não veio na caixa.</p>
+<p>Ele não vai te transformar em fotógrafo porque nenhum livro faz isso. Mas vai te entregar o que quase ninguém te conta no começo, que fotografar é, antes de qualquer coisa, um jeito de olhar o mundo. A câmera é só a ferramenta. O olhar é seu.</p>
+<p>Eu demorei anos pra entender isso. Comprei equipamento, troquei de câmera, li ficha técnica como quem procura um atalho. As fotos continuavam sem alma. Até o dia em que percebi que o problema nunca esteve na câmera. Estava em mim, que ainda não tinha aprendido a ver.</p>
+<p>Fotografia, pra mim, é eternizar o presente. É guardar a beleza do meu tempo e mostrar às próximas gerações como era o meu olhar sobre o mundo. Se este livro fizer você se apaixonar por isso, ele cumpriu o que veio fazer.</p>
+<p>Vamos aprender a ver.</p>
+<p><em>Fábio</em></p>
+<hr>
+<h2 class="plain">Como ler este livro</h2>
+<p>Não é um manual pra decorar. É um convite pra reparar.</p>
+<p>Leia devagar, com a câmera do lado. Cada capítulo é curto de propósito, porque fotografia não se aprende lendo, se aprende olhando e fotografando. No fim de alguns deles, deixei um convite simples, um exercício de dez minutos. Faça. É ali que a teoria vira olhar.</p>
+<p>A ordem que escolhi diz muito sobre o que eu acredito. Começamos pelo <strong>olhar</strong>, seguimos pela <strong>luz</strong>, e só então falamos da <strong>câmera</strong>. Porque a câmera é a última coisa que importa, não a primeira.</p>
+<hr></div><section class="popen" style="background-image:linear-gradient(180deg,rgba(11,17,28,.35),rgba(11,17,28,.85)),url('/img/arqvestido.jpg')">
+      <div class="po-in"><div class="po-eye">Parte 1</div><h1 class="po-t">Aprender a ver</h1><p class="po-l">O olhar é a alma da fotografia. É a única coisa que nenhuma câmera nova vai te dar, e a que mais separa uma foto comum de uma que faz alguém parar. Por isso ela vem primeiro.</p></div></section><div class="rwrap"><h2><span class="cn">1</span>A pergunta antes do clique</h2>
+<p>A gente fotografa no automático do olhar. Vê algo bonito, aponta, dispara. E depois a foto não diz o que a gente sentiu ali.</p>
+<p>Falta uma pergunta, e ela leva meio segundo: <strong>o que eu quero que essa foto diga?</strong></p>
+<p>Aconchego. Solidão. A grandeza de um lugar. A ternura de um rosto. A resposta muda tudo, o enquadramento, a espera, a luz. A foto deixa de ser um registro do que estava lá e vira uma frase sua sobre o que você viu.</p>
+<p>Quem dispara sem intenção volta com trezentas fotos parecidas e nenhuma que diga algo. Quem fotografa com intenção volta com dez, e três são verdadeiras.</p>
+<p class="convite"><strong>Convite de dez minutos.</strong> Escolha algo simples na sua casa. Antes de levantar a câmera, complete em voz alta: "eu quero mostrar que...". Só então fotografe. Sinta a diferença de fotografar com um propósito na cabeça.</p>
+<blockquote class="pullq">Fotografe com intenção. Volte com menos fotos, e mais verdade.</blockquote>
+<h2><span class="cn">2</span>Ver a luz</h2>
+<p>Antes de compor, antes de focar, aprenda a reparar na luz. Ela é a matéria da fotografia, e quase ninguém a vê de verdade.</p>
+<p>A luz tem direção. De frente, ela achata. De lado, revela volume e textura, dá vida ao rosto. De trás, cria contorno e mistério. A mesma pessoa, três luzes, três fotos completamente diferentes.</p>
+<p>E a luz tem temperamento. Dura, do sol a pino, cria drama e sombra marcada. Difusa, de um dia nublado ou de uma janela com cortina, envolve e perdoa. Nenhuma é melhor. São ferramentas para sensações diferentes.</p>
+<p>Fotógrafo bom não briga com a luz. Ele espera, escolhe, se posiciona. Às vezes a foto certa é só uma questão de dar dois passos para o lado.</p>
+<p class="convite"><strong>Convite de dez minutos.</strong> Pegue um objeto e fotografe perto de uma janela em três posições: luz de frente, de lado e de trás. Sem mudar mais nada. Escolha a que tem mais volume. Guarde essa sensação, ela vai te acompanhar pra sempre.</p>
+<figure><img loading="lazy" src="/img/executivo2.jpg" alt=""><figcaption>A luz de lado esculpe o rosto. É a diferença entre registrar e revelar.</figcaption></figure>
+<h2><span class="cn">3</span>Compor é decidir o que fica de fora</h2>
+<p>Compor não é encher o quadro. É escolher.</p>
+<p>A gente aprende a regra dos terços e para por aí. Mas compor é mais do que onde colocar o assunto. É usar as linhas de um lugar para conduzir o olho. É deixar respiro, porque o vazio ao redor de um assunto dá força, não fraqueza. É reparar no fundo, que importa tanto quanto a pessoa, porque a câmera registra com o mesmo cuidado aquilo que você nem viu.</p>
+<p>Antes de disparar, passe o olho pela borda do quadro. Meio segundo que salva a foto. O que você deixa de fora compõe tanto quanto o que você inclui.</p>
+<p class="convite"><strong>Convite de dez minutos.</strong> Encontre uma linha, um corrimão, a quina de uma mesa, uma estrada. Componha uma foto onde essa linha conduz o olhar até um assunto no fim dela. Depois faça outra com muito espaço vazio de um lado. Veja como o vazio dá presença.</p>
+<h2><span class="cn">4</span>Esperar o momento</h2>
+<p>As melhores fotos quase nunca são as primeiras.</p>
+<p>Sebastião Salgado passava semanas com as pessoas que fotografava. Voltava ao mesmo lugar até a luz colaborar, até o gesto acontecer, até a cena dizer tudo de uma vez. As imagens dele emocionam porque ele teve a paciência de esperar a verdade aparecer.</p>
+<p>Você não precisa de semanas. Precisa de presença. Num aniversário, a foto boa é a do riso real, não a do "olha pro passarinho". Num retrato, é o instante em que a pessoa relaxa e esquece a câmera. Fotografar com pressa é riscar um item da lista. Fotografar com presença é esperar o momento se revelar.</p>
+<p>Paciência é uma técnica. Talvez a mais difícil de todas.</p>
+<hr></div><section class="popen" style="background-image:linear-gradient(180deg,rgba(11,17,28,.35),rgba(11,17,28,.85)),url('/img/elegante.jpg')">
+      <div class="po-in"><div class="po-eye">Parte 2</div><h1 class="po-t">A luz como matéria-prima</h1><p class="po-l">Se o olhar decide o que fotografar, a luz decide como. Este é o assunto que eu mais amo, e o que mais transforma uma foto quando você começa a dominá-lo.</p></div></section><div class="rwrap"><h2><span class="cn">5</span>Um estúdio na sua janela</h2>
+<p>Você não precisa de equipamento caro para fazer um retrato bonito. A melhor luz suave que existe provavelmente está na sua sala agora.</p>
+<p>Uma janela grande, sem sol direto batendo, é uma fonte de luz macia e generosa. Envolve o rosto, cria sombra delicada, valoriza a pele. É praticamente um estúdio que não custou nada.</p>
+<p>Posicione a pessoa de lado para a janela, não de frente. A luz vem de um lado, o outro fica numa sombra suave, e isso cria volume, aquele ar de profundidade. Se a sombra ficou escura demais, ponha algo branco do outro lado, uma cartolina, uma parede clara, para devolver um pouco de luz.</p>
+<p class="convite"><strong>Convite de dez minutos.</strong> Sente alguém de lado para uma janela iluminada. Fotografe. Depois ponha uma cartolina branca do lado escuro do rosto e fotografe de novo. A segunda foto tem a sombra mais viva. Isso é iluminação de estúdio, feita com o que você tem em casa.</p>
+<figure><img loading="lazy" src="/img/business.jpg" alt=""><figcaption>Luz de janela, de lado. Um estúdio que não custou nada.</figcaption></figure>
+<h2><span class="cn">6</span>A hora certa do dia</h2>
+<p>A luz das primeiras e das últimas horas do dia, a hora dourada, é baixa, quente e macia. É a luz preferida de quase todo fotógrafo, e não por acaso.</p>
+<p>O meio-dia, com o sol a pino, é o oposto: luz alta e dura, que cava olheira e queima a testa. Se você pode escolher a hora, escolha o fim da tarde. Se não pode, procure uma sombra aberta, embaixo de um toldo ou de uma árvore, e ganhe luz difusa de graça.</p>
+<p>Reparar na hora do dia é reparar na luz antes de ela virar problema. É a diferença entre a foto que aconteceu com você e a foto que você escolheu.</p>
+<blockquote class="pullq">Fotógrafo bom não briga com a luz. Ele escolhe.</blockquote>
+<h2><span class="cn">7</span>Uma luz só</h2>
+<p>À noite, ou num ambiente fechado, a gente acha que precisa de muito equipamento. Precisa do contrário: de controle sobre a única luz que tem.</p>
+<p>Cinema e pintura fazem isso há séculos. Uma fonte só, bem posicionada, cria drama e beleza. Pegue um abajur, uma luminária, até a lanterna do celular. Aproxime do rosto, de lado e um pouco de cima, imitando como a luz natural cai. Quanto mais perto a fonte, mais suave a sombra. Deixe a escuridão fazer parte da foto, porque sombra não é falta de luz, é escolha.</p>
+<p class="convite"><strong>Convite de dez minutos.</strong> Apague as luzes do quarto. Ilumine um rosto de lado com uma luminária, bem de perto. Fotografe. Depois afaste a luminária e veja a foto ficar chapada. A distância da luz é uma ferramenta na sua mão.</p>
+<hr></div><section class="popen" style="background-image:linear-gradient(180deg,rgba(11,17,28,.35),rgba(11,17,28,.85)),url('/img/contempla.jpg')">
+      <div class="po-in"><div class="po-eye">Parte 3</div><h1 class="po-t">A câmera a serviço do olhar</h1><p class="po-l">Agora sim, a câmera. Não como protagonista, mas como aliada. Estes são os poucos recursos que, quando você domina, param de atrapalhar e passam a libertar o seu olhar.</p></div></section><div class="rwrap"><h2><span class="cn">8</span>Saia do automático, sem medo</h2>
+<p>O automático decide tudo por você, e quase sempre decide o seguro, não o bonito.</p>
+<p>Você não precisa saltar direto para o modo manual completo. Existe um caminho do meio, e ele resolve a maior parte das fotos: o modo de prioridade de abertura (o "A" ou "Av" na sua câmera). Nele, você escolhe uma coisa só, o quanto o fundo fica desfocado, e a câmera cuida do resto.</p>
+<p>Abertura bem aberta, aquele número f baixo, e o fundo derrete num borrão suave enquanto o assunto salta. Abertura fechada, e tudo fica nítido, do perto ao longe. É o controle mais poderoso do retrato, e está a um giro de distância.</p>
+<p class="convite"><strong>Convite de dez minutos.</strong> Ponha a câmera no modo A. Fotografe a mesma pessoa em f/2.8 e depois em f/8. Veja o fundo derreter na primeira e ganhar nitidez na segunda. Você acabou de assumir o controle.</p>
+<figure><img loading="lazy" src="/img/executivo.jpg" alt=""><figcaption>A câmera a serviço do olhar, não o contrário.</figcaption></figure>
+<h2><span class="cn">9</span>O botão mais subestimado</h2>
+<p>Suas fotos saem um pouco escuras ou claras demais, e você não sabe por quê. A câmera está certa pela conta dela, e errada pelo que você queria.</p>
+<p>Existe um botão que resolve isso sem você sair do modo semiautomático: a compensação de exposição, o do símbolo de mais e menos. Ele diz para a câmera "deixa mais claro" ou "mais escuro" do que ela achou. Cena com muito branco, como uma parede clara ou a areia da praia? A câmera escurece sozinha. Empurre para o mais. Cena escura, como um ambiente à noite? Ela clareia demais. Puxe para o menos.</p>
+<p>É o meio-termo perfeito entre deixar a câmera decidir e assumir tudo. Resolve metade das reclamações de "a luz da minha foto saiu errada".</p>
+<h2><span class="cn">10</span>Foco no lugar certo</h2>
+<p>Metade das fotos frustrantes é foco no lugar errado. A câmera focou no fundo, ou o assunto se moveu.</p>
+<p>Duas decisões resolvem quase tudo. Primeiro, escolha o modo: foco único para o que está parado, como um retrato posado; foco contínuo para o que se move, como uma criança correndo. Segundo, escolha você o ponto de foco, não deixe a câmera adivinhar. Num retrato, o foco vai no olho mais próximo. Isso é quase sagrado. Um olho fora de foco derruba a imagem inteira.</p>
+<p>O resto é prática. Mas essas duas decisões já colocam a nitidez de volta nas suas mãos.</p>
+<hr></div><section class="popen" style="background-image:linear-gradient(180deg,rgba(11,17,28,.35),rgba(11,17,28,.85)),url('/img/luznatural.jpg')">
+      <div class="po-in"><div class="po-eye">Parte 4</div><h1 class="po-t">Na prática</h1><p class="po-l">Olhar, luz e câmera se encontram aqui, em situações que você vai viver de verdade. Não são regras, são pontos de partida.</p></div></section><div class="rwrap"><h2><span class="cn">11</span>O retrato</h2>
+<p>Fotografar uma pessoa é fotografar quem ela é, não só como ela parece.</p>
+<p>Abertura aberta para separar do fundo, foco no olho, luz de janela suave vindo de lado. Fotografe na altura dos olhos dela. E converse, faça rir, distraia, porque o retrato verdadeiro quase sempre acontece no intervalo entre as poses, quando ela relaxa e esquece a câmera.</p>
+<p>Sua paciência é o que traz a foto real. O resto é ajuste.</p>
+<figure><img loading="lazy" src="/img/violao.jpg" alt=""><figcaption>Um retrato é fotografar quem a pessoa é, não só como ela parece.</figcaption></figure>
+<h2><span class="cn">12</span>Pouca luz</h2>
+<p>Ambiente escuro não é inimigo, é clima.</p>
+<p>Abra a lente ao máximo, mantenha uma velocidade que não deixe a foto tremer, e suba o ISO sem culpa. Uma foto com um pouco de granulado é uma foto. Uma foto tremida, ou o momento perdido por medo, não são.</p>
+<p>E use a luz que já está ali: um palco, uma vela, um letreiro, uma janela iluminada. Aproxime a pessoa dessas fontes e deixe a escuridão ao redor trabalhar a favor da imagem.</p>
+<h2><span class="cn">13</span>Movimento</h2>
+<p>Movimento é uma escolha, não um acidente.</p>
+<p>Velocidade rápida congela o instante, o pulo, a corrida, o gesto. Velocidade lenta, com a câmera bem firme, transforma movimento em poesia: a água vira seda, as luzes viram riscos. O truque é decidir antes qual das duas histórias você quer contar, e ajustar a câmera para servir a essa decisão.</p>
+<hr></div><section class="popen" style="background-image:linear-gradient(180deg,rgba(11,17,28,.35),rgba(11,17,28,.85)),url('/img/casal.jpg')">
+      <div class="po-in"><h1 class="po-t">Depois do clique</h1></div></section><div class="rwrap"><h2><span class="cn">14</span>A edição honesta</h2>
+<p>Editar não é transformar a foto em outra coisa. É revelar o que já estava lá, como se fazia no laboratório com o negativo.</p>
+<p>Um programa gratuito no celular já faz o que a maioria das fotos precisa. Ajuste o brilho geral, recupere o detalhe no céu e nas sombras, dê um toque de contraste, acerte a cor para a pele ficar natural. E pare antes de exagerar. A boa edição é invisível: a pessoa olha e acha que a foto saiu assim. Menos é quase sempre mais.</p>
+<h2><span class="cn">15</span>Não perca suas fotos</h2>
+<p>Uma foto que existe num lugar só não existe de verdade.</p>
+<p>Guarde tudo em dois lugares diferentes, o computador e um HD, ou o computador e a nuvem. Formate o cartão só depois de confirmar que as imagens estão salvas nos dois. Parece detalhe, mas é o que separa quem guarda a memória de quem a perde para sempre.</p>
+<hr></div><section class="popen" style="background-image:linear-gradient(180deg,rgba(11,17,28,.35),rgba(11,17,28,.85)),url('/img/pb-mulher.jpg')">
+      <div class="po-in"><h1 class="po-t">Para terminar</h1></div></section><div class="rwrap"><p>Se você chegou até aqui, já entendeu que este livro nunca foi sobre botões.</p>
+<p>A câmera é generosa, guarda muito mais do que a maioria pede dela. Mas o que transforma uma foto não está no equipamento. Está no olhar, e o olhar é a única coisa que vai te acompanhar por qualquer câmera que você tiver na vida.</p>
+<p>Fotografia é um jeito de prestar atenção no mundo. De reparar na luz da tarde, no gesto de quem você ama, na cena comum que só você viu daquele jeito. A câmera é a desculpa. O presente é começar a olhar.</p>
+<p>E quando você olha com atenção, você faz mais do que uma foto bonita. Você eterniza o presente. Guarda a beleza do seu tempo e a entrega para quem vier depois.</p>
+<p>É isso que me apaixona nessa arte. Espero que, agora, apaixone você também.</p>
+<p>Capture a essência. O resto é ajuste.</p>
+<p><em>Fábio Dombrate</em></p>
+<p><em>@fabio.dombrate</em></p>
+<hr></div><div class="rwrap"><div class="lopen"><div class="po-eye d">Bônus</div><h1 class="lo-t">para deixar por perto</h1></div><p class="subhead"><strong>Cheat sheet: por onde começar em cada situação</strong></p>
+<div class="tbl"><table><thead><tr><th>Situação</th><th>Modo</th><th>Abertura</th><th>Foco</th><th>O que lembrar</th></tr></thead><tbody>
+<tr><td>Retrato</td><td>A</td><td>f/1.8 – f/4</td><td>único, no olho</td><td>Luz de janela, de lado</td></tr>
+<tr><td>Grupo</td><td>A</td><td>f/5.6 – f/8</td><td>único, no rosto da frente</td><td>Todos no mesmo plano</td></tr>
+<tr><td>Pouca luz</td><td>A</td><td>a mais aberta</td><td>único ou contínuo</td><td>ISO alto sem culpa</td></tr>
+<tr><td>Movimento</td><td>S</td><td>a câmera cuida</td><td>contínuo</td><td>Velocidade 1/1000+</td></tr>
+<tr><td>Paisagem</td><td>A</td><td>f/8 – f/11</td><td>único, no primeiro terço</td><td>Hora dourada</td></tr>
+</tbody></table></div>
+<p class="subhead"><strong>Antes de sair para fotografar</strong></p>
+<ul>
+<li class="chk">Bateria carregada (e a reserva)</li>
+<li class="chk">Cartão com espaço e já com backup do anterior</li>
+<li class="chk">Lente limpa</li>
+<li class="chk">Uma pergunta na cabeça: o que eu quero que essas fotos digam?</li>
+</ul></div>
+
+  <div class="endcap">
+    <div class="sig">Fábio Dombrate</div>
+    <a href="https://wa.me/5541000000000">Quero fotografar com você →</a>
+  </div>
+
+<script src="/review.js"></script>
+</body></html>
