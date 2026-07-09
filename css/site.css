@@ -73,7 +73,9 @@ section{ padding:96px 0; }
 .hero .htxt{ display:flex; flex-direction:column; justify-content:center; padding:48px 60px 48px 0; }
 .hero .himg{ position:relative; overflow:hidden; }
 .hero .himg img{ width:100%; height:100%; object-fit:cover; }
-.hero .himg::after{ content:''; position:absolute; inset:0; background:linear-gradient(90deg, rgba(16,24,38,.6), transparent 30%); }
+.hero .himg::after{ content:''; position:absolute; inset:0; pointer-events:none; background:linear-gradient(90deg, rgba(16,24,38,.6), transparent 30%); }
+.hero .himg-multi{ display:grid; grid-template-columns:1fr 1fr; gap:5px; }
+.hero .himg-multi img{ width:100%; height:100%; object-fit:cover; }
 @media(max-width:860px){ .hero{ grid-template-columns:1fr; min-height:auto }
   .hero .htxt{ padding:34px 0 30px; order:2 } .hero .himg{ order:1; height:40vh; min-height:280px } }
 
