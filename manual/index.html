@@ -22,7 +22,7 @@
 
   /* CAPA */
   .cover{ min-height:88vh; display:flex; flex-direction:column; justify-content:flex-end; padding:40px 22px 56px; position:relative; overflow:hidden;
-    background:linear-gradient(180deg,rgba(11,17,28,.45),rgba(11,17,28,.5) 40%,rgba(11,17,28,.9)),url('/img/colunata.jpg'); background-size:cover; background-position:60% 30%; }
+    background:linear-gradient(180deg,rgba(11,17,28,.35),rgba(11,17,28,.45) 40%,rgba(11,17,28,.92)),url('/img/cover.jpg'); background-size:cover; background-position:50% 22%; }
   .cover .in{ max-width:760px; margin:0 auto; width:100%; }
   .cover .eyebrow{ font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold) }
   .cover h1{ font-family:'Cormorant Garamond',serif; font-weight:500; font-size:clamp(27px,6.4vw,60px); line-height:1.06; color:#fff; margin:14px 0 0; padding-right:6px }
@@ -86,8 +86,22 @@
   .endcap .sig{ font-family:'Pinyon Script',cursive; font-size:34px; color:var(--gold); margin-bottom:24px }
 
   @media(max-width:560px){ h2{font-size:25px} .rwrap p{font-size:17px} }
+
+  /* ---- recursos dinâmicos ---- */
+  .cover .rt{ margin-top:14px; font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold) }
+  .progress{ position:fixed; top:0; left:0; right:0; height:3px; z-index:100; background:rgba(255,255,255,.05) }
+  .progress span{ display:block; height:100%; width:0; background:var(--accent) }
+  .reveal{ opacity:0; transform:translateY(20px); transition:opacity .8s ease, transform .8s cubic-bezier(.2,.65,.25,1) }
+  .reveal.shown{ opacity:1; transform:none }
+  .totop{ position:fixed; right:20px; bottom:20px; z-index:80; width:46px; height:46px; border-radius:50%;
+    border:1px solid var(--gold); background:rgba(16,24,38,.8); color:var(--gold); font-size:18px; line-height:1; cursor:pointer;
+    opacity:0; pointer-events:none; transition:opacity .3s; backdrop-filter:blur(8px); }
+  .totop.show{ opacity:1; pointer-events:auto }
+  @media(prefers-reduced-motion:reduce){ .reveal{ opacity:1!important; transform:none!important; transition:none } }
 </style></head>
 <body>
+
+  <div class="progress"><span id="pbar"></span></div>
 
   <div class="topbar">
     <a class="b" href="/"><span class="mono">FD</span><b>Fábio Dombrate</b></a>
@@ -100,6 +114,7 @@
       <h1>O Manual Que Não<br>Veio na Caixa</h1>
       <div class="sub">Aprender a ver, antes de aprender a fotografar</div>
       <div class="by"><b>Fábio Dombrate</b> · Elegância com propósito.</div>
+      <div class="rt">12 min de leitura &nbsp;·&nbsp; role para começar ↓</div>
     </div>
   </header>
 
@@ -222,5 +237,28 @@
     <a href="https://wa.me/5541000000000">Quero fotografar com você →</a>
   </div>
 
+<button class="totop" id="totop" aria-label="Voltar ao topo">↑</button>
+
+<script>
+(function(){
+  var pbar=document.getElementById('pbar'), totop=document.getElementById('totop');
+  var openers=[].slice.call(document.querySelectorAll('.popen'));
+  // revelar ao rolar
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('shown'); io.unobserve(e.target);} }); },{threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+  [].slice.call(document.querySelectorAll('.rwrap > *, .po-in, figure')).forEach(function(el){ el.classList.add('reveal'); io.observe(el); });
+  function onScroll(){
+    var h=document.documentElement, y=h.scrollTop||window.scrollY||0;
+    var max=h.scrollHeight-h.clientHeight;
+    pbar.style.width=(max>0?(y/max*100):0)+'%';
+    totop.classList.toggle('show', y>700);
+    for(var i=0;i<openers.length;i++){ var r=openers[i].getBoundingClientRect();
+      if(r.bottom>0 && r.top<window.innerHeight){ openers[i].style.backgroundPositionY=Math.round(r.top*-0.10)+'px'; } }
+  }
+  totop.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);
+  onScroll();
+})();
+</script>
 <script src="/review.js"></script>
 </body></html>
