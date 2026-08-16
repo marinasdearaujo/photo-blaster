@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Comentários do site · Fábio Dombrate</title>
+<style>
+  :root{
+    --bg:#17140f; --panel:#211c15; --card:#2a241b; --line:#3a3327;
+    --cream:#f6f2ea; --muted:#b8b2a5; --dim:#8a8577;
+    --gold:#f5b62e; --terra:#bf5a2c; --green:#5a7d4a;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--cream);font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;line-height:1.5;padding-bottom:60px}
+  .wrap{max-width:760px;margin:0 auto;padding:22px 16px}
+  header{display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+  h1{font-size:22px;margin:0;font-weight:800;letter-spacing:.2px}
+  h1 .g{color:var(--gold)}
+  .sub{color:var(--muted);font-size:13.5px;margin:2px 0 0}
+  .spacer{flex:1}
+  .live{font-size:12px;color:var(--dim);display:flex;align-items:center;gap:6px;margin-top:6px}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(90,125,74,.6);animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(90,125,74,.5)}70%{box-shadow:0 0 0 7px rgba(90,125,74,0)}100%{box-shadow:0 0 0 0 rgba(90,125,74,0)}}
+  .bar{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 8px}
+  .btn{background:transparent;border:1px solid var(--line);color:var(--cream);border-radius:8px;padding:8px 13px;
+    font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block}
+  .btn.p{background:var(--terra);border-color:var(--terra);color:#fff}
+  .btn.on{background:var(--gold);border-color:var(--gold);color:#17140f}
+  .btn:active{transform:translateY(1px)}
+  .counts{display:flex;gap:16px;margin:4px 0 14px;color:var(--muted);font-size:13px;flex-wrap:wrap}
+  .counts b{color:var(--cream)}
+  .group{margin:22px 0 0}
+  .group h2{font-size:13px;text-transform:uppercase;letter-spacing:1.4px;color:var(--gold);margin:0 0 10px;
+    border-bottom:1px solid var(--line);padding-bottom:7px;font-weight:700}
+  .group h2 a{color:var(--dim);text-decoration:none;font-weight:600;letter-spacing:.3px;text-transform:none;font-size:12px;float:right}
+  .group h2 a:hover{color:var(--gold)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 14px;margin:0 0 10px;
+    display:flex;gap:12px;align-items:flex-start}
+  .card.done{opacity:.58}
+  .card.done .txt{text-decoration:line-through;text-decoration-color:var(--dim)}
+  .num{flex:0 0 auto;width:26px;height:26px;border-radius:50% 50% 50% 3px;background:var(--terra);color:#fff;
+    font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;transform:rotate(-2deg)}
+  .card.done .num{background:var(--green)}
+  .body{flex:1;min-width:0}
+  .meta{font-size:12px;color:var(--dim);margin:0 0 3px}
+  .meta .who{color:var(--muted);font-weight:600}
+  .txt{font-size:15px;color:var(--cream);white-space:pre-wrap;word-wrap:break-word}
+  .acts{display:flex;gap:14px;margin-top:9px}
+  .acts button{background:none;border:none;color:var(--dim);font-size:12.5px;font-weight:600;cursor:pointer;padding:0}
+  .acts button:hover{color:var(--cream)}
+  .acts .res:hover{color:var(--green)}
+  .acts .rm:hover{color:#e0715a}
+  .empty{text-align:center;color:var(--dim);padding:60px 20px;font-size:15px}
+  .empty .big{font-size:34px;margin-bottom:10px}
+  .foot{text-align:center;color:var(--dim);font-size:12px;margin-top:30px}
+  .foot code{color:var(--muted);background:var(--panel);padding:2px 6px;border-radius:5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1><span class="g">Comentários</span> do site</h1>
+      <p class="sub">Fábio Dombrate · dombratefotografia.com.br</p>
+    </div>
+    <div class="spacer"></div>
+    <div class="live"><span class="dot"></span> <span id="live">carregando…</span></div>
+  </header>
+
+  <div class="counts" id="counts"></div>
+
+  <div class="bar">
+    <button class="btn on" data-f="todos" id="f-todos">Todos</button>
+    <button class="btn" data-f="pendentes" id="f-pendentes">Pendentes</button>
+    <button class="btn" data-f="resolvidos" id="f-resolvidos">Resolvidos</button>
+    <button class="btn" id="copy">📋 Copiar tudo</button>
+    <a class="btn p" href="/?review=1" target="_blank">Abrir site em modo comentário</a>
+  </div>
+
+  <div id="list"></div>
+
+  <div class="foot">
+    Atualiza sozinho a cada poucos segundos. Salvo no Firebase — acessível de qualquer navegador.<br>
+    Para comentar: abra qualquer página com <code>?review=1</code> no fim do endereço.
+  </div>
+</div>
+
+<script>
+(function(){
+  var DB = 'https://rifa-mae-default-rtdb.firebaseio.com/photoblaster/comentarios';
+  var NAMES = { '/':'Início', '/ensaios/':'Ensaios', '/sobre/':'Sobre', '/ebook/':'O Manual', '/manual/':'O Manual', '/projeto/':'Projeto', '/demo/':'Demo' };
+  var ORDER = ['/','/ebook/','/manual/','/ensaios/','/sobre/','/projeto/','/demo/'];
+  var filter = 'todos';
+  var all = [];
+
+  function esc(s){ return (s||'').replace(/[&<>]/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[m];}); }
+  function ago(ts){
+    if(!ts) return '';
+    var d = Math.floor((Date.now()-ts)/1000);
+    if(d<60) return 'agora há pouco';
+    if(d<3600) return 'há '+Math.floor(d/60)+' min';
+    if(d<86400) return 'há '+Math.floor(d/3600)+'h';
+    var days=Math.floor(d/86400);
+    if(days===1) return 'ontem';
+    if(days<30) return 'há '+days+' dias';
+    try{ return new Date(ts).toLocaleDateString('pt-BR'); }catch(e){ return ''; }
+  }
+
+  function load(){
+    fetch(DB + '.json').then(function(r){return r.json();}).then(function(obj){
+      var arr=[];
+      if(obj) Object.keys(obj).forEach(function(id){ var c=obj[id]; if(!c||!(c.text||'').trim()) return; c.id=id; arr.push(c); });
+      all=arr; render();
+      document.getElementById('live').textContent = 'ao vivo · atualizado ' + new Date().toLocaleTimeString('pt-BR').slice(0,5);
+    }).catch(function(){ document.getElementById('live').textContent='erro de conexão'; });
+  }
+
+  function setResolved(id,val){
+    fetch(DB+'/'+id+'.json',{method:'PATCH',body:JSON.stringify({resolved:val})}).then(load);
+    var c=all.filter(function(x){return x.id===id;})[0]; if(c) c.resolved=val; render();
+  }
+  function del(id){
+    if(!confirm('Excluir este comentário? Não dá pra desfazer.')) return;
+    fetch(DB+'/'+id+'.json',{method:'DELETE'}).then(load);
+    all=all.filter(function(x){return x.id!==id;}); render();
+  }
+  window.__res=setResolved; window.__del=del;
+
+  function render(){
+    var total=all.length;
+    var done=all.filter(function(c){return c.resolved;}).length;
+    var pend=total-done;
+    document.getElementById('counts').innerHTML =
+      '<span><b>'+total+'</b> no total</span><span><b>'+pend+'</b> pendentes</span><span><b>'+done+'</b> resolvidos</span>';
+
+    var show = all.filter(function(c){
+      if(filter==='pendentes') return !c.resolved;
+      if(filter==='resolvidos') return c.resolved;
+      return true;
+    });
+
+    var list=document.getElementById('list');
+    if(!show.length){
+      list.innerHTML = '<div class="empty"><div class="big">🗒️</div>'+
+        (total? 'Nenhum comentário nesse filtro.' : 'Ainda não há comentários.<br>Quando o Fábio comentar, aparece aqui automaticamente.')+'</div>';
+      return;
+    }
+
+    var byPath={};
+    show.forEach(function(c){ (byPath[c.path]=byPath[c.path]||[]).push(c); });
+    var paths=Object.keys(byPath).sort(function(a,b){
+      var ia=ORDER.indexOf(a), ib=ORDER.indexOf(b);
+      if(ia<0)ia=99; if(ib<0)ib=99; return ia-ib;
+    });
+
+    var html='';
+    paths.forEach(function(p){
+      var items=byPath[p].sort(function(a,b){ return (a.n||0)-(b.n||0); });
+      html+='<div class="group"><h2>'+esc(NAMES[p]||p)+
+        ' <a href="'+esc(p)+'?review=1" target="_blank">ver na página →</a></h2>';
+      items.forEach(function(c){
+        html+='<div class="card'+(c.resolved?' done':'')+'">'+
+          '<div class="num">'+(c.n||'•')+'</div>'+
+          '<div class="body">'+
+            '<div class="meta"><span class="who">'+esc(c.author||'Anônimo')+'</span> · '+ago(c.ts)+'</div>'+
+            '<div class="txt">'+esc(c.text)+'</div>'+
+            '<div class="acts">'+
+              '<button class="res" onclick="__res(\''+c.id+'\','+(c.resolved?'false':'true')+')">'+(c.resolved?'↩︎ Reabrir':'✓ Resolver')+'</button>'+
+              '<button class="rm" onclick="__del(\''+c.id+'\')">Excluir</button>'+
+            '</div>'+
+          '</div>'+
+        '</div>';
+      });
+      html+='</div>';
+    });
+    list.innerHTML=html;
+  }
+
+  // filtros
+  ['todos','pendentes','resolvidos'].forEach(function(f){
+    document.getElementById('f-'+f).addEventListener('click',function(){
+      filter=f;
+      ['todos','pendentes','resolvidos'].forEach(function(x){ document.getElementById('f-'+x).classList.toggle('on',x===f); });
+      render();
+    });
+  });
+
+  // copiar tudo
+  document.getElementById('copy').addEventListener('click',function(){
+    var withText=all.filter(function(c){return (c.text||'').trim();});
+    if(!withText.length){ alert('Nenhum comentário ainda.'); return; }
+    var byPath={}; withText.forEach(function(c){ (byPath[c.path]=byPath[c.path]||[]).push(c); });
+    var out='COMENTÁRIOS DO SITE — Fábio Dombrate\n';
+    Object.keys(byPath).forEach(function(p){
+      out+='\n['+(NAMES[p]||p)+']\n';
+      byPath[p].sort(function(a,b){return (a.n||0)-(b.n||0);}).forEach(function(c){
+        out+='• '+c.text+(c.resolved?' (resolvido)':'')+'\n';
+      });
+    });
+    (navigator.clipboard?navigator.clipboard.writeText(out):Promise.reject())
+      .then(function(){ var b=document.getElementById('copy'); b.textContent='✓ Copiado'; setTimeout(function(){b.textContent='📋 Copiar tudo';},1600); })
+      .catch(function(){ prompt('Copie manualmente:', out); });
+  });
+
+  load();
+  setInterval(load, 6000);
+})();
+</script>
+</body>
+</html>
