@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7 Técnicas Fotográficas · Fábio Dombrate</title>
+<meta name="description" content="Movimento, luz e tempo transformados em linguagem">
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  :root{ --navy:#101826; --navy2:#0b111c; --panel:#141d2c; --cream:#efe7d7; --ink:#16130e;
+    --accent:#c06a30; --gold:#c9a45f; --ctext:#e7e0d2; --cmuted:#8b93a2; --line:#26303f; }
+  *{margin:0;padding:0;box-sizing:border-box} html{scroll-behavior:smooth}
+  body{ background:var(--navy); color:var(--ctext); font-family:'Jost',sans-serif; font-weight:300; line-height:1.85; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  h1,h2,.po-t,.lo-t,.pullq{ overflow-wrap:break-word; }
+  img{max-width:100%;display:block} a{color:var(--gold)}
+  .serif{font-family:'Cormorant Garamond',serif}
+
+  .topbar{ position:sticky; top:0; z-index:50; background:rgba(16,24,38,.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);
+    display:flex; align-items:center; justify-content:space-between; padding:14px 22px; }
+  .topbar .b{ display:flex; align-items:center; gap:10px; text-decoration:none; color:inherit; }
+  .topbar .mono{ width:34px;height:34px;border:1px solid var(--gold);color:var(--gold);border-radius:3px;font-family:'Cormorant Garamond',serif;font-weight:600;display:flex;align-items:center;justify-content:center;font-size:16px }
+  .topbar .b b{ font-family:'Cormorant Garamond',serif;font-weight:600;font-size:16px;letter-spacing:.1em;text-transform:uppercase;color:#fff }
+  .topbar a.back{ font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cmuted);text-decoration:none }
+  .topbar a.back:hover{ color:var(--gold) }
+
+  /* CAPA */
+  .cover{ min-height:88vh; display:flex; flex-direction:column; justify-content:flex-end; padding:40px 22px 56px; position:relative; overflow:hidden;
+    background:linear-gradient(180deg,rgba(11,17,28,.35),rgba(11,17,28,.45) 40%,rgba(11,17,28,.92)),url('/img/tecnicas-capa.jpg'); background-size:cover; background-position:50% 30%; }
+  .cover .in{ max-width:760px; margin:0 auto; width:100%; }
+  .cover .eyebrow{ font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold) }
+  .cover h1{ font-family:'Cormorant Garamond',serif; font-weight:500; font-size:clamp(27px,6.4vw,60px); line-height:1.06; color:#fff; margin:14px 0 0; padding-right:6px }
+  .cover .sub{ font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(17px,3vw,22px); color:#e0d9c9; margin-top:16px; max-width:560px }
+  .cover .by{ margin-top:26px; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--cmuted) }
+  .cover .by b{ color:var(--gold); font-weight:400 }
+
+  /* LEITURA */
+  .rwrap{ max-width:720px; margin:0 auto; padding:8px 22px; }
+  .rwrap.front{ padding-top:60px }
+  .rwrap p{ font-size:17.5px; margin:0 0 18px; color:#d7d1c4 }
+  .rwrap p.big, .front p{ font-size:18px }
+  .rwrap strong{ color:#fff; font-weight:400 }
+  .rwrap em{ color:#e7e0d2; font-style:italic }
+  h2{ font-family:'Cormorant Garamond',serif; font-weight:600; font-size:29px; color:#fff; margin:44px 0 14px; line-height:1.15 }
+  h2 .cn{ color:var(--accent); font-weight:500; margin-right:12px }
+  h3{ font-family:'Cormorant Garamond',serif; font-weight:600; font-size:22px; color:var(--gold); margin:26px 0 8px }
+  .subhead{ color:#fff!important; font-weight:400; margin-top:26px!important; font-size:15px; letter-spacing:.02em }
+  .subhead strong{ color:#fff }
+
+  /* capitular */
+  .rwrap > h2.plain:first-child + p::first-letter,
+  .rwrap > h2:first-of-type + p::first-letter{ font-family:'Cormorant Garamond',serif; font-weight:600; float:left; font-size:74px; line-height:.72; padding:8px 12px 0 0; color:var(--accent) }
+
+  /* abertura de parte (full-bleed) */
+  .popen{ min-height:64vh; display:flex; align-items:flex-end; background-size:cover; background-position:center; margin:20px 0; }
+  .po-in{ max-width:760px; margin:0 auto; width:100%; padding:0 22px 52px; }
+  .po-eye{ font-size:11px; letter-spacing:.32em; text-transform:uppercase; color:var(--gold) }
+  .po-t{ font-family:'Cormorant Garamond',serif; font-weight:500; font-size:clamp(34px,7vw,56px); color:#fff; line-height:1.03; margin-top:8px }
+  .po-l{ font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(16px,2.6vw,20px); color:#e0d9c9; margin-top:14px; max-width:520px }
+  .lopen{ padding:40px 0 10px; border-bottom:1px solid var(--line); margin-bottom:24px }
+  .po-eye.d{ color:var(--accent) } .lo-t{ font-family:'Cormorant Garamond',serif; font-weight:500; font-size:34px; color:#fff }
+
+  /* figura */
+  figure{ margin:30px 0 }
+  figure img{ width:100%; border-radius:2px }
+  figcaption{ font-family:'Cormorant Garamond',serif; font-style:italic; font-size:15px; color:var(--cmuted); margin-top:10px }
+
+  /* citação */
+  .pullq{ font-family:'Cormorant Garamond',serif; font-weight:500; font-size:clamp(23px,4vw,30px); line-height:1.32; color:#fff;
+    margin:34px 0; padding:6px 0 6px 22px; border-left:2px solid var(--accent) }
+
+  /* hora de praticar */
+  .convite{ background:var(--panel); border-left:2px solid var(--gold); border-radius:0 8px 8px 0; padding:16px 20px; margin:24px 0; font-size:16px!important; color:#cfc8ba!important }
+  .convite strong{ color:var(--gold) }
+
+  /* o segredo */
+  .segredo{ font-family:'Cormorant Garamond',serif; font-style:italic; font-size:21px!important; line-height:1.45; color:#efe7d7!important;
+    margin:22px 0 30px!important; padding:4px 0 4px 20px; border-left:2px solid var(--accent) }
+  .segredo strong{ font-family:'Jost',sans-serif; font-style:normal; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent)!important; display:block; margin-bottom:2px }
+
+  /* ficha técnica */
+  .ficha{ display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--line); background:var(--panel); border-radius:6px; margin:22px 0 24px }
+  .ficha .fi{ padding:14px 16px; border-right:1px solid var(--line); display:flex; flex-direction:column; gap:4px }
+  .ficha .fi:last-child{ border-right:none }
+  .ficha .fk{ font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold) }
+  .ficha .fv{ font-size:14.5px; line-height:1.5; color:#e7e0d2 }
+  @media(max-width:560px){ .ficha{ grid-template-columns:1fr } .ficha .fi{ border-right:none; border-bottom:1px solid var(--line) } .ficha .fi:last-child{ border-bottom:none } }
+
+  /* blocos que faltam do Fábio (esqueleto) */
+  .slot{ border:1.5px dashed var(--gold); border-radius:12px; background:rgba(201,164,95,.07); padding:18px 20px; margin:26px 0 }
+  .slot .slot-l{ font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; font-weight:500 }
+  .slot .slot-l .ic{ font-size:15px }
+  .slot .slot-l em{ font-style:normal; color:var(--accent); opacity:.9 }
+  .slot p{ margin:0!important; font-size:15.5px!important; color:#d9d3c6!important; line-height:1.6 }
+  .slot.video{ border-color:#7bb0d8; background:rgba(123,176,216,.06) }
+  .slot.video .slot-l{ color:#9cc6e6 }
+  .slot.foto{ border-color:#a9b0bd; background:rgba(169,176,189,.05) }
+  .slot.foto .slot-l{ color:#c1c7d1 }
+  .prov{ font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--gold); font-size:17px; opacity:.85 }
+  .prov:before{ content:'rascunho, vira o texto real com seu áudio'; font-family:'Jost',sans-serif; font-style:normal; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--cmuted); display:block; margin-bottom:6px }
+
+  ul{ list-style:none; margin:10px 0 20px }
+  li{ font-size:17px; margin:10px 0; padding-left:22px; position:relative; color:#d7d1c4 }
+  li:before{ content:'—'; position:absolute; left:0; color:var(--accent) }
+  li.chk:before{ content:'○'; color:var(--gold) }
+
+  hr{ border:none; border-top:1px solid var(--line); margin:34px 0 }
+
+  .tbl{ overflow-x:auto; margin:22px 0; -webkit-overflow-scrolling:touch }
+  table{ width:100%; border-collapse:collapse; font-size:14px; min-width:460px }
+  th{ background:#0c1320; color:var(--gold); text-align:left; padding:10px 12px; font-family:'Cormorant Garamond',serif; font-weight:600; font-size:16px; white-space:nowrap }
+  td{ border-bottom:1px solid var(--line); padding:9px 12px; color:#cfc8ba; vertical-align:top }
+
+  .endcap{ text-align:center; padding:50px 22px 80px; border-top:1px solid var(--line); margin-top:40px }
+  .endcap a.cta{ display:inline-flex; gap:10px; align-items:center; text-decoration:none; background:var(--accent); color:#fff; padding:15px 30px; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase }
+  .endcap .sig{ font-family:'Pinyon Script',cursive; font-size:34px; color:var(--gold); margin-bottom:24px }
+  .endcap .mt{ margin-top:26px }
+  .upsell{ max-width:560px; margin:0 auto 54px; border:1px solid var(--gold); background:var(--panel); padding:30px 28px; text-align:left }
+  .upsell .up-eye{ font-size:10.5px; letter-spacing:.24em; text-transform:uppercase; color:var(--accent) }
+  .upsell .up-t{ font-family:'Cormorant Garamond',serif; font-weight:600; font-size:27px; line-height:1.15; color:#fff; margin:8px 0 10px }
+  .upsell p{ font-size:15px; color:#cfc8ba; line-height:1.65; margin-bottom:16px }
+  a.up-a{ font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); text-decoration:none; border-bottom:1px solid var(--accent); padding-bottom:4px }
+
+  @media(max-width:560px){ h2{font-size:25px} .rwrap p{font-size:17px} .segredo{font-size:19px!important} }
+
+  /* ---- recursos dinâmicos ---- */
+  .cover .rt{ margin-top:14px; font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold) }
+  .progress{ position:fixed; top:0; left:0; right:0; height:3px; z-index:100; background:rgba(255,255,255,.05) }
+  .progress span{ display:block; height:100%; width:0; background:var(--accent) }
+  .reveal{ opacity:0; transform:translateY(20px); transition:opacity .8s ease, transform .8s cubic-bezier(.2,.65,.25,1) }
+  .reveal.shown{ opacity:1; transform:none }
+  .totop{ position:fixed; right:20px; bottom:20px; z-index:80; width:46px; height:46px; border-radius:50%;
+    border:1px solid var(--gold); background:rgba(16,24,38,.8); color:var(--gold); font-size:18px; line-height:1; cursor:pointer;
+    opacity:0; pointer-events:none; transition:opacity .3s; backdrop-filter:blur(8px); }
+  .totop.show{ opacity:1; pointer-events:auto }
+  @media(prefers-reduced-motion:reduce){ .reveal{ opacity:1!important; transform:none!important; transition:none } }
+</style></head>
+<body>
+
+  <div class="progress"><span id="pbar"></span></div>
+
+  <div class="topbar">
+    <a class="b" href="/"><span class="mono">FD</span><b>Fábio Dombrate</b></a>
+    <a class="back" href="/ebook/">← voltar</a>
+  </div>
+
+  <header class="cover">
+    <div class="in">
+      <div class="eyebrow">Extra do Manual</div>
+      <h1>7 Técnicas Fotográficas<br>para Explorar na Prática</h1>
+      <div class="sub">Movimento, luz e tempo transformados em linguagem</div>
+      <div class="by"><b>Fábio Dombrate</b> · Um extra do Manual Que Não Veio na Caixa.</div>
+      <div class="rt">6 min de leitura &nbsp;·&nbsp; role para começar ↓</div>
+    </div>
+  </header>
+
+  <div class="rwrap front"><h2 class="plain">Antes de começar</h2>
+<p>Fotografia não é apenas encontrar uma boa cena e apertar o botão. Algumas técnicas permitem transformar movimento, luz e até o próprio tempo em elementos criativos. O mais interessante é que muitas delas acontecem diretamente na câmera.</p>
+<p>Quase todas nascem do mesmo lugar: a velocidade do obturador. Se você leu <em>Os três pilares da exposição</em> no Manual, já tem a base. Aqui ela deixa de ser ajuste e vira escolha criativa.</p>
+<p>Cada técnica tem uma ficha rápida, o passo a passo e o segredo que faz a diferença. No fim, deixei um guia de consulta e um desafio de sete dias para você sair do papel.</p>
+<p class="subhead"><strong>Do que você vai precisar</strong></p>
+<ul>
+<li>Sua câmera, no modo manual (M) ou na prioridade de velocidade (S ou Tv)</li>
+<li>Um tripé, para as técnicas de exposição longa</li>
+<li>Uma lente zoom, para o zooming</li>
+<li>Uma lanterna ou luz de LED, para o light painting</li>
+<li>Disposição para errar algumas vezes. Faz parte do processo.</li>
+</ul>
+<hr></div><div class="rwrap"><div class="lopen"><h1 class="lo-t">As sete técnicas</h1></div><h2><span class="cn">1</span>Panning</h2>
+<p>O panning é uma técnica usada para transmitir movimento. A ideia é acompanhar com a câmera um assunto que está se deslocando enquanto você fotografa com uma velocidade de obturador mais baixa.</p>
+<p>Quando bem executado, o assunto permanece relativamente nítido enquanto o fundo ganha um efeito de arrasto. Isso cria uma forte sensação de velocidade.</p>
+<div class="ficha"><div class="fi"><span class="fk">Velocidade</span><span class="fv">1/30s a 1/125s</span></div><div class="fi"><span class="fk">Tripé</span><span class="fv">não precisa</span></div><div class="fi"><span class="fk">Onde brilha</span><span class="fv">carros, bicicletas, motos, esportes e pessoas em movimento</span></div></div>
+<p><strong>Como fazer.</strong> Escolha uma velocidade mais baixa, como 1/30s, 1/60s ou 1/125s, dependendo da velocidade do assunto. Acompanhe o movimento com a câmera, mantendo o assunto sempre na mesma posição do enquadramento, e continue o movimento mesmo depois de apertar o disparador.</p>
+<p class="segredo"><strong>O segredo</strong> Não existe uma velocidade perfeita. Quanto mais lenta, maior o efeito e maior também a dificuldade de manter o assunto nítido.</p>
+<h2><span class="cn">2</span>Longa exposição</h2>
+<p>Na longa exposição, o obturador permanece aberto por mais tempo, permitindo registrar movimentos que normalmente nossos olhos não enxergam daquela maneira.</p>
+<p>A água pode se transformar em uma superfície suave, os faróis dos carros viram rastros luminosos e pessoas em movimento podem praticamente desaparecer da cena.</p>
+<div class="ficha"><div class="fi"><span class="fk">Velocidade</span><span class="fv">vários segundos ou até minutos</span></div><div class="fi"><span class="fk">Tripé</span><span class="fv">indispensável</span></div><div class="fi"><span class="fk">Onde brilha</span><span class="fv">paisagens, cachoeiras, cidade à noite, céu estrelado e rastros de luz</span></div></div>
+<p><strong>Como fazer.</strong> Use velocidades de vários segundos ou até minutos. Como qualquer movimento da câmera ficará registrado, o tripé é praticamente indispensável. Em ambientes muito claros, um filtro ND pode ser necessário para reduzir a quantidade de luz que chega ao sensor.</p>
+<p class="segredo"><strong>O segredo</strong> Longa exposição não é simplesmente usar uma velocidade baixa. É decidir como o movimento será registrado ao longo do tempo.</p>
+<h2><span class="cn">3</span>HDR</h2>
+<p>HDR significa High Dynamic Range, ou alta faixa dinâmica. A técnica é usada principalmente quando existe uma diferença muito grande entre as regiões claras e escuras de uma cena.</p>
+<p>Em vez de depender de uma única fotografia, são feitas diferentes exposições da mesma composição. Uma preserva as áreas claras, outra as sombras e uma terceira pode servir como exposição intermediária. Depois, essas imagens são combinadas.</p>
+<div class="ficha"><div class="fi"><span class="fk">Exposições</span><span class="fv">-2 EV, 0 EV e +2 EV</span></div><div class="fi"><span class="fk">Tripé</span><span class="fv">recomendado</span></div><div class="fi"><span class="fk">Onde brilha</span><span class="fv">arquitetura, interiores, paisagens, janelas e céus muito claros</span></div></div>
+<p><strong>Como fazer.</strong> Mantenha a câmera na mesma posição e fotografe a cena com diferentes exposições, por exemplo -2 EV, 0 EV e +2 EV. Muitas câmeras têm bracketing automático para facilitar o processo.</p>
+<p class="segredo"><strong>O segredo</strong> Um bom HDR não precisa parecer HDR. A técnica funciona melhor quando amplia a informação da fotografia sem deixar o resultado artificial.</p>
+<h2><span class="cn">4</span>Zooming</h2>
+<p>O zooming cria linhas que parecem explodir do centro da fotografia. O efeito acontece quando alteramos a distância focal da lente enquanto o obturador está aberto.</p>
+<p>Em vez de congelar completamente a cena, a câmera registra o movimento do zoom durante a exposição.</p>
+<div class="ficha"><div class="fi"><span class="fk">Velocidade</span><span class="fv">1/10s a 1/30s</span></div><div class="fi"><span class="fk">Equipamento</span><span class="fv">lente zoom</span></div><div class="fi"><span class="fk">Onde brilha</span><span class="fv">retratos criativos, flores, arquitetura, luzes e cidade</span></div></div>
+<p><strong>Como fazer.</strong> Use uma lente zoom e escolha uma velocidade relativamente baixa, como 1/10s, 1/15s ou 1/30s. No momento do disparo, gire o anel de zoom de maneira contínua. O ponto que você deseja manter mais reconhecível deve ficar perto do centro do enquadramento.</p>
+<p class="segredo"><strong>O segredo</strong> Pequenas mudanças na velocidade do obturador e na velocidade com que você gira a lente produzem resultados completamente diferentes. É uma técnica de tentativa e experimentação.</p>
+<h2><span class="cn">5</span>Dupla exposição</h2>
+<p>A dupla exposição combina duas fotografias em uma única imagem. Uma imagem passa a preencher ou a interagir visualmente com a outra.</p>
+<p>Um exemplo clássico é combinar o perfil de uma pessoa com árvores, prédios, montanhas ou alguma textura.</p>
+<div class="ficha"><div class="fi"><span class="fk">Onde fazer</span><span class="fv">na câmera (modo de múltipla exposição) ou na edição</span></div><div class="fi"><span class="fk">Tripé</span><span class="fv">não precisa</span></div><div class="fi"><span class="fk">Onde brilha</span><span class="fv">retratos conceituais, fotografia artística e projetos autorais</span></div></div>
+<p><strong>Como fazer.</strong> Pense primeiro na imagem principal e depois procure uma segunda imagem que complemente sua forma ou sua história. Áreas claras e escuras são especialmente importantes, porque determinam como as duas fotografias vão se misturar. Algumas câmeras fazem isso no próprio equipamento, pelo modo de múltipla exposição. Também é possível construir o resultado depois, na edição.</p>
+<p class="segredo"><strong>O segredo</strong> Não basta juntar duas fotografias bonitas. As duas imagens precisam funcionar juntas visualmente ou contar uma história.</p>
+<h2><span class="cn">6</span>ICM</h2>
+<p>ICM significa Intentional Camera Movement, ou movimento intencional da câmera.</p>
+<p>Aqui fazemos justamente o contrário do que normalmente aprendemos: em vez de tentar manter a câmera completamente parada, movimentamos a câmera de propósito durante a exposição.</p>
+<p>O resultado pode lembrar uma pintura, com formas alongadas, cores misturadas e detalhes parcialmente abstratos.</p>
+<div class="ficha"><div class="fi"><span class="fk">Velocidade</span><span class="fv">1/4s a 1s</span></div><div class="fi"><span class="fk">Tripé</span><span class="fv">não, o movimento é seu</span></div><div class="fi"><span class="fk">Onde brilha</span><span class="fv">árvores, flores, praias, arquitetura, cidades e cenas com cores marcantes</span></div></div>
+<p><strong>Como fazer.</strong> Escolha uma velocidade baixa e movimente a câmera durante o disparo. O movimento pode ser vertical, horizontal, circular ou até irregular. Experimente 1/4s, 1/2s ou 1 segundo e observe como cada movimento altera completamente o resultado.</p>
+<p class="segredo"><strong>O segredo</strong> O movimento é intencional. A diferença entre uma fotografia simplesmente tremida e uma boa ICM está no controle da direção, da velocidade e da duração desse movimento.</p>
+<h2><span class="cn">7</span>Light painting</h2>
+<p>No light painting, a própria luz se transforma em uma espécie de pincel.</p>
+<p>A técnica usa uma longa exposição enquanto uma fonte de luz é movimentada pela cena. Como o obturador permanece aberto, todo o caminho percorrido pela luz fica registrado.</p>
+<div class="ficha"><div class="fi"><span class="fk">Velocidade</span><span class="fv">alguns segundos</span></div><div class="fi"><span class="fk">Tripé</span><span class="fv">indispensável</span></div><div class="fi"><span class="fk">Onde brilha</span><span class="fv">fotografia noturna, produtos, projetos criativos e imagens experimentais</span></div></div>
+<p><strong>Como fazer.</strong> Coloque a câmera no tripé, escolha uma exposição de alguns segundos e use uma lanterna, um LED ou outra fonte de luz para iluminar ou desenhar durante a exposição. Você pode criar linhas no ar, contornar objetos ou simplesmente iluminar partes escolhidas de uma cena completamente escura.</p>
+<p class="segredo"><strong>O segredo</strong> Você não está apenas fotografando uma fonte de luz. Está decidindo onde a luz vai existir dentro da fotografia.</p>
+<hr></div><section class="popen" style="background-image:linear-gradient(180deg,rgba(11,17,28,.35),rgba(11,17,28,.85)),url('/img/tecnicas-fumaca.jpg')">
+      <div class="po-in"><h1 class="po-t">Para terminar</h1><p class="po-l">O que essas técnicas têm em comum?</p></div></section><div class="rwrap"><h2 class="plain">A câmera não precisa copiar o mundo</h2>
+<p>Todas mostram uma das partes mais interessantes da fotografia: a câmera não precisa registrar o mundo exatamente como nossos olhos enxergam.</p>
+<p>Velocidade, movimento, exposição e luz podem ser usados para interpretar uma cena.</p>
+<p>É justamente aí que a técnica deixa de ser apenas configuração de câmera e se transforma em linguagem fotográfica.</p>
+<blockquote class="pullq">A técnica deixa de ser configuração e vira linguagem.</blockquote>
+<p><em>Fábio Dombrate</em></p>
+<p><em>@fabio.dombrate</em></p>
+<hr></div><div class="rwrap"><div class="lopen"><div class="po-eye d">Bônus</div><h1 class="lo-t">para consultar</h1></div><p class="subhead"><strong>Guia rápido das 7 técnicas</strong></p>
+<div class="tbl"><table><thead><tr><th>Técnica</th><th>Velocidade</th><th>Tripé</th><th>Onde brilha</th></tr></thead><tbody>
+<tr><td>Panning</td><td>1/30s – 1/125s</td><td>não</td><td>carros, bikes, esportes</td></tr>
+<tr><td>Longa exposição</td><td>segundos a minutos</td><td>sim</td><td>água, cidade à noite, rastros</td></tr>
+<tr><td>HDR</td><td>-2, 0 e +2 EV</td><td>recomendado</td><td>arquitetura, interiores</td></tr>
+<tr><td>Zooming</td><td>1/10s – 1/30s</td><td>ajuda</td><td>luzes, flores, retratos</td></tr>
+<tr><td>Dupla exposição</td><td>normal</td><td>não</td><td>retratos conceituais</td></tr>
+<tr><td>ICM</td><td>1/4s – 1s</td><td>não</td><td>árvores, praias, cidades</td></tr>
+<tr><td>Light painting</td><td>alguns segundos</td><td>sim</td><td>noite, produtos</td></tr>
+</tbody></table></div>
+<p class="subhead"><strong>Desafio de 7 dias: uma técnica por dia</strong></p>
+<ul>
+<li class="chk">Dia 1: panning com alguém passando de bicicleta ou um carro na rua</li>
+<li class="chk">Dia 2: longa exposição com água correndo, nem que seja a torneira</li>
+<li class="chk">Dia 3: HDR de um cômodo com a janela aberta</li>
+<li class="chk">Dia 4: zooming nas luzes da cidade à noite</li>
+<li class="chk">Dia 5: dupla exposição com um perfil e uma textura</li>
+<li class="chk">Dia 6: ICM numa fileira de árvores</li>
+<li class="chk">Dia 7: light painting com a lanterna do celular</li>
+</ul></div>
+
+  <div class="endcap">
+    <div class="sig">Fábio Dombrate</div>
+    <a class="cta" href="https://wa.me/5541000000000">Quero fotografar com você →</a>
+    <div class="mt"><a class="up-a" href="/manual/">← Voltar ao Manual</a></div>
+  </div>
+
+<button class="totop" id="totop" aria-label="Voltar ao topo">↑</button>
+
+<script>
+(function(){
+  var pbar=document.getElementById('pbar'), totop=document.getElementById('totop');
+  var openers=[].slice.call(document.querySelectorAll('.popen'));
+  // revelar ao rolar
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('shown'); io.unobserve(e.target);} }); },{threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+    [].slice.call(document.querySelectorAll('.rwrap > *, .po-in, figure')).forEach(function(el){ el.classList.add('reveal'); io.observe(el); });
+  }
+  function onScroll(){
+    var h=document.documentElement, y=h.scrollTop||window.scrollY||0;
+    var max=h.scrollHeight-h.clientHeight;
+    pbar.style.width=(max>0?(y/max*100):0)+'%';
+    totop.classList.toggle('show', y>700);
+    for(var i=0;i<openers.length;i++){ var r=openers[i].getBoundingClientRect();
+      if(r.bottom>0 && r.top<window.innerHeight){ openers[i].style.backgroundPositionY=Math.round(r.top*-0.10)+'px'; } }
+  }
+  totop.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);
+  onScroll();
+})();
+</script>
+<script src="/review.js"></script>
+</body></html>
