@@ -1,26 +1,45 @@
-<!DOCTYPE html><html lang="pt-BR" data-tema="galeria"><head>
+<!DOCTYPE html><html lang="pt-BR" data-tema="estudio"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>O Manual Que Não Veio na Caixa · Fábio Dombrate</title>
 <meta name="description" content="Aprender a ver, antes de aprender a fotografar">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
 <style>
+/* ESTÚDIO — a identidade que o próprio Fábio usa nos infográficos dele:
+   preto puro, títulos pesados em caixa alta e uma cor viva por assunto. */
 :root{
-  --bg:#0c0c0e; --bg2:#121216; --panel:#17171c; --line:#2a2a32;
-  --txt:#ece9e4; --mut:#9a978f; --accent:#d8813f; --accent2:#e8c07a;
-  --disp:'Fraunces',Georgia,serif; --body:'Inter',system-ui,sans-serif;
+  --bg:#000; --bg2:#0b0b0e; --panel:#101015; --line:#23232b;
+  --txt:#f2f2f4; --mut:#8e8e99; --accent:#d946c4; --accent2:#ffffff;
+  --acc:#d946c4;
+  --disp:'Anton',Impact,sans-serif; --body:'Inter',system-ui,sans-serif;
+  --dcase:uppercase; --dtrack:.005em; --dweight:400; --dlh:.98;
   --rad:14px; --maxw:700px;
 }
-html[data-tema="atelie"]{
-  --bg:#12100d; --bg2:#181510; --panel:#1e1a14; --line:#332c22;
-  --txt:#f0ebe1; --mut:#a1978a; --accent:#c8703a; --accent2:#dfc08b;
+html[data-tema="galeria"]{
+  --bg:#0c0c0e; --bg2:#121216; --panel:#17171c; --line:#2a2a32;
+  --txt:#ece9e4; --mut:#9a978f; --accent:#d8813f; --accent2:#e8c07a; --acc:#d8813f;
+  --disp:'Fraunces',Georgia,serif; --body:'Inter',system-ui,sans-serif;
+  --dcase:none; --dtrack:-.02em; --dweight:300; --dlh:1.05;
 }
 html[data-tema="classico"]{
   --bg:#101826; --bg2:#0b111c; --panel:#141d2c; --line:#26303f;
-  --txt:#e7e0d2; --mut:#8b93a2; --accent:#c06a30; --accent2:#c9a45f;
+  --txt:#e7e0d2; --mut:#8b93a2; --accent:#c06a30; --accent2:#c9a45f; --acc:#c9a45f;
   --disp:'Cormorant Garamond',Georgia,serif; --body:'Jost',system-ui,sans-serif;
+  --dcase:none; --dtrack:-.015em; --dweight:400; --dlh:1.08;
 }
+/* Anton não tem itálico real, então no Estúdio os itálicos usam a fonte de corpo */
+html[data-tema="estudio"] .capa .sub,
+html[data-tema="estudio"] .p-l,
+html[data-tema="estudio"] figcaption,
+html[data-tema="estudio"] .ccap,
+html[data-tema="estudio"] .segredo,
+html[data-tema="estudio"] .prov,
+html[data-tema="estudio"] .dcap{font-family:var(--body);font-weight:300;letter-spacing:0;text-transform:none}
+html[data-tema="estudio"] .bar .mono{font-family:var(--body);font-weight:700;letter-spacing:.02em}
+
+/* no Clássico e no Galeria a cor da parte não muda */
+html[data-tema="classico"] .bloco,html[data-tema="galeria"] .bloco{--acc:var(--accent)!important}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{background:var(--bg);color:var(--txt);font-family:var(--body);font-weight:300;
@@ -34,14 +53,18 @@ h1,h2,h3,.p-t,.lo-t,.pullq{overflow-wrap:break-word}
 .bar{position:fixed;top:0;left:0;right:0;z-index:60;background:color-mix(in srgb,var(--bg) 88%,transparent);
   backdrop-filter:blur(14px) saturate(1.2);border-bottom:1px solid var(--line);
   display:flex;align-items:center;gap:14px;padding:11px 16px}
-.bar .mono{width:30px;height:30px;border:1px solid var(--accent2);color:var(--accent2);border-radius:4px;
-  font-family:var(--disp);font-weight:600;display:grid;place-items:center;font-size:14px;flex:none}
-.bar .nm{font-family:var(--disp);font-weight:500;font-size:14px;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap}
+.bar .mono{width:30px;height:30px;border:1px solid var(--acc);color:var(--acc);border-radius:4px;
+  font-family:var(--disp);font-weight:400;display:grid;place-items:center;font-size:13px;flex:none;text-transform:none}
+.bar .nm{font-family:var(--body);font-weight:600;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+.bar .cap{font-size:12px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  max-width:42vw;opacity:0;transition:opacity .3s}
+.bar .cap.on{opacity:1}
+.bar .cap b{color:var(--acc);font-weight:600;margin-right:6px}
 .bar .sp{flex:1}
 .bar .ic{width:34px;height:34px;border:1px solid var(--line);border-radius:9px;display:grid;place-items:center;
   font-size:14px;color:var(--mut);transition:.2s;flex:none}
 .bar .ic:hover{border-color:var(--accent);color:var(--txt)}
-#prog{position:fixed;top:0;left:0;height:2px;width:0;z-index:61;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+#prog{position:fixed;top:0;left:0;height:2px;width:0;z-index:61;background:var(--acc);transition:background .4s}
 @media(max-width:560px){.bar .nm{display:none}}
 
 /* indice */
@@ -52,7 +75,7 @@ h1,h2,h3,.p-t,.lo-t,.pullq{overflow-wrap:break-word}
 #idx h4{font-family:var(--disp);font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);margin-bottom:14px;font-weight:500}
 #idx a{display:block;padding:9px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--txt);font-size:14.5px}
 #idx a:hover{color:var(--accent2)}
-#idx a .n{color:var(--accent);font-family:var(--disp);margin-right:9px}
+#idx a .n{color:var(--acc);font-family:var(--disp);margin-right:9px}
 #veil{position:fixed;inset:0;z-index:65;background:rgba(0,0,0,.6);opacity:0;pointer-events:none;transition:.3s}
 #veil.on{opacity:1;pointer-events:auto}
 
@@ -61,7 +84,7 @@ h1,h2,h3,.p-t,.lo-t,.pullq{overflow-wrap:break-word}
   background:color-mix(in srgb,var(--bg2) 92%,transparent);backdrop-filter:blur(12px);
   border:1px solid var(--line);border-radius:30px;padding:5px}
 #temas button{font-size:11.5px;letter-spacing:.06em;padding:7px 14px;border-radius:24px;color:var(--mut);transition:.2s}
-#temas button.on{background:var(--accent);color:#14100c;font-weight:500}
+#temas button.on{background:var(--accent);color:#000;font-weight:600}
 #temas.dim{opacity:.2}
 #temas{transition:opacity .35s}
 #temas:hover{opacity:1}
@@ -76,9 +99,9 @@ h1,h2,h3,.p-t,.lo-t,.pullq{overflow-wrap:break-word}
 .capa .cscrim{position:absolute;inset:0;background:
   linear-gradient(180deg,rgba(8,8,10,.55) 0,rgba(8,8,10,.18) 32%,rgba(8,8,10,.86) 78%,var(--bg) 100%)}
 .capa .cin{position:relative;max-width:var(--maxw);width:100%;margin:0 auto;padding:0 22px}
-.capa .eye{font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--accent2)}
-.capa h1{font-family:var(--disp);font-weight:300;font-size:clamp(34px,8.2vw,66px);line-height:1.02;
-  letter-spacing:-.02em;color:#fff;margin:16px 0 0}
+.capa .eye{font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--accent)}
+.capa h1{font-family:var(--disp);font-weight:var(--dweight);font-size:clamp(36px,9vw,78px);line-height:var(--dlh);
+  letter-spacing:var(--dtrack);text-transform:var(--dcase);color:#fff;margin:16px 0 0}
 .capa .sub{font-family:var(--disp);font-style:italic;font-weight:300;font-size:clamp(17px,3.2vw,23px);
   color:#ded8cd;margin-top:16px;max-width:520px;line-height:1.45}
 .capa .by{margin-top:26px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#a9a49a;
@@ -93,27 +116,34 @@ h1,h2,h3,.p-t,.lo-t,.pullq{overflow-wrap:break-word}
 .rwrap.front{padding-top:64px}
 .rwrap p{font-size:17.5px;margin:0 0 20px;color:var(--txt);opacity:.93}
 .rwrap p.subhead{color:#fff;opacity:1}
-h2{font-family:var(--disp);font-weight:400;font-size:clamp(26px,5vw,34px);line-height:1.12;
-  letter-spacing:-.015em;color:#fff;margin:62px 0 20px;scroll-margin-top:70px;display:flex;gap:14px;align-items:baseline}
+h2{font-family:var(--disp);font-weight:var(--dweight);font-size:clamp(27px,5.4vw,38px);line-height:var(--dlh);
+  letter-spacing:var(--dtrack);text-transform:var(--dcase);color:#fff;margin:64px 0 20px;scroll-margin-top:70px;
+  display:flex;gap:14px;align-items:baseline}
 h2.plain{display:block}
-h2 .cn{font-size:.62em;color:var(--accent);font-variant-numeric:tabular-nums;flex:none}
-h3{font-family:var(--disp);font-weight:500;font-size:clamp(19px,3.6vw,23px);color:var(--accent2);
-  margin:42px 0 14px;letter-spacing:.01em}
+h2 .cn{font-size:.72em;color:var(--acc);font-variant-numeric:tabular-nums;flex:none;-webkit-text-stroke:0}
+h3{font-family:var(--disp);font-weight:var(--dweight);font-size:clamp(19px,3.6vw,24px);color:#fff;
+  margin:44px 0 14px;letter-spacing:var(--dtrack);text-transform:var(--dcase)}
+h3::before{content:"";display:block;width:34px;height:3px;background:var(--acc);margin-bottom:12px;border-radius:2px}
 hr{border:0;height:1px;background:var(--line);margin:52px 0}
 ul{margin:0 0 22px;padding-left:20px}
 li{margin-bottom:9px;font-size:17px;opacity:.93}
 .lopen{padding:80px 0 6px}
-.lo-t{font-family:var(--disp);font-weight:300;font-size:clamp(30px,6.4vw,46px);color:#fff;line-height:1.08;letter-spacing:-.02em}
-.p-eye.d{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.lo-t{font-family:var(--disp);font-weight:var(--dweight);font-size:clamp(30px,6.8vw,52px);color:#fff;
+  line-height:var(--dlh);letter-spacing:var(--dtrack);text-transform:var(--dcase)}
+.p-eye.d{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--acc);margin-bottom:12px}
 
 /* abertura de parte, tela cheia e sem corte esquisito */
 .parte{position:relative;height:100svh;min-height:520px;display:flex;align-items:flex-end;overflow:hidden;margin:70px 0 0}
-.parte .pbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.parte .pwrap{position:absolute;inset:-12% 0;will-change:transform}
+.parte .pbg{width:100%;height:100%;object-fit:cover}
 .parte .pscrim{position:absolute;inset:0;background:
   linear-gradient(180deg,rgba(8,8,10,.5) 0,rgba(8,8,10,.12) 34%,rgba(8,8,10,.82) 76%,var(--bg) 100%)}
 .parte .pin-in{position:relative;max-width:var(--maxw);width:100%;margin:0 auto;padding:0 22px max(58px,8vh)}
-.p-eye{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent2);margin-bottom:14px}
-.p-t{font-family:var(--disp);font-weight:300;font-size:clamp(32px,7.4vw,56px);color:#fff;line-height:1.04;letter-spacing:-.02em}
+.p-eye{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--acc);margin-bottom:14px;
+  display:inline-flex;align-items:center;gap:10px}
+.p-eye::after{content:"";width:46px;height:2px;background:var(--acc);border-radius:2px}
+.p-t{font-family:var(--disp);font-weight:var(--dweight);font-size:clamp(34px,8.4vw,68px);color:#fff;
+  line-height:var(--dlh);letter-spacing:var(--dtrack);text-transform:var(--dcase)}
 .p-l{font-family:var(--disp);font-style:italic;font-weight:300;font-size:clamp(16px,3vw,20px);
   color:#d8d2c7;margin-top:16px;max-width:520px;line-height:1.5}
 
@@ -128,7 +158,7 @@ figcaption{font-family:var(--disp);font-style:italic;font-size:14.5px;color:var(
 /* decisões */
 .decs{margin:38px 0 34px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px 16px 18px}
 .dhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}
-.dk{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
+.dk{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--acc);font-weight:600}
 .dc-n{font-family:var(--disp);font-size:14px;color:var(--mut)}
 .dc-n b{color:var(--txt);font-weight:500}
 .dstage{position:relative;border-radius:12px;overflow:hidden}
@@ -137,13 +167,13 @@ figcaption{font-family:var(--disp);font-style:italic;font-size:14.5px;color:var(
 .pin{width:30px;height:30px;border-radius:50%;background:rgba(10,10,12,.62);backdrop-filter:blur(8px);
   border:1px solid rgba(255,255,255,.28);color:#fff;font-size:12.5px;font-weight:500;
   display:grid;place-items:center;transition:.22s}
-.pin.on{background:var(--accent);border-color:var(--accent);color:#14100c;transform:scale(1.14)}
+.pin.on{background:var(--acc);border-color:var(--acc);color:#000;transform:scale(1.14);font-weight:700}
 .dcap{margin:10px 2px 0}
 .dcards{margin-top:14px;min-height:118px}
 .dc{display:none;gap:13px;align-items:flex-start;animation:fade .34s ease}
 .dc.on{display:flex}
 @keyframes fade{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
-.dn{font-family:var(--disp);font-size:27px;color:var(--accent);line-height:1;flex:none;width:28px}
+.dn{font-family:var(--disp);font-size:30px;color:var(--acc);line-height:1;flex:none;width:30px}
 .dc b{display:block;color:#fff;font-weight:500;font-size:16.5px;margin-bottom:4px}
 .dc p{font-size:16px;color:var(--txt);opacity:.9;margin:0;line-height:1.7}
 .dnav{display:flex;gap:9px;margin-top:15px}
@@ -154,7 +184,7 @@ figcaption{font-family:var(--disp);font-style:italic;font-size:14.5px;color:var(
 .cmp{margin:36px 0 32px}
 .ctabs{display:flex;gap:7px;margin-bottom:12px}
 .ctabs button{flex:1;border:1px solid var(--line);border-radius:10px;padding:10px 8px;font-size:13px;color:var(--mut);transition:.2s}
-.ctabs button.on{background:var(--accent);border-color:var(--accent);color:#14100c;font-weight:500}
+.ctabs button.on{background:var(--acc);border-color:var(--acc);color:#000;font-weight:600}
 .cstage{position:relative;border-radius:var(--rad);overflow:hidden;background:var(--bg2);aspect-ratio:4/5;max-height:76vh}
 .ci{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s}
 .ci.on{opacity:1}
@@ -196,12 +226,12 @@ figcaption{font-family:var(--disp);font-style:italic;font-size:14.5px;color:var(
 .snote{font-size:12.5px;color:var(--mut);margin-top:11px;line-height:1.5}
 
 /* hora de praticar */
-.pratica{margin:26px 0;background:var(--bg2);border-left:2px solid var(--accent);border-radius:0 12px 12px 0;
+.pratica{margin:26px 0;background:var(--bg2);border-left:3px solid var(--acc);border-radius:0 12px 12px 0;
   padding:15px 17px;transition:.25s}
 .pratica label{display:flex;gap:12px;align-items:flex-start;cursor:pointer}
 .pratica input{width:19px;height:19px;flex:none;margin-top:3px;accent-color:var(--accent);cursor:pointer}
 .pratica span{font-size:16.5px;line-height:1.72}
-.pratica b{color:var(--accent);font-weight:500;letter-spacing:.02em}
+.pratica b{color:var(--acc);font-weight:600;letter-spacing:.02em}
 .pratica.done{opacity:.55}
 .pratica.done span{text-decoration:line-through;text-decoration-color:var(--mut)}
 
@@ -209,9 +239,10 @@ figcaption{font-family:var(--disp);font-style:italic;font-size:14.5px;color:var(
   color:#fff!important;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
   padding:18px 0;margin:28px 0!important}
 .segredo strong{font-family:var(--body);font-style:normal;font-size:10.5px;letter-spacing:.22em;
-  text-transform:uppercase;color:var(--accent)!important;display:block;margin-bottom:5px;font-weight:500}
-.pullq{font-family:var(--disp);font-style:italic;font-weight:300;font-size:clamp(20px,4.2vw,27px);
-  line-height:1.4;color:#fff;margin:38px 0;padding-left:18px;border-left:2px solid var(--accent)}
+  text-transform:uppercase;color:var(--acc)!important;display:block;margin-bottom:5px;font-weight:600}
+.pullq{font-family:var(--body);font-weight:300;font-size:clamp(20px,4.2vw,28px);font-style:italic;
+  line-height:1.45;color:#fff;margin:40px 0;padding-left:20px;border-left:3px solid var(--acc)}
+html[data-tema="galeria"] .pullq,html[data-tema="classico"] .pullq{font-family:var(--disp);font-style:italic}
 .ficha{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:26px 0}
 .fi{display:flex;gap:12px;background:var(--panel);padding:11px 14px;font-size:14.5px}
 .fk{color:var(--mut);min-width:120px;flex:none}
@@ -226,6 +257,44 @@ th{background:var(--panel);color:var(--accent2);font-weight:500;font-size:12px;l
 .slot p{font-size:15px!important;color:var(--mut);margin:0!important}
 .prov{font-family:var(--disp);font-style:italic;color:var(--mut)!important}
 
+/* antes e depois, arrastando */
+.ad{margin:38px 0 34px}
+.adhead{margin-bottom:12px}
+.adstage{position:relative;border-radius:var(--rad);overflow:hidden;background:#000;
+  aspect-ratio:2/3;max-height:80vh;user-select:none;touch-action:pan-y}
+.adstage>img.adb{width:100%;height:100%;object-fit:cover;display:block}
+.adtop{position:absolute;inset:0;width:50%;overflow:hidden;will-change:width}
+.adtop img{position:absolute;top:0;left:0;height:100%;object-fit:cover;display:block}
+.adline{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;transform:translateX(-50%);
+  pointer-events:none;box-shadow:0 0 14px rgba(0,0,0,.6);will-change:left}
+.adgrip{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;color:#000;
+  font-size:12px;font-weight:700;letter-spacing:.06em;padding:8px 12px;border-radius:22px;white-space:nowrap}
+.adtag{position:absolute;bottom:12px;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+  padding:6px 11px;border-radius:20px;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.22);color:#fff;pointer-events:none}
+.adl{left:12px} .adr{right:12px;background:var(--acc);color:#000;border-color:var(--acc);font-weight:700}
+.adstage input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.ad figcaption{margin-top:11px}
+
+/* tilt 3D na foto das decisões (só no mouse) */
+@media(hover:hover) and (pointer:fine){
+  .dstage{transform-style:preserve-3d;transition:transform .18s ease-out}
+}
+
+/* galeria horizontal do fim */
+.gal{margin:56px 0 10px;text-align:left}
+.gal h4{font-family:var(--disp);font-weight:var(--dweight);text-transform:var(--dcase);letter-spacing:var(--dtrack);
+  font-size:clamp(22px,5vw,30px);color:#fff;margin-bottom:6px}
+.gal .gsub{font-size:14px;color:var(--mut);margin-bottom:16px}
+.grail{display:flex;gap:12px;overflow-x:auto;padding-bottom:14px;scroll-snap-type:x mandatory;
+  scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.grail::-webkit-scrollbar{height:6px}
+.grail::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
+.grail .gi{flex:none;width:min(62vw,240px);aspect-ratio:2/3;border-radius:12px;overflow:hidden;
+  scroll-snap-align:start;background:var(--bg2);transition:transform .25s}
+.grail .gi:hover{transform:translateY(-5px)}
+.grail .gi img{width:100%;height:100%;object-fit:cover}
+
 /* lightbox */
 #lb{position:fixed;inset:0;z-index:90;background:rgba(6,6,8,.96);display:none;align-items:center;justify-content:center;padding:18px}
 #lb.on{display:flex}
@@ -236,16 +305,18 @@ th{background:var(--panel);color:var(--accent2);font-weight:500;font-size:12px;l
 /* fim */
 .fim{max-width:var(--maxw);margin:0 auto;padding:16px 22px 90px;text-align:center}
 .upsell{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px 22px;margin:44px 0 30px;text-align:left}
-.up-eye{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent)}
-.up-t{font-family:var(--disp);font-size:24px;color:#fff;margin:9px 0 10px;line-height:1.2;font-weight:400}
+.up-eye{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--acc)}
+.up-t{font-family:var(--disp);font-weight:var(--dweight);text-transform:var(--dcase);letter-spacing:var(--dtrack);
+  font-size:26px;color:#fff;margin:9px 0 10px;line-height:1.1}
 .upsell p{font-size:15.5px;color:var(--mut);margin-bottom:16px}
-.up-a{display:inline-block;border:1px solid var(--accent);color:var(--accent2);text-decoration:none;
+.up-a{display:inline-block;border:1px solid var(--acc);color:#fff;text-decoration:none;
   padding:11px 20px;border-radius:26px;font-size:13.5px;transition:.22s}
-.up-a:hover{background:var(--accent);color:#14100c}
-.sig{font-family:'Pinyon Script',var(--disp);font-size:36px;color:var(--accent2);margin:34px 0 18px}
-.cta{display:inline-block;background:var(--accent);color:#14100c;text-decoration:none;font-weight:500;
-  padding:15px 30px;border-radius:30px;font-size:14.5px;letter-spacing:.03em;transition:.22s}
-.cta:hover{filter:brightness(1.1)}
+.up-a:hover{background:var(--acc);color:#000}
+.sig{font-family:'Pinyon Script',cursive;font-size:38px;color:#fff;margin:34px 0 18px;text-transform:none;letter-spacing:0}
+.cta{display:inline-block;background:var(--acc);color:#000;text-decoration:none;font-weight:600;
+  padding:16px 32px;border-radius:30px;font-size:14.5px;letter-spacing:.03em;
+  transition:transform .18s cubic-bezier(.2,.8,.2,1),filter .2s;will-change:transform}
+.cta:hover{filter:brightness(1.08)}
 
 .rev{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
 .rev.in{opacity:1;transform:none}
@@ -261,6 +332,7 @@ th{background:var(--panel);color:var(--accent2);font-weight:500;font-size:12px;l
 <div class="bar">
   <a class="mono" href="/ebook/" style="text-decoration:none">FD</a>
   <span class="nm">Fábio Dombrate</span>
+  <span class="cap" id="capnow"></span>
   <span class="sp"></span>
   <button class="ic" id="bidx" aria-label="Índice">☰</button>
 </div>
@@ -270,8 +342,8 @@ th{background:var(--panel);color:var(--accent2);font-weight:500;font-size:12px;l
 
 <div id="temas">
   <span class="lb">Identidade</span>
-  <button class="on" data-t="galeria">Galeria</button>
-  <button data-t="atelie">Ateliê</button>
+  <button class="on" data-t="estudio">Estúdio</button>
+  <button data-t="galeria">Galeria</button>
   <button data-t="classico">Clássico</button>
 </div>
 
@@ -304,12 +376,13 @@ th{background:var(--panel);color:var(--accent2);font-weight:500;font-size:12px;l
 <p>Não é um manual pra decorar. É um convite pra reparar.</p>
 <p>Leia devagar, com a câmera do lado. Cada capítulo é curto de propósito, porque fotografia não se aprende lendo, se aprende olhando e fotografando. No fim de alguns deles, deixei uma hora de praticar, um exercício simples e rápido. Faça. É ali que a teoria vira olhar.</p>
 <p>A ordem que escolhi diz muito sobre o que eu acredito. Começamos pelo <strong>olhar</strong>, seguimos pela <strong>luz</strong>, e só então falamos da <strong>câmera</strong>. Porque a câmera é a última coisa que importa, não a primeira.</p>
-<hr></div><section class="parte" id="parte-1">
-      <img class="pbg" loading="lazy" src="/img/dupla-exposicao.jpg" alt="" style="object-position:50% 35%">
-      <div class="pscrim"></div>
-      <div class="pin-in"><div class="p-eye">Parte 1</div>
-        <h1 class="p-t">Aprender a ver</h1><p class="p-l">O olhar é a alma da fotografia. É a única coisa que nenhuma câmera nova vai te dar, e a que mais separa uma foto comum de uma que faz alguém parar. Por isso ela vem primeiro.</p></div>
-    </section><div class="rwrap"><h2 id="cap-3" data-nav="A pergunta antes do clique"><span class="cn">1</span>A pergunta antes do clique</h2>
+<hr></div><div class="bloco" style="--acc:#a855f7">
+      <section class="parte" id="parte-1">
+        <div class="pwrap"><img class="pbg" loading="lazy" src="/img/dupla-exposicao.jpg" alt="" style="object-position:50% 35%"></div>
+        <div class="pscrim"></div>
+        <div class="pin-in"><div class="p-eye">Parte 1</div>
+          <h1 class="p-t">Aprender a ver</h1><p class="p-l">O olhar é a alma da fotografia. É a única coisa que nenhuma câmera nova vai te dar, e a que mais separa uma foto comum de uma que faz alguém parar. Por isso ela vem primeiro.</p></div>
+      </section><div class="rwrap"><h2 id="cap-3" data-nav="A pergunta antes do clique"><span class="cn">1</span>A pergunta antes do clique</h2>
 <p>A gente fotografa no automático do olhar. Vê algo bonito, aponta, dispara. E depois a foto não diz o que a gente sentiu ali.</p>
 <p>Falta uma pergunta, e ela leva meio segundo: <strong>o que eu quero que essa foto diga?</strong></p>
 <p>Aconchego. Solidão. A grandeza de um lugar. A ternura de um rosto. A resposta muda tudo, o enquadramento, a espera, a luz. A foto deixa de ser um registro do que estava lá e vira uma frase sua sobre o que você viu.</p>
@@ -324,7 +397,6 @@ th{background:var(--panel);color:var(--accent2);font-weight:500;font-size:12px;l
 <p>Fotógrafo bom não briga com a luz. Ele espera, escolhe, se posiciona. Às vezes a foto certa é só uma questão de dar dois passos para o lado.</p>
 <div class="pratica"><label><input type="checkbox" class="pchk" data-k="p6">
         <span><b>Hora de praticar</b> Pegue um objeto e fotografe perto de uma janela em três posições: luz de frente, de lado e de trás. Sem mudar mais nada. Escolha a que tem mais volume. Guarde essa sensação, ela vai te acompanhar pra sempre.</span></label></div>
-<figure class="fig"><button class="zoom" data-full="/img/executivo2.jpg" aria-label="Ampliar"><img loading="lazy" src="/img/executivo2.jpg" alt="A luz de lado esculpe o rosto. É a diferença entre registrar e revelar."></button><figcaption>A luz de lado esculpe o rosto. É a diferença entre registrar e revelar.</figcaption></figure>
 <h2 id="cap-7" data-nav="Compor é decidir o que fica de fora"><span class="cn">3</span>Compor é decidir o que fica de fora</h2>
 <p>Compor não é encher o quadro. É escolher.</p>
 <p>A gente aprende a regra dos terços e para por aí. Mas compor é mais do que onde colocar o assunto. É usar as linhas de um lugar para conduzir o olho. É deixar respiro, porque o vazio ao redor de um assunto dá força, não fraqueza. É reparar no fundo, que importa tanto quanto a pessoa, porque a câmera registra com o mesmo cuidado aquilo que você nem viu.</p>
@@ -352,12 +424,13 @@ th{background:var(--panel);color:var(--accent2);font-weight:500;font-size:12px;l
     <div class="dnav"><button class="dprev">← anterior</button><button class="dnext">próxima →</button></div>
   </div>
 <p>Nenhuma dessas quatro decisões tem a ver com a câmera. Todas têm a ver com o que eu escolhi ver antes de disparar.</p>
-<hr></div><section class="parte" id="parte-2">
-      <img class="pbg" loading="lazy" src="/img/luz-janela.jpg" alt="" style="object-position:55% 35%">
-      <div class="pscrim"></div>
-      <div class="pin-in"><div class="p-eye">Parte 2</div>
-        <h1 class="p-t">A luz como matéria-prima</h1><p class="p-l">Se o olhar decide o que fotografar, a luz decide como. Este é o assunto que eu mais amo, e o que mais transforma uma foto quando você começa a dominá-lo.</p></div>
-    </section><div class="rwrap"><h2 id="cap-12" data-nav="Um estúdio na sua janela"><span class="cn">5</span>Um estúdio na sua janela</h2>
+<hr></div></div><div class="bloco" style="--acc:#ffd400">
+      <section class="parte" id="parte-2">
+        <div class="pwrap"><img class="pbg" loading="lazy" src="/img/luz-janela.jpg" alt="" style="object-position:55% 38%"></div>
+        <div class="pscrim"></div>
+        <div class="pin-in"><div class="p-eye">Parte 2</div>
+          <h1 class="p-t">A luz como matéria-prima</h1><p class="p-l">Se o olhar decide o que fotografar, a luz decide como. Este é o assunto que eu mais amo, e o que mais transforma uma foto quando você começa a dominá-lo.</p></div>
+      </section><div class="rwrap"><h2 id="cap-12" data-nav="Um estúdio na sua janela"><span class="cn">5</span>Um estúdio na sua janela</h2>
 <p>Você não precisa de equipamento caro para fazer um retrato bonito. A melhor luz suave que existe provavelmente está na sua sala agora.</p>
 <p>Uma janela grande, sem sol direto batendo, é uma fonte de luz macia e generosa. Envolve o rosto, cria sombra delicada, valoriza a pele. É praticamente um estúdio que não custou nada.</p>
 <p>Posicione a pessoa de lado para a janela, não de frente. A luz vem de um lado, o outro fica numa sombra suave, e isso cria volume, aquele ar de profundidade. Se a sombra ficou escura demais, ponha algo branco do outro lado, uma cartolina, uma parede clara, para devolver um pouco de luz.</p>
@@ -402,12 +475,13 @@ th{background:var(--panel);color:var(--accent2);font-weight:500;font-size:12px;l
   </div>
 <div class="pratica"><label><input type="checkbox" class="pchk" data-k="p20">
         <span><b>Hora de praticar</b> Apague as luzes do ambiente e acenda uma fonte só, de lado, perto do rosto. Afaste a pessoa da parede, para o fundo cair na escuridão sozinho. Fotografe o rosto inteiro, depois chegue mais perto e fotografe só o olhar. Compare as duas e veja o que o close fez com a expressão.</span></label></div>
-<hr></div><section class="parte" id="parte-3">
-      <img class="pbg" loading="lazy" src="/img/zooming.jpg" alt="" style="object-position:50% 50%">
-      <div class="pscrim"></div>
-      <div class="pin-in"><div class="p-eye">Parte 3</div>
-        <h1 class="p-t">A câmera a serviço do olhar</h1><p class="p-l">Agora sim, a câmera. Não como protagonista, mas como aliada. Estes são os poucos recursos que, quando você domina, param de atrapalhar e passam a libertar o seu olhar.</p></div>
-    </section><div class="rwrap"><h2 id="cap-21" data-nav="Os três pilares da exposição"><span class="cn">8</span>Os três pilares da exposição</h2>
+<hr></div></div><div class="bloco" style="--acc:#2196f3">
+      <section class="parte" id="parte-3">
+        <div class="pwrap"><img class="pbg" loading="lazy" src="/img/zooming.jpg" alt="" style="object-position:50% 50%"></div>
+        <div class="pscrim"></div>
+        <div class="pin-in"><div class="p-eye">Parte 3</div>
+          <h1 class="p-t">A câmera a serviço do olhar</h1><p class="p-l">Agora sim, a câmera. Não como protagonista, mas como aliada. Estes são os poucos recursos que, quando você domina, param de atrapalhar e passam a libertar o seu olhar.</p></div>
+      </section><div class="rwrap"><h2 id="cap-21" data-nav="Os três pilares da exposição"><span class="cn">8</span>Os três pilares da exposição</h2>
 <p>Toda fotografia começa com luz. Para controlar como essa luz será registrada pela câmera, existem três ajustes fundamentais: velocidade do obturador, abertura do diafragma e ISO.</p>
 <p>Esses três elementos formam o chamado triângulo da exposição. Eles trabalham juntos para determinar se uma fotografia ficará mais clara ou mais escura, mas cada um também provoca um efeito diferente na imagem. Por isso, aprender exposição não é apenas aprender a clarear uma fotografia. É aprender a decidir como você quer que ela fique.</p>
 <h3>Velocidade do obturador</h3>
@@ -493,7 +567,6 @@ th{background:var(--panel);color:var(--accent2);font-weight:500;font-size:12px;l
 <p>Abertura bem aberta, aquele número f baixo, e o fundo derrete num borrão suave enquanto o assunto salta. Abertura fechada, e tudo fica nítido, do perto ao longe. É o controle mais poderoso do retrato, e está a um giro de distância.</p>
 <div class="pratica"><label><input type="checkbox" class="pchk" data-k="p25">
         <span><b>Hora de praticar</b> Ponha a câmera no modo A. Fotografe a mesma pessoa em f/2.8 e depois em f/8. Veja o fundo derreter na primeira e ganhar nitidez na segunda. Você acabou de assumir o controle.</span></label></div>
-<figure class="fig"><button class="zoom" data-full="/img/executivo.jpg" aria-label="Ampliar"><img loading="lazy" src="/img/executivo.jpg" alt="A câmera a serviço do olhar, não o contrário."></button><figcaption>A câmera a serviço do olhar, não o contrário.</figcaption></figure>
 <h2 id="cap-26" data-nav="O botão mais subestimado"><span class="cn">10</span>O botão mais subestimado</h2>
 <p>Suas fotos saem um pouco escuras ou claras demais, e você não sabe por quê. A câmera está certa pela conta dela, e errada pelo que você queria.</p>
 <p>Existe um botão que resolve isso sem você sair do modo semiautomático: a compensação de exposição, o do símbolo de mais e menos. Ele diz para a câmera "deixa mais claro" ou "mais escuro" do que ela achou. Cena com muito branco, como uma parede clara ou a areia da praia? A câmera escurece sozinha. Empurre para o mais. Cena escura, como um ambiente à noite? Ela clareia demais. Puxe para o menos.</p>
@@ -502,12 +575,13 @@ th{background:var(--panel);color:var(--accent2);font-weight:500;font-size:12px;l
 <p>Metade das fotos frustrantes é foco no lugar errado. A câmera focou no fundo, ou o assunto se moveu.</p>
 <p>Duas decisões resolvem quase tudo. Primeiro, escolha o modo: foco único para o que está parado, como um retrato posado; foco contínuo para o que se move, como uma criança correndo. Segundo, escolha você o ponto de foco, não deixe a câmera adivinhar. Num retrato, o foco vai no olho mais próximo. Isso é quase sagrado. Um olho fora de foco derruba a imagem inteira.</p>
 <p>O resto é prática. Mas essas duas decisões já colocam a nitidez de volta nas suas mãos.</p>
-<hr></div><section class="parte" id="parte-4">
-      <img class="pbg" loading="lazy" src="/img/colunata.jpg" alt="" style="object-position:50% 45%">
-      <div class="pscrim"></div>
-      <div class="pin-in"><div class="p-eye">Parte 4</div>
-        <h1 class="p-t">Na prática</h1><p class="p-l">Olhar, luz e câmera se encontram aqui, em situações que você vai viver de verdade. Não são regras, são pontos de partida.</p></div>
-    </section><div class="rwrap"><h2 id="cap-28" data-nav="O retrato"><span class="cn">12</span>O retrato</h2>
+<hr></div></div><div class="bloco" style="--acc:#e935b8">
+      <section class="parte" id="parte-4">
+        <div class="pwrap"><img class="pbg" loading="lazy" src="/img/retrato-posicionamento.jpg" alt="" style="object-position:50% 28%"></div>
+        <div class="pscrim"></div>
+        <div class="pin-in"><div class="p-eye">Parte 4</div>
+          <h1 class="p-t">Na prática</h1><p class="p-l">Olhar, luz e câmera se encontram aqui, em situações que você vai viver de verdade. Não são regras, são pontos de partida.</p></div>
+      </section><div class="rwrap"><h2 id="cap-28" data-nav="O retrato"><span class="cn">12</span>O retrato</h2>
 <p>Fotografar uma pessoa é fotografar quem ela é, não só como ela parece.</p>
 <p>Abertura aberta para separar do fundo, foco no olho, luz de janela suave vindo de lado. Fotografe na altura dos olhos dela. E converse, faça rir, distraia, porque o retrato verdadeiro quase sempre acontece no intervalo entre as poses, quando ela relaxa e esquece a câmera.</p>
 <p>Sua paciência é o que traz a foto real. O resto é ajuste.</p>
@@ -550,24 +624,39 @@ th{background:var(--panel);color:var(--accent2);font-weight:500;font-size:12px;l
 <p>Velocidade rápida congela o instante, o pulo, a corrida, o gesto. Velocidade lenta, com a câmera bem firme, transforma movimento em poesia: a água vira seda, as luzes viram riscos. O truque é decidir antes qual das duas histórias você quer contar, e ajustar a câmera para servir a essa decisão.</p>
 <figure class="fig"><button class="zoom" data-full="/img/longa-exposicao.jpg" aria-label="Ampliar"><img loading="lazy" src="/img/longa-exposicao.jpg" alt="Velocidade lenta, câmera firme: os faróis deixam de ser pontos e viram linha."></button><figcaption>Velocidade lenta, câmera firme: os faróis deixam de ser pontos e viram linha.</figcaption></figure>
 <p>Se quiser ir além, o extra <em>7 Técnicas Fotográficas para Explorar na Prática</em> mostra, passo a passo, como transformar movimento e tempo em linguagem: panning, longa exposição, light painting e mais.</p>
-<hr></div><section class="parte" id="parte-5">
-      <img class="pbg" loading="lazy" src="/img/pb-mulher.jpg" alt="" style="object-position:50% 30%">
-      <div class="pscrim"></div>
-      <div class="pin-in">
-        <h1 class="p-t">Depois do clique</h1></div>
-    </section><div class="rwrap"><h2 id="cap-33" data-nav="A edição honesta"><span class="cn">15</span>A edição honesta</h2>
+<hr></div></div><div class="bloco" style="--acc:#22d3ee">
+      <section class="parte" id="parte-5">
+        <div class="pwrap"><img class="pbg" loading="lazy" src="/img/retrato-externo.jpg" alt="" style="object-position:42% 45%"></div>
+        <div class="pscrim"></div>
+        <div class="pin-in">
+          <h1 class="p-t">Depois do clique</h1></div>
+      </section><div class="rwrap"><h2 id="cap-33" data-nav="A edição honesta"><span class="cn">15</span>A edição honesta</h2>
 <p>Editar não é transformar a foto em outra coisa. É revelar o que já estava lá, como se fazia no laboratório com o negativo.</p>
 <p>Ajuste o brilho geral, recupere o detalhe no céu e nas sombras, dê um toque de contraste, acerte a cor para a pele ficar natural. E pare antes de exagerar. A boa edição é invisível: a pessoa olha e acha que a foto saiu assim. Menos é quase sempre mais.</p>
+<p>Esta é uma foto minha, na edição antiga e na que eu faço hoje. O arquivo é o mesmo, a luz é a mesma, o instante é o mesmo. Mudou só o que eu decidi mostrar.</p>
+<div class="ad" id="ad34">
+    <div class="adhead"><span class="dk">Arraste para comparar</span></div>
+    <div class="adstage">
+      <img class="adb" src="/img/violao.jpg" alt="Depois da edição">
+      <div class="adtop"><img src="/img/violao-antes.jpg" alt="Antes da edição"></div>
+      <div class="adline"><span class="adgrip">◂ ▸</span></div>
+      <span class="adtag adl">antes</span><span class="adtag adr">depois</span>
+      <input type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois">
+    </div>
+    <figcaption>A mesma foto, a edição de antes e a de hoje. Arraste a linha.</figcaption>
+  </div>
+<p>Repare que nada foi inventado: o fundo continua preto, a pele continua pele. O que mudou foi o contraste, a temperatura e o quanto eu deixo a escuridão trabalhar.</p>
 <div class="slot"><div class="slot-l">🎥 Vídeo do Fábio · <em>falta você</em></div><p>um mini-tutorial do teu fluxo de edição no Lightroom, do RAW ao resultado final (3-5 min). Vale ouro pro ebook e é aula pronta pro curso.</p></div>
-<h2 id="cap-34" data-nav="Não perca suas fotos"><span class="cn">16</span>Não perca suas fotos</h2>
+<h2 id="cap-35" data-nav="Não perca suas fotos"><span class="cn">16</span>Não perca suas fotos</h2>
 <p>Uma foto que existe num lugar só não existe de verdade.</p>
 <p>Guarde tudo em dois lugares diferentes, o computador e um HD, ou o computador e a nuvem. Formate o cartão só depois de confirmar que as imagens estão salvas nos dois. Parece detalhe, mas é o que separa quem guarda a memória de quem a perde para sempre.</p>
-<hr></div><section class="parte" id="parte-6">
-      <img class="pbg" loading="lazy" src="/img/longa-exposicao.jpg" alt="" style="object-position:50% 50%">
-      <div class="pscrim"></div>
-      <div class="pin-in">
-        <h1 class="p-t">Para terminar</h1></div>
-    </section><div class="rwrap"><p>Se você chegou até aqui, já entendeu que este livro nunca foi sobre botões.</p>
+<hr></div></div><div class="bloco" style="--acc:#a855f7">
+      <section class="parte" id="parte-6">
+        <div class="pwrap"><img class="pbg" loading="lazy" src="/img/pb-luzdura.jpg" alt="" style="object-position:50% 35%"></div>
+        <div class="pscrim"></div>
+        <div class="pin-in">
+          <h1 class="p-t">Para terminar</h1></div>
+      </section><div class="rwrap"><p>Se você chegou até aqui, já entendeu que este livro nunca foi sobre botões.</p>
 <p>A câmera é generosa, guarda muito mais do que a maioria pede dela. Mas o que transforma uma foto não está no equipamento. Está no olhar, e o olhar é a única coisa que vai te acompanhar por qualquer câmera que você tiver na vida.</p>
 <p>Fotografia é um jeito de prestar atenção no mundo. De reparar na luz da tarde, no gesto de quem você ama, na cena comum que só você viu daquele jeito. A câmera é a desculpa. O presente é começar a olhar.</p>
 <p>E quando você olha com atenção, você faz mais do que uma foto bonita. Você eterniza o presente. Guarda a beleza do seu tempo e a entrega para quem vier depois.</p>
@@ -589,9 +678,16 @@ th{background:var(--panel);color:var(--accent2);font-weight:500;font-size:12px;l
 <li class="chk">Cartão com espaço e já com backup do anterior</li>
 <li class="chk">Lente limpa</li>
 <li class="chk">Uma pergunta na cabeça: o que eu quero que essas fotos digam?</li>
-</ul></div>
+</ul></div></div>
 
 <div class="fim">
+  <div class="gal">
+    <h4>O olhar do Fábio</h4>
+    <p class="gsub">As fotos deste manual, lado a lado. Toque para ampliar.</p>
+    <div class="grail">
+      <button class="gi zoom" data-full="/img/retrato-junior.jpg"><img loading="lazy" src="/img/retrato-junior.jpg" alt=""></button><button class="gi zoom" data-full="/img/retrato-posicionamento.jpg"><img loading="lazy" src="/img/retrato-posicionamento.jpg" alt=""></button><button class="gi zoom" data-full="/img/luz-janela.jpg"><img loading="lazy" src="/img/luz-janela.jpg" alt=""></button><button class="gi zoom" data-full="/img/arqvestido.jpg"><img loading="lazy" src="/img/arqvestido.jpg" alt=""></button><button class="gi zoom" data-full="/img/retrato-externo.jpg"><img loading="lazy" src="/img/retrato-externo.jpg" alt=""></button><button class="gi zoom" data-full="/img/pb-luzdura.jpg"><img loading="lazy" src="/img/pb-luzdura.jpg" alt=""></button><button class="gi zoom" data-full="/img/violao.jpg"><img loading="lazy" src="/img/violao.jpg" alt=""></button><button class="gi zoom" data-full="/img/longa-exposicao.jpg"><img loading="lazy" src="/img/longa-exposicao.jpg" alt=""></button><button class="gi zoom" data-full="/img/dupla-exposicao.jpg"><img loading="lazy" src="/img/dupla-exposicao.jpg" alt=""></button><button class="gi zoom" data-full="/img/zooming.jpg"><img loading="lazy" src="/img/zooming.jpg" alt=""></button>
+    </div>
+  </div>
   <div class="upsell">
     <div class="up-eye">Extra do Manual</div>
     <div class="up-t">7 Técnicas Fotográficas para Explorar na Prática</div>
@@ -692,6 +788,82 @@ th{background:var(--panel);color:var(--accent2);font-weight:500;font-size:12px;l
       try{localStorage.setItem(k,c.checked?'1':'0');}catch(e){}
     };
   });
+
+  // antes e depois, arrastando
+  d.querySelectorAll('.ad').forEach(function(box){
+    var stage=box.querySelector('.adstage'),top=box.querySelector('.adtop'),
+        topImg=top.querySelector('img'),line=box.querySelector('.adline'),
+        rng=box.querySelector('input');
+    function medir(){ topImg.style.width=stage.clientWidth+'px'; }
+    function pos(p){ top.style.width=p+'%'; line.style.left=p+'%'; }
+    rng.addEventListener('input',function(){pos(rng.value);});
+    addEventListener('resize',medir);
+    if(topImg.complete) medir(); else topImg.onload=medir;
+    new IntersectionObserver(function(es,ob){
+      es.forEach(function(e){ if(e.isIntersecting){ medir();
+        // um empurrãozinho para o leitor perceber que dá para arrastar
+        var v=50,dir=1,n=0,t=setInterval(function(){
+          v+=dir*2.2; n++; if(n===7)dir=-1; if(n>=14){clearInterval(t);v=50;}
+          rng.value=v; pos(v);
+        },34);
+        ob.unobserve(e.target); }});
+    },{threshold:.45}).observe(stage);
+    pos(50);
+  });
+
+  // tilt 3D nas fotos das decisões
+  if(matchMedia('(hover:hover) and (pointer:fine)').matches){
+    d.querySelectorAll('.dstage').forEach(function(st){
+      st.addEventListener('mousemove',function(e){
+        var r=st.getBoundingClientRect();
+        var x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+        st.style.transform='perspective(900px) rotateY('+(x*5).toFixed(2)+'deg) rotateX('+(-y*5).toFixed(2)+'deg)';
+      });
+      st.addEventListener('mouseleave',function(){st.style.transform='';});
+    });
+  }
+
+  // CTA que foge um pouco do mouse
+  var cta=d.querySelector('.cta');
+  if(cta&&matchMedia('(hover:hover) and (pointer:fine)').matches){
+    cta.addEventListener('mousemove',function(e){
+      var r=cta.getBoundingClientRect();
+      cta.style.transform='translate('+((e.clientX-r.left-r.width/2)*.22).toFixed(1)+'px,'
+        +((e.clientY-r.top-r.height/2)*.28).toFixed(1)+'px)';
+    });
+    cta.addEventListener('mouseleave',function(){cta.style.transform='';});
+  }
+
+  // parallax nas aberturas de parte + indicador de capítulo na barra
+  var partes=[].slice.call(d.querySelectorAll('.parte')),
+      blocos=[].slice.call(d.querySelectorAll('.bloco')),
+      capnow=d.getElementById('capnow'),
+      hs=[].slice.call(d.querySelectorAll('h2[data-nav]')),
+      reduz=matchMedia('(prefers-reduced-motion:reduce)').matches, tick=false;
+  function quadro(){
+    tick=false;
+    if(!reduz) partes.forEach(function(p){
+      var r=p.getBoundingClientRect();
+      if(r.bottom<-200||r.top>innerHeight+200) return;
+      var w=p.querySelector('.pwrap');
+      if(w) w.style.transform='translateY('+(((r.top+r.height/2)-innerHeight/2)*-0.09).toFixed(1)+'px)';
+    });
+    // capítulo atual
+    var atual=null;
+    for(var i=0;i<hs.length;i++){ if(hs[i].getBoundingClientRect().top<120) atual=hs[i]; else break; }
+    if(atual){ var n=atual.querySelector('.cn');
+      capnow.innerHTML=(n?'<b>'+n.textContent+'</b>':'')+atual.getAttribute('data-nav');
+      capnow.classList.add('on');
+    } else capnow.classList.remove('on');
+    // a cor da barra segue a parte em que você está
+    for(var j=blocos.length-1;j>=0;j--){
+      if(blocos[j].getBoundingClientRect().top<innerHeight*.5){
+        prog.style.background=getComputedStyle(blocos[j]).getPropertyValue('--acc'); break;
+      }
+    }
+  }
+  addEventListener('scroll',function(){ if(!tick){tick=true;requestAnimationFrame(quadro);} },{passive:true});
+  addEventListener('resize',quadro); quadro();
 
   // simulador de exposicao
   var sim=d.getElementById('sim');
