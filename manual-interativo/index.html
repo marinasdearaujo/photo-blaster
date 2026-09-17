@@ -84,6 +84,69 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
 .dnav{display:flex;gap:9px;margin-top:14px}
 .dnav button{flex:1;border:1px solid var(--line);border-radius:10px;padding:10px;font-size:13px;color:var(--mut)}
 
+/* antes e depois, arrastando */
+.ad{margin:38px 0 34px}
+.adhead{margin-bottom:12px}
+.adstage{position:relative;border-radius:var(--rad);overflow:hidden;background:#000;
+  aspect-ratio:2/3;max-height:80vh;user-select:none;touch-action:pan-y}
+.adimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.adt{clip-path:inset(0 50% 0 0);will-change:clip-path}
+.adline{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;transform:translateX(-50%);
+  pointer-events:none;box-shadow:0 0 14px rgba(0,0,0,.6);will-change:left}
+.adgrip{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;color:#000;
+  font-size:12px;font-weight:700;letter-spacing:.06em;padding:8px 12px;border-radius:22px;white-space:nowrap}
+.adtag{position:absolute;bottom:12px;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+  padding:6px 11px;border-radius:20px;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.22);color:#fff;pointer-events:none}
+.adl{left:12px} .adr{right:12px;background:var(--acc);color:#000;border-color:var(--acc);font-weight:700}
+.adstage input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.ad figcaption{margin-top:11px}
+
+/* comparador */
+.cmp{margin:36px 0 32px}
+.ctabs{display:flex;gap:7px;margin-bottom:12px}
+.ctabs button{flex:1;border:1px solid var(--line);border-radius:10px;padding:10px 8px;font-size:13px;color:var(--mut);transition:.2s}
+.ctabs button.on{background:var(--acc);border-color:var(--acc);color:#000;font-weight:600}
+.cstage{position:relative;border-radius:var(--rad);overflow:hidden;background:var(--bg2);aspect-ratio:4/5;max-height:76vh}
+.ci{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s}
+.ci.on{opacity:1}
+.ccap{font-family:var(--disp);font-style:italic;font-size:14px;color:var(--mut);margin-top:10px}
+
+/* simulador */
+.sim{margin:38px 0 34px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:17px}
+.shead{display:flex;flex-direction:column;gap:3px;margin-bottom:14px}
+.shint{font-size:13px;color:var(--mut)}
+.scene{display:flex;flex-direction:column;gap:6px;margin-bottom:13px}
+.scene label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.scene select{background:var(--bg2);border:1px solid var(--line);color:var(--txt);border-radius:9px;
+  padding:10px 11px;font:inherit;font-size:14.5px;width:100%}
+.spreview{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:3/2;background:#000;margin-bottom:13px}
+.spreview img{width:100%;height:100%;object-fit:cover;transition:filter .22s}
+.sgrain{position:absolute;inset:0;opacity:0;pointer-events:none;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+  transition:opacity .22s}
+.sbadge{position:absolute;left:10px;bottom:10px;font-size:11.5px;letter-spacing:.06em;padding:6px 11px;border-radius:20px;
+  background:rgba(10,10,12,.7);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);color:#fff}
+.smeter{position:relative;height:34px;margin:4px 0 16px}
+.sticks{position:absolute;inset:auto 0 12px;height:1px;background:var(--line)}
+.sneedle{position:absolute;bottom:7px;left:50%;width:2px;height:12px;background:var(--accent);
+  transform:translateX(-50%);transition:left .22s,background .22s;border-radius:2px}
+.slabels{position:absolute;inset:auto 0 -4px;display:flex;justify-content:space-between;font-size:10.5px;color:var(--mut)}
+.srow{margin-bottom:13px}
+.srow label{display:flex;justify-content:space-between;font-size:12.5px;color:var(--mut);margin-bottom:6px}
+.srow label b{color:var(--txt);font-weight:500;font-variant-numeric:tabular-nums}
+.srow input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:3px;border-radius:3px;background:var(--line);outline:0}
+.srow input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:21px;height:21px;border-radius:50%;
+  background:var(--accent);cursor:pointer;border:3px solid var(--panel);box-shadow:0 1px 6px rgba(0,0,0,.5)}
+.srow input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;background:var(--accent);
+  cursor:pointer;border:3px solid var(--panel)}
+.stripe{display:flex;align-items:center;gap:9px;font-size:14px;color:var(--mut);margin-bottom:13px;cursor:pointer}
+.stripe input{width:17px;height:17px;accent-color:var(--accent)}
+.sout{font-size:14.5px;line-height:1.65;color:var(--txt);background:var(--bg2);border-radius:11px;padding:12px 13px;min-height:74px}
+.sout b{color:var(--accent2);font-weight:500}
+.sout .warn{color:#e5945f}
+.snote{font-size:12.5px;color:var(--mut);margin-top:11px;line-height:1.5}
+
 /* HUB */
 .hub{padding:34px 0 70px}
 .hub .eye{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--acc)}
@@ -466,7 +529,15 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
 <figure class="fig"><button class="zoom" data-full="/img/pb-luzdura.jpg"><img loading="lazy" src="/img/pb-luzdura.jpg" alt="Luz dura, preto e branco e sombra marcada. A mesma luz que atrapalha um retrato suave é a que constrói este."></button><figcaption>Luz dura, preto e branco e sombra marcada. A mesma luz que atrapalha um retrato suave é a que constrói este.</figcaption></figure>
 <p>Reparar na hora do dia é entender a luz antes que ela vire um problema e saber transformá-la em solução. É a diferença entre a foto que aconteceu com você e a foto que você escolheu.</p>
 <blockquote class="pullq">Fotógrafo bom não briga com a luz. Ele escolhe.</blockquote>
-<h2 id="c8" data-nav="Uma luz só"><span class="cn">7</span>Uma luz só</h2>
+<div class="cmp" id="c8">
+    <div class="ctabs"><button class="on" data-s="a">Luz suave</button><button data-s="b">Luz dura</button></div>
+    <div class="cstage">
+      <img class="ci on" data-s="a" loading="lazy" src="/img/luz-janela.jpg" alt="Luz suave">
+      <img class="ci" data-s="b" loading="lazy" src="/img/pb-luzdura.jpg" alt="Luz dura">
+    </div>
+    <p class="ccap">Duas luzes, duas intenções. Toque para alternar.</p>
+  </div>
+<h2 id="c9" data-nav="Uma luz só"><span class="cn">7</span>Uma luz só</h2>
 <p>À noite, ou num ambiente fechado, a gente acha que precisa de muito equipamento. Precisa do contrário: de controle sobre a única luz que tem.</p>
 <p>Cinema e pintura fazem isso há séculos. Uma fonte só, bem posicionada, cria drama e beleza. Pegue um abajur, uma luminária, até a lanterna do celular. Aproxime do rosto, de lado e um pouco de cima, imitando como a luz natural cai. Quanto mais perto a fonte, mais suave a sombra. Deixe a escuridão fazer parte da foto, porque sombra não é falta de luz, é escolha.</p>
 <div class="pratica" data-ex="m2-e5">
@@ -477,7 +548,7 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
     <div class="pfeito" hidden></div>
   </div>
 <hr>
-<h2 id="c9" data-nav="Estudo de caso: a luz num retrato" class="plain">Estudo de caso: a luz num retrato</h2>
+<h2 id="c10" data-nav="Estudo de caso: a luz num retrato" class="plain">Estudo de caso: a luz num retrato</h2>
 <p>O formato mais forte do manual: eu destrincho a luz de um retrato meu, decisão por decisão, e depois você repete na sua câmera.</p>
 <div class="decs"><div class="dhead"><span class="dk">Decisão por decisão</span><span class="dc-n"><b>1</b>/4</span></div>
     <div class="dstage"><button class="zoom" data-full="/img/retrato-junior.jpg"><img loading="lazy" src="/img/retrato-junior.jpg" alt="O retrato do Júnior: uma luz de lado, a sombra mantida e o fundo entregue à escuridão."></button><div class="dpins"><button class="pin on" data-i="0">1</button><button class="pin" data-i="1">2</button><button class="pin" data-i="2">3</button><button class="pin" data-i="3">4</button></div></div>
@@ -521,7 +592,7 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
     </div>
   </div>
   <div class="rwrap">
-    <h2 id="c10" data-nav="Os três pilares da exposição"><span class="cn">8</span>Os três pilares da exposição</h2>
+    <h2 id="c11" data-nav="Os três pilares da exposição"><span class="cn">8</span>Os três pilares da exposição</h2>
 <p>Toda fotografia começa com luz. Para controlar como essa luz será registrada pela câmera, existem três ajustes fundamentais: velocidade do obturador, abertura do diafragma e ISO.</p>
 <p>Esses três elementos formam o chamado triângulo da exposição. Eles trabalham juntos para determinar se uma fotografia ficará mais clara ou mais escura, mas cada um também provoca um efeito diferente na imagem. Por isso, aprender exposição não é apenas aprender a clarear uma fotografia. É aprender a decidir como você quer que ela fique.</p>
 <h3>Velocidade do obturador</h3>
@@ -579,7 +650,39 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
     <div class="pfeito" hidden></div>
   </div>
 <p>Antes de ir para a câmera, brinque aqui. Escolha uma cena, mexa nos três controles e veja o que aconteceria.</p>
-<h2 id="c11" data-nav="Saia do automático, sem medo"><span class="cn">9</span>Saia do automático, sem medo</h2>
+<div class="sim" id="sim">
+  <div class="shead"><span class="dk">Simulador de exposição</span>
+    <span class="shint">Mexa nos três e veja o que a câmera faria</span></div>
+  <div class="scene">
+    <label>Cena</label>
+    <select id="s-cena">
+      <option value="15">Retrato em estúdio, luz forte</option>
+      <option value="12" selected>Externa em dia nublado</option>
+      <option value="9">Fim de tarde, luz baixa</option>
+      <option value="5">Ambiente interno à noite</option>
+      <option value="2">Cidade à noite, cena parada</option>
+    </select>
+  </div>
+  <div class="spreview">
+    <img src="/img/retrato-externo.jpg" alt="Prévia da exposição" id="s-img">
+    <div class="sgrain" id="s-grain"></div>
+    <div class="sbadge" id="s-badge">exposição correta</div>
+  </div>
+  <div class="smeter"><div class="sticks"></div><div class="sneedle" id="s-needle"></div>
+    <div class="slabels"><span>−3</span><span>−2</span><span>−1</span><span>0</span><span>+1</span><span>+2</span><span>+3</span></div></div>
+  <div class="srow"><label>Velocidade <b id="s-vv">1/500</b></label>
+    <input type="range" id="s-v" min="0" max="13" step="1" value="11"></div>
+  <div class="srow"><label>Abertura <b id="s-av">f/5.6</b></label>
+    <input type="range" id="s-a" min="0" max="8" step="1" value="3"></div>
+  <div class="srow"><label>ISO <b id="s-iv">400</b></label>
+    <input type="range" id="s-i" min="0" max="7" step="1" value="2"></div>
+  <div class="srow"><label>Compensação <b id="s-cv">0</b></label>
+    <input type="range" id="s-c" min="-9" max="9" step="1" value="0"></div>
+  <label class="stripe"><input type="checkbox" id="s-tri"> Estou usando tripé</label>
+  <div class="sout" id="s-out"></div>
+  <p class="snote">Simulação com a conta real de exposição. Serve para entender a relação entre os três, não para substituir o que você vê no visor.</p>
+</div>
+<h2 id="c12" data-nav="Saia do automático, sem medo"><span class="cn">9</span>Saia do automático, sem medo</h2>
 <p>O automático decide tudo por você, e quase sempre decide o seguro, não o bonito.</p>
 <p>Você não precisa saltar direto para o modo manual completo. Existe um caminho do meio, e ele resolve a maior parte das fotos: o modo de prioridade de abertura (o "A" ou "Av" na sua câmera). Nele, você escolhe uma coisa só, o quanto o fundo fica desfocado, e a câmera cuida do resto.</p>
 <p>Abertura bem aberta, aquele número f baixo, e o fundo derrete num borrão suave enquanto o assunto salta. Abertura fechada, e tudo fica nítido, do perto ao longe. É o controle mais poderoso do retrato, e está a um giro de distância.</p>
@@ -590,11 +693,11 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
     <button class="preg" data-reg>Registrar o que eu fiz</button>
     <div class="pfeito" hidden></div>
   </div>
-<h2 id="c12" data-nav="O botão mais subestimado"><span class="cn">10</span>O botão mais subestimado</h2>
+<h2 id="c13" data-nav="O botão mais subestimado"><span class="cn">10</span>O botão mais subestimado</h2>
 <p>Suas fotos saem um pouco escuras ou claras demais, e você não sabe por quê. A câmera está certa pela conta dela, e errada pelo que você queria.</p>
 <p>Existe um botão que resolve isso sem você sair do modo semiautomático: a compensação de exposição, o do símbolo de mais e menos. Ele diz para a câmera "deixa mais claro" ou "mais escuro" do que ela achou. Cena com muito branco, como uma parede clara ou a areia da praia? A câmera escurece sozinha. Empurre para o mais. Cena escura, como um ambiente à noite? Ela clareia demais. Puxe para o menos.</p>
 <p>É o meio-termo perfeito entre deixar a câmera decidir e assumir tudo. Resolve metade das reclamações de "a luz da minha foto saiu errada".</p>
-<h2 id="c13" data-nav="Foco no lugar certo"><span class="cn">11</span>Foco no lugar certo</h2>
+<h2 id="c14" data-nav="Foco no lugar certo"><span class="cn">11</span>Foco no lugar certo</h2>
 <p>Metade das fotos frustrantes é foco no lugar errado. A câmera focou no fundo, ou o assunto se moveu.</p>
 <p>Duas decisões resolvem quase tudo. Primeiro, escolha o modo: foco único para o que está parado, como um retrato posado; foco contínuo para o que se move, como uma criança correndo. Segundo, escolha você o ponto de foco, não deixe a câmera adivinhar. Num retrato, o foco vai no olho mais próximo. Isso é quase sagrado. Um olho fora de foco derruba a imagem inteira.</p>
 <p>O resto é prática. Mas essas duas decisões já colocam a nitidez de volta nas suas mãos.</p>
@@ -629,7 +732,7 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
     </div>
   </div>
   <div class="rwrap">
-    <h2 id="c14" data-nav="O retrato"><span class="cn">12</span>O retrato</h2>
+    <h2 id="c15" data-nav="O retrato"><span class="cn">12</span>O retrato</h2>
 <p>Fotografar uma pessoa é fotografar quem ela é, não só como ela parece.</p>
 <p>Abertura aberta para separar do fundo, foco no olho, luz de janela suave vindo de lado. Fotografe na altura dos olhos dela. E converse, faça rir, distraia, porque o retrato verdadeiro quase sempre acontece no intervalo entre as poses, quando ela relaxa e esquece a câmera.</p>
 <p>Sua paciência é o que traz a foto real. O resto é ajuste.</p>
@@ -639,7 +742,7 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
     <figcaption>Retrato de posicionamento: roupa, pose, luz e fundo dizendo a mesma coisa.</figcaption><div class="dcards"><div class="dc on"><span class="dn">1</span><div><b>A roupa</b><p>Terno e gravata, para transmitir autoridade e profissionalismo. A roupa é a primeira frase do retrato e fala antes do rosto.</p></div></div><div class="dc"><span class="dn">2</span><div><b>A pose</b><p>Corpo inclinado para a frente, olhar direto na câmera. É o que passa confiança.</p></div></div><div class="dc"><span class="dn">3</span><div><b>A luz</b><p>Lateral, com contraste, para esculpir o rosto e dar força ao retrato.</p></div></div><div class="dc"><span class="dn">4</span><div><b>O fundo</b><p>Preto, para eliminar distrações e concentrar toda a atenção na pessoa.</p></div></div></div>
     <div class="dnav"><button class="dprev">← anterior</button><button class="dnext">próxima →</button></div></div>
 <p>Repare que as quatro decisões dizem a mesma coisa. Quando roupa, pose, luz e fundo apontam para a mesma direção, o retrato deixa de ser uma foto bonita e passa a ser um posicionamento.</p>
-<h2 id="c15" data-nav="Pouca luz"><span class="cn">13</span>Pouca luz</h2>
+<h2 id="c16" data-nav="Pouca luz"><span class="cn">13</span>Pouca luz</h2>
 <p>Ambiente escuro não é problema. Muitas vezes, é justamente a pouca luz que dá clima à fotografia.</p>
 <p>Abra a lente ao máximo, mantenha uma velocidade que não deixe a foto tremer, e suba o ISO sem culpa. Uma foto com um pouco de granulado é uma foto. Uma foto tremida, ou o momento perdido por medo, não são.</p>
 <p>E use a luz que já está ali: um palco, uma vela, um letreiro, uma janela iluminada. Aproxime a pessoa dessas fontes e deixe a escuridão ao redor trabalhar a favor da imagem.</p>
@@ -649,7 +752,7 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
     <figcaption>Externa em dia nublado: preto e branco, as luzes do fundo na composição e a fumaça esperada.</figcaption><div class="dcards"><div class="dc on"><span class="dn">1</span><div><b>A luz</b><p>O dia estava nublado, com luz suave e sem muita direção. Em vez de brigar com isso, aproveitei: uma luz assim mantém o rosto equilibrado com o fundo, sem estouro e sem sombra dura.</p></div></div><div class="dc"><span class="dn">2</span><div><b>O preto e branco</b><p>As cores não estavam ajudando a fotografia. Tirei a cor para simplificar a cena e deixar o contraste e a expressão fazerem o trabalho.</p></div></div><div class="dc"><span class="dn">3</span><div><b>O fundo</b><p>Era um fundo meio confuso, mas tinha vários pontos de luz. Mudei o meu posicionamento até que essas luzes virassem parte da composição em vez de bagunça.</p></div></div><div class="dc"><span class="dn">4</span><div><b>A espera</b><p>A cena ainda precisava de alguma coisa. Esperei o momento exato em que ele soltou a fumaça e fotografei. Foi ela que trouxe movimento e deu mais força para a imagem.</p></div></div></div>
     <div class="dnav"><button class="dprev">← anterior</button><button class="dnext">próxima →</button></div></div>
 <p>Nenhuma dessas decisões mudou a luz do lugar. Elas mudaram o que eu fiz com ela.</p>
-<h2 id="c16" data-nav="Movimento"><span class="cn">14</span>Movimento</h2>
+<h2 id="c17" data-nav="Movimento"><span class="cn">14</span>Movimento</h2>
 <p>Movimento é uma escolha, não um acidente.</p>
 <p>Velocidade rápida congela o instante, o pulo, a corrida, o gesto. Velocidade lenta, com a câmera bem firme, transforma movimento em poesia: a água vira seda, as luzes viram riscos. O truque é decidir antes qual das duas histórias você quer contar, e ajustar a câmera para servir a essa decisão.</p>
 <figure class="fig"><button class="zoom" data-full="/img/longa-exposicao.jpg"><img loading="lazy" src="/img/longa-exposicao.jpg" alt="Velocidade lenta, câmera firme: os faróis deixam de ser pontos e viram linha."></button><figcaption>Velocidade lenta, câmera firme: os faróis deixam de ser pontos e viram linha.</figcaption></figure>
@@ -685,12 +788,23 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
     </div>
   </div>
   <div class="rwrap">
-    <h2 id="c17" data-nav="A edição honesta"><span class="cn">15</span>A edição honesta</h2>
+    <h2 id="c18" data-nav="A edição honesta"><span class="cn">15</span>A edição honesta</h2>
 <p>Editar é revelar o que já estava no arquivo, como se fazia no laboratório com o negativo. Não é transformar a foto em outra coisa.</p>
 <p>Ajuste o brilho geral, recupere o detalhe no céu e nas sombras, dê um toque de contraste, acerte a cor para a pele ficar natural. E pare antes de exagerar. A boa edição é invisível: a pessoa olha e acha que a foto saiu assim. Menos é quase sempre mais.</p>
 <p>Esta é uma foto minha, na edição antiga e na que eu faço hoje. O arquivo é o mesmo, a luz é a mesma, o instante é o mesmo. Mudou só o que eu decidi mostrar.</p>
+<div class="ad" id="ad19">
+    <div class="adhead"><span class="dk">Arraste para comparar</span></div>
+    <div class="adstage">
+      <img class="adimg adb" src="/img/violao.jpg" alt="Depois da edição">
+      <img class="adimg adt" src="/img/violao-antes.jpg" alt="Antes da edição">
+      <div class="adline"><span class="adgrip">◂ ▸</span></div>
+      <span class="adtag adl">antes</span><span class="adtag adr">depois</span>
+      <input type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois">
+    </div>
+    <figcaption>A mesma foto, a edição de antes e a de hoje. Arraste a linha.</figcaption>
+  </div>
 <p>Repare que nada foi inventado: o fundo continua preto, a pele continua pele. O que mudou foi o contraste, a temperatura e o quanto eu deixo a escuridão trabalhar.</p>
-<h2 id="c18" data-nav="Não perca suas fotos"><span class="cn">16</span>Não perca suas fotos</h2>
+<h2 id="c20" data-nav="Não perca suas fotos"><span class="cn">16</span>Não perca suas fotos</h2>
 <p>Foto guardada num lugar só é foto que você ainda pode perder.</p>
 <p>Guarde tudo em dois lugares diferentes, o computador e um HD, ou o computador e a nuvem. Formate o cartão só depois de confirmar que as imagens estão salvas nos dois. Parece detalhe, mas é o que separa quem guarda a memória de quem a perde para sempre.</p>
 <hr>
@@ -1178,6 +1292,80 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
   };
   pintaExtra();
 
+  // antes e depois, arrastando
+  d.querySelectorAll('.ad').forEach(function(box){
+    var stage=box.querySelector('.adstage'),adt=box.querySelector('.adt'),
+        line=box.querySelector('.adline'),rng=box.querySelector('input');
+    function pos(p){ adt.style.clipPath='inset(0 '+(100-p)+'% 0 0)'; line.style.left=p+'%'; }
+    rng.addEventListener('input',function(){pos(rng.value);});
+    new IntersectionObserver(function(es,ob){
+      es.forEach(function(e){ if(e.isIntersecting){
+        // um empurrãozinho para o leitor perceber que dá para arrastar
+        var v=50,dir=1,n=0,t=setInterval(function(){
+          v+=dir*2.2; n++; if(n===7)dir=-1; if(n>=14){clearInterval(t);v=50;}
+          rng.value=v; pos(v);
+        },34);
+        ob.unobserve(e.target); }});
+    },{threshold:.45}).observe(stage);
+    pos(50);
+  });
+
+  // comparador
+  d.querySelectorAll('.cmp').forEach(function(box){
+    var tabs=box.querySelectorAll('.ctabs button'),imgs=box.querySelectorAll('.ci');
+    tabs.forEach(function(t){t.onclick=function(){
+      tabs.forEach(function(x){x.classList.remove('on');});t.classList.add('on');
+      imgs.forEach(function(im){im.classList.toggle('on',im.dataset.s===t.dataset.s);});
+    };});
+  });
+
+  // simulador de exposicao
+  var sim=d.getElementById('sim');
+  if(sim){
+    var VEL=[['30s',30],['15s',15],['8s',8],['4s',4],['2s',2],['1s',1],['1/15',1/15],['1/30',1/30],
+             ['1/60',1/60],['1/125',1/125],['1/250',1/250],['1/500',1/500],['1/1000',1/1000],['1/2000',1/2000]];
+    // atenção: o slider 0..13 segue a ordem acima; 1/125 é o índice 9
+    var ABE=[1.8,2.8,4,5.6,8,11,16,22,32];
+    var ISO=[100,200,400,800,1600,3200,6400,12800];
+    var q=function(s){return d.getElementById(s);};
+    var sv=q('s-v'),sa=q('s-a'),si=q('s-i'),sc=q('s-c'),tri=q('s-tri'),cena=q('s-cena');
+    sv.max=VEL.length-1; sv.value=11; sa.value=3; si.value=2;
+    var img=q('s-img'),grain=q('s-grain'),badge=q('s-badge'),needle=q('s-needle'),out=q('s-out');
+    function upd(){
+      var v=VEL[+sv.value],a=ABE[+sa.value],iso=ISO[+si.value],comp=(+sc.value)/3;
+      q('s-vv').textContent=v[0];
+      q('s-av').textContent='f/'+a;
+      q('s-iv').textContent=iso;
+      q('s-cv').textContent=(comp>0?'+':'')+(Math.round(comp*10)/10);
+      // EV da câmera com esses ajustes, normalizado para ISO 100
+      var evCam=Math.log2(a*a/v[1])-Math.log2(iso/100);
+      var alvo=+cena.value;                 // EV que a cena pede
+      var err=alvo-evCam+comp;              // >0 clara demais, <0 escura demais
+      var cl=Math.max(-3,Math.min(3,err));
+      needle.style.left=(50+cl/3*48)+'%';
+      var okish=Math.abs(err)<=0.5;
+      needle.style.background=okish?'#6fbf8a':(Math.abs(err)>1.5?'#e06a4e':'var(--accent)');
+      // prévia: brilho segue a exposição, grão segue o ISO, tremido segue a velocidade na mão
+      var shake=(!tri.checked&&v[1]>1/60)?Math.min(5,(v[1]/(1/60))*0.55):0;
+      img.style.filter='brightness('+Math.pow(2,cl*0.34).toFixed(3)+') blur('+shake.toFixed(2)+'px)';
+      grain.style.opacity=Math.min(.75,Math.max(0,(Math.log2(iso/100)-1)*0.15)).toFixed(2);
+      badge.textContent=okish?'exposição correta':(err>0?'clara em ':'escura em ')+Math.abs(Math.round(err*10)/10)+' passos';
+      // leitura
+      var t=[];
+      t.push(okish?'<b>Exposição no ponto.</b> A câmera registra a cena como você está vendo.'
+                  :(err>0?'<b>Sobra luz.</b> Feche o diafragma, use uma velocidade mais rápida ou baixe o ISO.'
+                         :'<b>Falta luz.</b> Abra mais o diafragma, use uma velocidade mais lenta ou suba o ISO.'));
+      if(a<=2.8) t.push('Em f/'+a+' o fundo desaparece num desfoque forte. Ótimo para retrato, perigoso se você quer o corpo todo em foco.');
+      else if(a>=11) t.push('Em f/'+a+' quase tudo fica em foco, do primeiro plano ao fundo. É a abertura da paisagem.');
+      if(!tri.checked&&v[1]>1/60) t.push('<span class="warn">'+v[0]+'s na mão é risco de tremido.</span> Ou apoie a câmera, ou suba a velocidade.');
+      if(tri.checked&&v[1]>=1&&iso<=400) t.push('Com tripé e cena parada, essa é a receita limpa: ISO baixo e obturador aberto por mais tempo.');
+      if(iso>=3200) t.push('<span class="warn">ISO '+iso+' já mostra ruído.</span> Ainda vale a pena se a alternativa era perder a foto.');
+      if(comp) t.push('Compensação em '+(comp>0?'+':'')+(Math.round(comp*10)/10)+': você está dizendo para a câmera que ela errou a medição.');
+      out.innerHTML=t.join(' ');
+    }
+    [sv,sa,si,sc,tri,cena].forEach(function(el){el.addEventListener('input',upd);el.addEventListener('change',upd);});
+    upd();
+  }
   /* ---------- decisões e lightbox ---------- */
   d.querySelectorAll('.decs').forEach(function(box){
     var pins=box.querySelectorAll('.pin'),cards=box.querySelectorAll('.dc'),num=box.querySelector('.dc-n b'),i=0,n=pins.length;
@@ -1197,7 +1385,7 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
   }
   function folga(){ d.getElementById('main').style.paddingTop=d.querySelector('.topo').offsetHeight+'px'; }
   addEventListener('resize',folga); folga(); setTimeout(folga,400);
-  try{var sv=localStorage.getItem('fd-eu');if(sv)eu=JSON.parse(sv);}catch(e){}
+  try{var salvo=localStorage.getItem('fd-eu');if(salvo)eu=JSON.parse(salvo);}catch(e){}
   pintaEu(); carrega();
   d.querySelectorAll('.coment').forEach(carregaCom);
   var h=location.hash.replace('#','');
