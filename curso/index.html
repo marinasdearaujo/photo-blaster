@@ -33,6 +33,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   font-size:12px;font-weight:700;flex:none}
 @media(max-width:700px){.bar .nm,.bar .lk{display:none}}
 
+.gprog{position:relative;height:22px;background:#07070a;border-bottom:1px solid var(--line);overflow:hidden}
+.gfill{height:100%;width:0;background:linear-gradient(90deg,#a855f7,#e935b8);transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.gtxt{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:#fff;
+  text-shadow:0 1px 3px rgba(0,0,0,.8);pointer-events:none}
+
 .wrap{max-width:980px;margin:0 auto;padding:0 18px}
 .rwrap{max-width:var(--maxw);margin:0 auto;padding:6px 18px}
 .rwrap p{font-size:17.5px;margin:0 0 20px;opacity:.93}
@@ -109,15 +115,28 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
 .mprog{height:4px;background:var(--line);border-radius:3px;overflow:hidden}
 .mbar{height:100%;width:0;background:var(--c);border-radius:3px;transition:width .5s}
 .mpct{font-size:11.5px;color:var(--mut);margin-top:6px;display:block}
+.mcard.trancado{position:relative;border-style:dashed}
+.mcard.trancado .mimg img{filter:grayscale(.85) brightness(.5)}
+.mcard.trancado .minfo h3{color:var(--mut)}
+.mcard.trancado:hover .mimg img{filter:grayscale(.2) brightness(.8)}
+.mcard.trancado:hover .minfo h3{color:#fff}
+.cadeado{position:absolute;top:12px;right:14px;font-size:17px;opacity:.75}
+.mcard.liberado{border-style:solid}
+.mcard.liberado .cadeado{display:none}
+.mcard.liberado .mimg img{filter:none}
+.mcard.liberado .minfo h3{color:#fff}
 
 /* MÓDULO */
 .mhero{position:relative;height:56svh;min-height:330px;display:flex;align-items:flex-end;overflow:hidden}
 .mbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.mscrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.1) 38%,rgba(0,0,0,.88) 82%,var(--bg))}
+.mscrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.72),rgba(0,0,0,.32) 42%,rgba(0,0,0,.92) 84%,var(--bg))}
 .mh-in{position:relative;max-width:var(--maxw);width:100%;margin:0 auto;padding:0 18px 34px}
-.voltar{font-size:12.5px;color:#fff;opacity:.75;margin-bottom:16px;display:inline-block}
-.voltar:hover{opacity:1}
-.mh-in .mnum{display:block;margin-bottom:10px}
+.voltar{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#fff;
+  background:rgba(0,0,0,.55);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.35);
+  border-radius:24px;padding:9px 18px;margin-bottom:20px;transition:.2s}
+.voltar:hover{background:#fff;color:#000;border-color:#fff}
+.mh-in .mnum{display:inline-block;margin-bottom:10px;background:var(--c);color:#000;font-weight:700;
+  padding:4px 12px;border-radius:14px;font-size:10.5px}
 .mh-in h1{font-family:var(--disp);font-weight:400;font-size:clamp(30px,7vw,54px);line-height:1;
   text-transform:uppercase;color:#fff}
 .mlead{font-size:16.5px;color:#d8d2c7;margin-top:14px;max-width:52ch;font-style:italic}
@@ -143,6 +162,14 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
 .concluir{border:1px solid var(--c);color:#fff;border-radius:26px;padding:14px 28px;font-size:14.5px;font-weight:500;transition:.2s}
 .concluir:hover{background:var(--c);color:#000}
 .concluir.ja{background:var(--ok);border-color:var(--ok);color:#04220f;font-weight:600}
+.passo{display:flex;gap:10px;margin-top:22px}
+.passo.fimmod{margin:0 0 70px}
+.pss{flex:1;border:1px solid var(--line);border-radius:12px;padding:14px 12px;font-size:14px;
+  color:var(--mut);font-weight:500;transition:.2s}
+.pss:hover{border-color:var(--c);color:#fff}
+.pss.go{background:var(--c);border-color:var(--c);color:#000;font-weight:600}
+.pss.go:hover{filter:brightness(1.12)}
+@media(max-width:520px){.passo{flex-direction:column}}
 
 /* COMENTÁRIOS */
 .coment{margin:46px 0 60px;border-top:1px solid var(--line);padding-top:30px}
@@ -225,6 +252,8 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
   <button class="lk" data-ir="pedidos">Pedidos</button>
   <button class="eu" id="beu"><span class="av" id="avatar">?</span><span id="meunome">entrar</span></button>
 </div>
+<div class="gprog"><div class="gfill" id="gfill"></div>
+  <span class="gtxt" id="gtxt">0% concluído</span></div>
 </div>
 
 <main id="main">
@@ -310,7 +339,18 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
       <div class="mprog"><div class="mbar" data-bar="7"></div></div>
       <span class="mpct" data-pct="7">não começou</span>
     </div>
-  </button></div>
+  </button>
+      <button class="mcard trancado" data-ir="extra" style="--c:#c9a45f">
+        <div class="mimg"><img loading="lazy" src="/img/tecnicas-capa.jpg" alt=""></div>
+        <div class="minfo">
+          <span class="mnum">Extra · bloqueado</span>
+          <h3>7 Técnicas Fotográficas</h3>
+          <div class="mmeta"><span>7 técnicas</span><span>desafio de 7 dias</span></div>
+          <span class="mpct">clique para liberar</span>
+        </div>
+        <span class="cadeado">&#128274;</span>
+      </button>
+    </div>
   </div>
 </section>
 
@@ -389,6 +429,10 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
         <button class="cenviar">Enviar</button>
       </div>
     </section>
+    <div class="passo fimmod">
+      <button class="pss" data-ir="0">← Todos os módulos</button>
+      <button class="pss go" data-ir="2">Módulo 2 →</button>
+    </div>
   </div>
 </section>
 <section class="mod" data-mod="2" style="--c:#ffd400" hidden>
@@ -459,6 +503,10 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
         <button class="cenviar">Enviar</button>
       </div>
     </section>
+    <div class="passo fimmod">
+      <button class="pss" data-ir="1">← Módulo 1</button>
+      <button class="pss go" data-ir="3">Módulo 3 →</button>
+    </div>
   </div>
 </section>
 <section class="mod" data-mod="3" style="--c:#2196f3" hidden>
@@ -563,6 +611,10 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
         <button class="cenviar">Enviar</button>
       </div>
     </section>
+    <div class="passo fimmod">
+      <button class="pss" data-ir="2">← Módulo 2</button>
+      <button class="pss go" data-ir="4">Módulo 4 →</button>
+    </div>
   </div>
 </section>
 <section class="mod" data-mod="4" style="--c:#e935b8" hidden>
@@ -615,6 +667,10 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
         <button class="cenviar">Enviar</button>
       </div>
     </section>
+    <div class="passo fimmod">
+      <button class="pss" data-ir="3">← Módulo 3</button>
+      <button class="pss go" data-ir="5">Módulo 5 →</button>
+    </div>
   </div>
 </section>
 <section class="mod" data-mod="5" style="--c:#22d3ee" hidden>
@@ -650,6 +706,10 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
         <button class="cenviar">Enviar</button>
       </div>
     </section>
+    <div class="passo fimmod">
+      <button class="pss" data-ir="4">← Módulo 4</button>
+      <button class="pss go" data-ir="6">Módulo 6 →</button>
+    </div>
   </div>
 </section>
 <section class="mod" data-mod="6" style="--c:#a855f7" hidden>
@@ -685,6 +745,10 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
         <button class="cenviar">Enviar</button>
       </div>
     </section>
+    <div class="passo fimmod">
+      <button class="pss" data-ir="5">← Módulo 5</button>
+      <button class="pss go" data-ir="7">Módulo 7 →</button>
+    </div>
   </div>
 </section>
 <section class="mod" data-mod="7" style="--c:#22d3ee" hidden>
@@ -726,8 +790,45 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
         <button class="cenviar">Enviar</button>
       </div>
     </section>
+    <div class="passo fimmod">
+      <button class="pss" data-ir="6">← Módulo 6</button>
+      <button class="pss go" data-ir="extra">Ver o extra →</button>
+    </div>
   </div>
 </section>
+
+<section class="view" data-view="extra" hidden><div class="mhero" style="--c:#c9a45f">
+  <img class="mbg" loading="lazy" src="/img/tecnicas-capa.jpg" alt="" style="object-position:50% 30%">
+  <div class="mscrim"></div>
+  <div class="mh-in">
+    <button class="voltar" data-ir="0">← todos os módulos</button>
+    <span class="mnum">Extra</span>
+    <h1>7 Técnicas Fotográficas</h1>
+    <p class="mlead">Movimento, luz e tempo transformados em linguagem.</p>
+  </div>
+</div>
+<div class="rwrap" style="--c:#c9a45f">
+  <div id="extra-tranca">
+    <p>Este módulo não vem junto com o manual. É um extra, com sete técnicas para explorar na prática: panning, longa exposição, HDR, zooming, dupla exposição, ICM e light painting.</p>
+    <p>Cada uma tem ficha rápida, passo a passo e o segredo por trás dela. No fim, um desafio de sete dias, um por técnica.</p>
+    <div class="ficha">
+      <div class="fi"><span class="fk">O que é</span><span class="fv">7 técnicas, com exemplos meus</span></div>
+      <div class="fi"><span class="fk">Para quem</span><span class="fv">quem já leu o manual e quer experimentar</span></div>
+      <div class="fi"><span class="fk">Formato</span><span class="fv">página de leitura, igual ao manual</span></div>
+    </div>
+    <div class="passo">
+      <button class="pss" id="ja-tenho">Já comprei, quero abrir</button>
+      <a class="pss go" href="/ebook/#extra" style="text-align:center;text-decoration:none">Conhecer o extra →</a>
+    </div>
+  </div>
+  <div id="extra-livre" hidden>
+    <p>Liberado. O extra abre numa página só, no mesmo formato do manual.</p>
+    <div class="passo">
+      <button class="pss" id="re-trancar">Trancar de novo</button>
+      <a class="pss go" href="/tecnicas/" style="text-align:center;text-decoration:none">Abrir as 7 técnicas →</a>
+    </div>
+  </div>
+</div></section>
 
 <section class="view" data-view="diario" hidden><div class="wrap pag">
   <h1>Meu diário</h1>
@@ -877,7 +978,11 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
     var nex=Object.keys(dados.ex).length;
     d.getElementById('st-mod').textContent=conc;
     d.getElementById('st-ex').textContent=nex;
-    d.getElementById('st-pct').textContent=Math.round(pcts.reduce(function(a,b){return a+b;},0)/MODS)+'%';
+    var geral=Math.round(pcts.reduce(function(a,b){return a+b;},0)/MODS);
+    d.getElementById('st-pct').textContent=geral+'%';
+    d.getElementById('gfill').style.width=geral+'%';
+    d.getElementById('gtxt').textContent=geral===0?'comece pelo módulo 1'
+      :(geral===100?'curso concluído':geral+'% concluído · '+conc+' de '+MODS+' módulos');
     var dias={};Object.keys(dados.ex).forEach(function(k){var t=dados.ex[k].ts;if(t)dias[new Date(t).toDateString()]=1;});
     d.getElementById('st-dias').textContent=Object.keys(dias).length;
     d.getElementById('selos').innerHTML=NOMES.map(function(nm,i){
@@ -1052,6 +1157,26 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
         .then(function(){ta.value='';carregaPed();aviso('Anotado');});
     });
   };
+
+  /* ---------- extra bloqueado ---------- */
+  function pintaExtra(){
+    var livre=false; try{livre=localStorage.getItem('fd-extra')==='1';}catch(e){}
+    d.getElementById('extra-tranca').hidden=livre;
+    d.getElementById('extra-livre').hidden=!livre;
+    var c=d.querySelector('.mcard.trancado');
+    if(c){ c.classList.toggle('liberado',livre);
+      c.querySelector('.mpct').textContent=livre?'liberado':'clique para liberar';
+      c.querySelector('.mnum').textContent=livre?'Extra':'Extra · bloqueado'; }
+  }
+  d.getElementById('ja-tenho').onclick=function(){
+    try{localStorage.setItem('fd-extra','1');}catch(e){}
+    pintaExtra(); aviso('Extra liberado neste aparelho');
+  };
+  d.getElementById('re-trancar').onclick=function(){
+    try{localStorage.removeItem('fd-extra');}catch(e){}
+    pintaExtra();
+  };
+  pintaExtra();
 
   /* ---------- decisões e lightbox ---------- */
   d.querySelectorAll('.decs').forEach(function(box){

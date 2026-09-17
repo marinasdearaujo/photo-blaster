@@ -104,20 +104,20 @@ header.hero{padding:46px 0 26px}
 <div class="top"><div class="wrap">
   <span class="mono">FD</span><b>O que mudou no manual</b>
   <span class="sp"></span>
-  <span class="cont"><em id="c-feito">0</em> de 45 decididas</span>
+  <span class="cont"><em id="c-feito">0</em> de 46 decididas</span>
 </div></div>
 
 <div class="wrap">
   <header class="hero">
     <div class="eye">O Manual Que Não Veio na Caixa</div>
     <h1>Nada entra sem você dizer sim</h1>
-    <p>Desde a sua última revisão eu mexi em coisas que você não pediu. Em vez de deixar passar, listei tudo aqui: 20 frases que ficaram com cara de texto de robô e 25 coisas novas que eu adicionei. Você decide uma por uma.</p>
+    <p>Desde a sua última revisão eu mexi em coisas que você não pediu. Em vez de deixar passar, listei tudo aqui: 20 frases que ficaram com cara de texto de robô e 26 coisas novas que eu adicionei. Você decide uma por uma.</p>
     <div class="como"><b>Como funciona:</b> se concordar, é só aprovar. Se não gostar, clica em recusar e escreve do teu jeito, mesmo que seja solto. O que você escrever vale mais que o que eu escrevi.</div>
   </header>
 
   <div class="abas">
     <button class="on" data-aba="texto">Texto com cara de robô <span>20</span></button>
-    <button data-aba="novo">Coisas que eu adicionei <span>25</span></button>
+    <button data-aba="novo">Coisas que eu adicionei <span>26</span></button>
   </div>
 
   <div class="filtros">
@@ -1796,6 +1796,43 @@ header.hero{padding:46px 0 26px}
   <div class="feito" hidden></div>
 </article>
 
+<article class="card" id="a26" data-id="a26" data-g="novo">
+  <header class="ch">
+    <span class="n">26</span>
+    <span class="cap">Módulo bloqueado</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>O que entrou de novo</h4>
+      <p>No fim da lista de módulos aparece um oitavo card, trancado com cadeado: as 7 Técnicas Fotográficas. Clicando, abre uma página explicando o extra, com botão para conhecer e outro para quem já comprou.</p>
+    </div>
+    <div class="col depois">
+      <h4>O que eu proponho</h4>
+      <p data-sug>Manter o extra como módulo bloqueado no fim.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Ideia da Marina. Põe o upsell dentro do curso, no momento em que a pessoa terminou os sete módulos e quer mais. Quem já comprou libera no próprio aparelho.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Pode ficar</button>
+    <button class="no" data-no>Não quero, ou quero diferente</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Me diz o que fazer: tirar, mudar, trocar a foto. Do jeito que vier.</label>
+    <textarea rows="4" placeholder="Ex: tira isso / troca a foto por outra / muda o texto para..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
   <div class="fim" style="text-align:left;border-top:1px solid var(--line);margin-top:30px">
     <p style="margin-bottom:14px"><b style="color:#fff">Para ver de pé:</b>
       <a href="/manual-v2/" style="color:var(--acc)">o manual novo</a> ·
@@ -1852,7 +1889,7 @@ header.hero{padding:46px 0 26px}
   function esc(s){var p=d.createElement('p');p.textContent=s;return p.innerHTML;}
 
   function conta(){
-    var n=Object.keys(estado).length, tot=45;
+    var n=Object.keys(estado).length, tot=46;
     d.getElementById('c-feito').textContent=n;
     d.getElementById('bar').style.width=(n/tot*100)+'%';
     aplicaFiltro();
