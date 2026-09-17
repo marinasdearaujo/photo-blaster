@@ -1,0 +1,1718 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O que mudou no manual · Fabio Dombrate</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--bg2:#0b0b0e;--panel:#101015;--line:#23232b;--txt:#f2f2f4;--mut:#8e8e99;
+  --acc:#d946c4;--ok:#4ade80;--no:#fb923c;--disp:'Anton',Impact,sans-serif;--body:'Inter',system-ui,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--txt);font-family:var(--body);font-weight:300;line-height:1.7;
+  -webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{max-width:820px;margin:0 auto;padding:0 18px}
+
+.top{position:sticky;top:0;z-index:20;background:rgba(0,0,0,.9);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);padding:13px 0}
+.top .wrap{display:flex;align-items:center;gap:12px}
+.mono{width:30px;height:30px;border:1px solid var(--acc);color:var(--acc);border-radius:4px;
+  display:grid;place-items:center;font-size:13px;font-weight:700;flex:none}
+.top b{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.top .sp{flex:1}
+.cont{font-size:12.5px;color:var(--mut);white-space:nowrap}
+.cont em{color:var(--acc);font-style:normal;font-weight:600}
+#bar{position:fixed;top:0;left:0;height:2px;width:0;background:var(--acc);z-index:21;transition:width .3s}
+
+header.hero{padding:46px 0 26px}
+.hero .eye{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--acc);margin-bottom:12px}
+.hero h1{font-family:var(--disp);font-weight:400;font-size:clamp(30px,7vw,52px);line-height:1;
+  text-transform:uppercase;color:#fff}
+.hero p{color:var(--mut);margin-top:16px;font-size:16px;max-width:60ch}
+.hero .como{margin-top:18px;background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:14px 16px;font-size:14.5px;color:var(--txt)}
+.hero .como b{color:var(--acc);font-weight:600}
+
+.abas{display:flex;gap:8px;margin:28px 0 0;border-bottom:1px solid var(--line)}
+.abas button{padding:12px 4px;margin-right:18px;font-size:14.5px;color:var(--mut);font-weight:500;
+  border-bottom:2px solid transparent;margin-bottom:-1px;display:flex;align-items:center;gap:8px}
+.abas button.on{color:#fff;border-bottom-color:var(--acc)}
+.abas button span{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:1px 8px;font-size:11.5px;font-weight:600}
+.abas button.on span{background:var(--acc);border-color:var(--acc);color:#000}
+.aviso{margin:16px 0 0;font-size:13.5px;color:var(--mut);background:var(--panel);
+  border-left:2px solid var(--acc);border-radius:0 10px 10px 0;padding:11px 14px}
+.filtros{display:flex;gap:7px;flex-wrap:wrap;margin:16px 0 6px}
+.filtros button{border:1px solid var(--line);border-radius:20px;padding:7px 15px;font-size:12.5px;color:var(--mut)}
+.filtros button.on{background:var(--acc);border-color:var(--acc);color:#000;font-weight:600}
+
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;margin:16px 0}
+.card.hide{display:none}
+.card.done-ok{border-color:rgba(74,222,128,.42)}
+.card.done-no{border-color:rgba(251,146,60,.42)}
+.ch{display:flex;align-items:center;gap:11px;margin-bottom:14px}
+.ch .n{font-family:var(--disp);font-size:20px;color:var(--acc);line-height:1}
+.ch .cap{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);flex:1}
+.tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:14px;font-weight:600}
+.tag.ok{background:rgba(74,222,128,.14);color:var(--ok)}
+.tag.no{background:rgba(251,146,60,.14);color:var(--no)}
+
+.par{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.col{border-radius:11px;padding:13px 14px;background:var(--bg2);border:1px solid var(--line)}
+.col h4{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);
+  font-weight:600;margin-bottom:8px}
+.col p{font-size:15.5px;line-height:1.6}
+.col.antes p{color:var(--mut)}
+.col.depois{border-color:rgba(217,70,196,.4)}
+.col.depois h4{color:var(--acc)}
+@media(max-width:640px){.par{grid-template-columns:1fr}}
+
+.por{margin-top:13px;font-size:14px;color:var(--mut);line-height:1.6;
+  border-left:2px solid var(--line);padding-left:12px}
+.por b{color:var(--txt);font-weight:600;margin-right:5px}
+
+.acts{display:flex;gap:9px;margin-top:15px}
+.acts button{flex:1;border:1px solid var(--line);border-radius:10px;padding:12px;font-size:14px;
+  font-weight:500;transition:.2s}
+.acts .ok:hover{background:var(--ok);border-color:var(--ok);color:#04220f}
+.acts .no:hover{background:var(--no);border-color:var(--no);color:#2a1503}
+
+.reescreve{margin-top:14px}
+.reescreve label{display:block;font-size:13px;color:var(--mut);margin-bottom:8px}
+.reescreve textarea{width:100%;background:var(--bg2);border:1px solid var(--line);border-radius:11px;
+  color:var(--txt);font:inherit;font-size:15.5px;padding:12px;resize:vertical;line-height:1.6}
+.reescreve textarea:focus{outline:0;border-color:var(--acc)}
+.racts{display:flex;gap:9px;margin-top:9px}
+.racts button{border:1px solid var(--line);border-radius:10px;padding:10px 18px;font-size:13.5px}
+.racts .salvar{background:var(--acc);border-color:var(--acc);color:#000;font-weight:600}
+
+.feito{margin-top:14px;background:var(--bg2);border-radius:11px;padding:13px 14px;font-size:15px;line-height:1.6}
+.feito .lb{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);
+  font-weight:600;display:block;margin-bottom:6px}
+.feito .txt{color:var(--txt)}
+.feito .mudar{margin-top:10px;font-size:13px;color:var(--acc);text-decoration:underline}
+
+.fim{padding:44px 0 70px;text-align:center;color:var(--mut);font-size:14.5px}
+.fim .zap{display:inline-block;margin-top:14px;background:var(--acc);color:#000;font-weight:600;
+  text-decoration:none;padding:13px 26px;border-radius:26px;font-size:14px}
+#toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,90px);background:#fff;color:#000;
+  font-size:13.5px;font-weight:500;padding:11px 20px;border-radius:24px;z-index:40;transition:transform .3s;
+  box-shadow:0 10px 34px rgba(0,0,0,.5)}
+#toast.on{transform:translate(-50%,0)}
+</style></head><body>
+<div id="bar"></div>
+<div class="top"><div class="wrap">
+  <span class="mono">FD</span><b>O que mudou no manual</b>
+  <span class="sp"></span>
+  <span class="cont"><em id="c-feito">0</em> de 40 decididas</span>
+</div></div>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="eye">O Manual Que Não Veio na Caixa</div>
+    <h1>Nada entra sem você dizer sim</h1>
+    <p>Desde a sua última revisão eu mexi em coisas que você não pediu. Em vez de deixar passar, listei tudo aqui: 20 frases que ficaram com cara de texto de robô e 20 coisas novas que eu adicionei. Você decide uma por uma.</p>
+    <div class="como"><b>Como funciona:</b> se concordar, é só aprovar. Se não gostar, clica em recusar e escreve do teu jeito, mesmo que seja solto. O que você escrever vale mais que o que eu escrevi.</div>
+  </header>
+
+  <div class="abas">
+    <button class="on" data-aba="texto">Texto com cara de robô <span>20</span></button>
+    <button data-aba="novo">Coisas que eu adicionei <span>20</span></button>
+  </div>
+
+  <div class="filtros">
+    <button class="on" data-f="todas">Todas</button>
+    <button data-f="pendentes">Pendentes</button>
+    <button data-f="aprovadas">Aprovadas</button>
+    <button data-f="recusadas">Suas versões</button>
+  </div>
+
+  <div class="aviso" id="aviso-texto">Essas frases estão no manual agora. A sugestão só entra se você aprovar.</div>
+  <div class="aviso" id="aviso-novo" hidden>Tudo aqui é diferente da versão que você revisou. Se recusar, eu tiro.</div>
+
+  
+<article class="card" id="s01" data-id="s01" data-g="texto">
+  <header class="ch">
+    <span class="n">01</span>
+    <span class="cap">Como ler este manual</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>Como está hoje</h4>
+      <p>Não é o tipo de manual que se decora. É um convite pra reparar.</p>
+    </div>
+    <div class="col depois">
+      <h4>Sugestão</h4>
+      <p data-sug>Não precisa decorar nada daqui. A ideia é que, da próxima vez que você levantar a câmera, você repare em coisas que antes passavam batido.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Fórmula &quot;não é X, é Y&quot; com rima (decorar / reparar). É o padrão mais reconhecível de texto escrito por IA: soa bonito, mas não diz nada que você não diria numa conversa.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Aprovar</button>
+    <button class="no" data-no>Recusar e reescrever</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Escreve do teu jeito. Pode ser bem solto, a gente ajusta depois.</label>
+    <textarea rows="4" placeholder="A tua versão dessa frase..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="s02" data-id="s02" data-g="texto">
+  <header class="ch">
+    <span class="n">02</span>
+    <span class="cap">Como ler este manual</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>Como está hoje</h4>
+      <p>É ali que a teoria vira olhar.</p>
+    </div>
+    <div class="col depois">
+      <h4>Sugestão</h4>
+      <p data-sug>Cinco minutos fazendo o exercício valem mais do que reler o capítulo três vezes.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Fórmula de aforismo (&quot;X vira Y&quot;). Parece profundo e não dá nenhuma informação nova ao leitor.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Aprovar</button>
+    <button class="no" data-no>Recusar e reescrever</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Escreve do teu jeito. Pode ser bem solto, a gente ajusta depois.</label>
+    <textarea rows="4" placeholder="A tua versão dessa frase..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="s03" data-id="s03" data-g="texto">
+  <header class="ch">
+    <span class="n">03</span>
+    <span class="cap">Como ler este manual</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>Como está hoje</h4>
+      <p>A ordem que escolhi diz muito sobre o que eu acredito.</p>
+    </div>
+    <div class="col depois">
+      <h4>Sugestão</h4>
+      <p data-sug>A ordem dos capítulos não é por acaso.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Anuncia que o que vem é importante em vez de simplesmente dizer. A frase seguinte já explica a ordem sozinha.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Aprovar</button>
+    <button class="no" data-no>Recusar e reescrever</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Escreve do teu jeito. Pode ser bem solto, a gente ajusta depois.</label>
+    <textarea rows="4" placeholder="A tua versão dessa frase..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="s04" data-id="s04" data-g="texto">
+  <header class="ch">
+    <span class="n">04</span>
+    <span class="cap">Parte 1, abertura</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>Como está hoje</h4>
+      <p>O olhar é a alma da fotografia. É a única coisa que nenhuma câmera nova vai te dar, e a que mais separa uma foto comum de uma que faz alguém parar. Por isso ela vem primeiro.</p>
+    </div>
+    <div class="col depois">
+      <h4>Sugestão</h4>
+      <p data-sug>Nenhuma câmera nova vai te dar olhar. Essa é a parte que depende só de você, e é por isso que ela vem primeiro.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> &quot;É a alma de&quot; é fórmula de frase de efeito, e &quot;a única coisa que&quot; é superlativo inflado. Três afirmações grandes seguidas, sem nada concreto.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Aprovar</button>
+    <button class="no" data-no>Recusar e reescrever</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Escreve do teu jeito. Pode ser bem solto, a gente ajusta depois.</label>
+    <textarea rows="4" placeholder="A tua versão dessa frase..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="s05" data-id="s05" data-g="texto">
+  <header class="ch">
+    <span class="n">05</span>
+    <span class="cap">1. A pergunta antes do clique</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>Como está hoje</h4>
+      <p>A foto deixa de ser um registro do que estava lá e vira uma frase sua sobre o que você viu.</p>
+    </div>
+    <div class="col depois">
+      <h4>Sugestão</h4>
+      <p data-sug>Aí a foto passa a dizer alguma coisa sua, e não só mostrar o que estava na frente da câmera.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Estrutura &quot;deixa de ser X e vira Y&quot; mais metáfora abstrata (a foto como &quot;frase&quot;). Bonito de ler, difícil de aplicar.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Aprovar</button>
+    <button class="no" data-no>Recusar e reescrever</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Escreve do teu jeito. Pode ser bem solto, a gente ajusta depois.</label>
+    <textarea rows="4" placeholder="A tua versão dessa frase..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="s06" data-id="s06" data-g="texto">
+  <header class="ch">
+    <span class="n">06</span>
+    <span class="cap">1. A pergunta antes do clique</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>Como está hoje</h4>
+      <p>Quem dispara sem intenção volta com trezentas fotos parecidas e nenhuma que diga algo. Quem fotografa com intenção volta com dez, e três são verdadeiras.</p>
+    </div>
+    <div class="col depois">
+      <h4>Sugestão</h4>
+      <p data-sug>Sem essa pergunta, você volta com um monte de foto parecida. Com ela, você volta com menos e aproveita mais.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Duas frases em espelho perfeito, com números inventados (trezentas, dez, três) só para soar preciso. Ninguém contou essas fotos.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Aprovar</button>
+    <button class="no" data-no>Recusar e reescrever</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Escreve do teu jeito. Pode ser bem solto, a gente ajusta depois.</label>
+    <textarea rows="4" placeholder="A tua versão dessa frase..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="s07" data-id="s07" data-g="texto">
+  <header class="ch">
+    <span class="n">07</span>
+    <span class="cap">1. A pergunta antes do clique</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>Como está hoje</h4>
+      <p>Fotografe com intenção. Volte com menos fotos, e mais verdade.</p>
+    </div>
+    <div class="col depois">
+      <h4>Sugestão</h4>
+      <p data-sug>Pergunte antes de disparar. Só isso já muda o que você traz de volta.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Frase escrita para ser citada, não para ser dita. &quot;Mais verdade&quot; é abstrato demais para fechar um capítulo prático.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Aprovar</button>
+    <button class="no" data-no>Recusar e reescrever</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Escreve do teu jeito. Pode ser bem solto, a gente ajusta depois.</label>
+    <textarea rows="4" placeholder="A tua versão dessa frase..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="s08" data-id="s08" data-g="texto">
+  <header class="ch">
+    <span class="n">08</span>
+    <span class="cap">2. Ver a luz</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>Como está hoje</h4>
+      <p>Ela é a matéria da fotografia, e quase ninguém a vê de verdade.</p>
+    </div>
+    <div class="col depois">
+      <h4>Sugestão</h4>
+      <p data-sug>A luz é com o que você trabalha, e é justamente o que a gente menos treina o olho para enxergar.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Aforismo mais uma afirmação vaga sobre &quot;quase ninguém&quot;, que não dá para verificar.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Aprovar</button>
+    <button class="no" data-no>Recusar e reescrever</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Escreve do teu jeito. Pode ser bem solto, a gente ajusta depois.</label>
+    <textarea rows="4" placeholder="A tua versão dessa frase..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="s09" data-id="s09" data-g="texto">
+  <header class="ch">
+    <span class="n">09</span>
+    <span class="cap">2. Ver a luz</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>Como está hoje</h4>
+      <p>Fotógrafo bom não briga com a luz. Ele espera, escolhe, se posiciona.</p>
+    </div>
+    <div class="col depois">
+      <h4>Sugestão</h4>
+      <p data-sug>Em vez de brigar com a luz que está ali, dá para esperar ela mudar ou mudar você de lugar.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Máxima sobre &quot;fotógrafo bom&quot; mais três verbos em sequência, que é o ritmo de três típico de IA. Além disso, essa mesma frase se repete no capítulo 6.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Aprovar</button>
+    <button class="no" data-no>Recusar e reescrever</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Escreve do teu jeito. Pode ser bem solto, a gente ajusta depois.</label>
+    <textarea rows="4" placeholder="A tua versão dessa frase..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="s10" data-id="s10" data-g="texto">
+  <header class="ch">
+    <span class="n">10</span>
+    <span class="cap">3. Compor é decidir o que fica de fora</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>Como está hoje</h4>
+      <p>Compor não é encher o quadro. É escolher.</p>
+    </div>
+    <div class="col depois">
+      <h4>Sugestão</h4>
+      <p data-sug>Compor é escolher o que entra no quadro e o que fica de fora.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> De novo a fórmula &quot;não é X, é Y&quot;, agora logo abaixo de um título que já diz a mesma coisa.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Aprovar</button>
+    <button class="no" data-no>Recusar e reescrever</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Escreve do teu jeito. Pode ser bem solto, a gente ajusta depois.</label>
+    <textarea rows="4" placeholder="A tua versão dessa frase..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="s11" data-id="s11" data-g="texto">
+  <header class="ch">
+    <span class="n">11</span>
+    <span class="cap">3. Compor é decidir o que fica de fora</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>Como está hoje</h4>
+      <p>É usar as linhas de um lugar para conduzir o olho. É deixar respiro, porque o vazio ao redor de um assunto dá força, não fraqueza. É reparar no fundo, que importa tanto quanto a pessoa, porque a câmera registra com o mesmo cuidado aquilo que você nem viu.</p>
+    </div>
+    <div class="col depois">
+      <h4>Sugestão</h4>
+      <p data-sug>Dá para usar as linhas do lugar para conduzir o olho até o assunto. Dá para deixar espaço vazio de propósito, porque o respiro em volta dá força. E vale olhar o fundo com o mesmo cuidado com que você olha a pessoa, porque a câmera registra os dois igual.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Três frases seguidas começando com &quot;É&quot;. Vira uma lista disfarçada de parágrafo, que é um dos ritmos mais artificiais que existem.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Aprovar</button>
+    <button class="no" data-no>Recusar e reescrever</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Escreve do teu jeito. Pode ser bem solto, a gente ajusta depois.</label>
+    <textarea rows="4" placeholder="A tua versão dessa frase..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="s12" data-id="s12" data-g="texto">
+  <header class="ch">
+    <span class="n">12</span>
+    <span class="cap">3. Compor é decidir o que fica de fora</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>Como está hoje</h4>
+      <p>Meio segundo que salva a foto. O que você deixa de fora compõe tanto quanto o que você inclui.</p>
+    </div>
+    <div class="col depois">
+      <h4>Sugestão</h4>
+      <p data-sug>É meio segundo, e salva muita foto de um poste nascendo da cabeça de alguém.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Frase sem sujeito seguida de um aforismo simétrico. As duas juntas parecem legenda de post, não texto de manual.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Aprovar</button>
+    <button class="no" data-no>Recusar e reescrever</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Escreve do teu jeito. Pode ser bem solto, a gente ajusta depois.</label>
+    <textarea rows="4" placeholder="A tua versão dessa frase..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="s13" data-id="s13" data-g="texto">
+  <header class="ch">
+    <span class="n">13</span>
+    <span class="cap">4. Esperar o momento</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>Como está hoje</h4>
+      <p>Você não precisa de semanas. Precisa de presença.</p>
+    </div>
+    <div class="col depois">
+      <h4>Sugestão</h4>
+      <p data-sug>Ninguém aqui vai passar semanas num lugar. Mas dá para ficar mais cinco minutos do que você ficaria.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> &quot;Não precisa de X, precisa de Y&quot; com aliteração. É a mesma estrutura que já aparece em outros quatro pontos do manual.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Aprovar</button>
+    <button class="no" data-no>Recusar e reescrever</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Escreve do teu jeito. Pode ser bem solto, a gente ajusta depois.</label>
+    <textarea rows="4" placeholder="A tua versão dessa frase..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="s14" data-id="s14" data-g="texto">
+  <header class="ch">
+    <span class="n">14</span>
+    <span class="cap">4. Esperar o momento</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>Como está hoje</h4>
+      <p>Fotografar com pressa é riscar um item da lista. Fotografar com presença é esperar o momento se revelar.</p>
+    </div>
+    <div class="col depois">
+      <h4>Sugestão</h4>
+      <p data-sug>Com pressa, você risca a foto da lista e vai embora. Ficando mais um pouco, quase sempre aparece alguma coisa melhor.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Duas frases com a forma idêntica, uma negando a outra. O leitor percebe a construção antes de perceber a ideia.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Aprovar</button>
+    <button class="no" data-no>Recusar e reescrever</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Escreve do teu jeito. Pode ser bem solto, a gente ajusta depois.</label>
+    <textarea rows="4" placeholder="A tua versão dessa frase..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="s15" data-id="s15" data-g="texto">
+  <header class="ch">
+    <span class="n">15</span>
+    <span class="cap">4. Esperar o momento</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>Como está hoje</h4>
+      <p>Paciência é uma técnica. Talvez a mais difícil de todas.</p>
+    </div>
+    <div class="col depois">
+      <h4>Sugestão</h4>
+      <p data-sug>Paciência conta tanto quanto qualquer ajuste da câmera, e é a que menos gente treina.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Fecho de efeito, curto e grandioso, feito para soar como citação.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Aprovar</button>
+    <button class="no" data-no>Recusar e reescrever</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Escreve do teu jeito. Pode ser bem solto, a gente ajusta depois.</label>
+    <textarea rows="4" placeholder="A tua versão dessa frase..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="s16" data-id="s16" data-g="texto">
+  <header class="ch">
+    <span class="n">16</span>
+    <span class="cap">Parte 3, abertura</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>Como está hoje</h4>
+      <p>Agora sim, a câmera. Não como protagonista, mas como aliada.</p>
+    </div>
+    <div class="col depois">
+      <h4>Sugestão</h4>
+      <p data-sug>Agora sim, a câmera, depois que o olhar e a luz já estão resolvidos.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> &quot;Não como X, mas como Y&quot; é a mesma fórmula de negação que se repete no manual inteiro.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Aprovar</button>
+    <button class="no" data-no>Recusar e reescrever</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Escreve do teu jeito. Pode ser bem solto, a gente ajusta depois.</label>
+    <textarea rows="4" placeholder="A tua versão dessa frase..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="s17" data-id="s17" data-g="texto">
+  <header class="ch">
+    <span class="n">17</span>
+    <span class="cap">13. Pouca luz</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>Como está hoje</h4>
+      <p>Ambiente escuro não é inimigo, é clima.</p>
+    </div>
+    <div class="col depois">
+      <h4>Sugestão</h4>
+      <p data-sug>Ambiente escuro assusta, mas é onde aparecem as fotos com mais clima.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Mais uma vez &quot;não é X, é Y&quot;, e o fecho soa como slogan de campanha.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Aprovar</button>
+    <button class="no" data-no>Recusar e reescrever</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Escreve do teu jeito. Pode ser bem solto, a gente ajusta depois.</label>
+    <textarea rows="4" placeholder="A tua versão dessa frase..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="s18" data-id="s18" data-g="texto">
+  <header class="ch">
+    <span class="n">18</span>
+    <span class="cap">15. A edição honesta</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>Como está hoje</h4>
+      <p>Editar não é transformar a foto em outra coisa. É revelar o que já estava lá, como se fazia no laboratório com o negativo.</p>
+    </div>
+    <div class="col depois">
+      <h4>Sugestão</h4>
+      <p data-sug>Editar é revelar o que já estava no arquivo, como se fazia no laboratório com o negativo. Não é transformar a foto em outra coisa.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> A ideia é ótima e a comparação com o laboratório é sua. O problema é só a ordem: começa negando para depois afirmar, que é a fórmula de sempre.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Aprovar</button>
+    <button class="no" data-no>Recusar e reescrever</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Escreve do teu jeito. Pode ser bem solto, a gente ajusta depois.</label>
+    <textarea rows="4" placeholder="A tua versão dessa frase..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="s19" data-id="s19" data-g="texto">
+  <header class="ch">
+    <span class="n">19</span>
+    <span class="cap">16. Não perca suas fotos</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>Como está hoje</h4>
+      <p>Uma foto que existe num lugar só não existe de verdade.</p>
+    </div>
+    <div class="col depois">
+      <h4>Sugestão</h4>
+      <p data-sug>Foto guardada num lugar só é foto que você ainda pode perder.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Paradoxo bonito que, lido devagar, não é verdade. A foto existe, ela só está em risco.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Aprovar</button>
+    <button class="no" data-no>Recusar e reescrever</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Escreve do teu jeito. Pode ser bem solto, a gente ajusta depois.</label>
+    <textarea rows="4" placeholder="A tua versão dessa frase..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="s20" data-id="s20" data-g="texto">
+  <header class="ch">
+    <span class="n">20</span>
+    <span class="cap">Para terminar</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>Como está hoje</h4>
+      <p>A câmera é a desculpa. O presente é começar a olhar.</p>
+    </div>
+    <div class="col depois">
+      <h4>Sugestão</h4>
+      <p data-sug>A câmera é só a desculpa para você começar a olhar com mais atenção.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Duas frases curtas em espelho para fechar. É o mesmo truque do começo do manual, e no fim ele fica mais visível.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Aprovar</button>
+    <button class="no" data-no>Recusar e reescrever</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Escreve do teu jeito. Pode ser bem solto, a gente ajusta depois.</label>
+    <textarea rows="4" placeholder="A tua versão dessa frase..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+  
+<article class="card" id="a01" data-id="a01" data-g="novo">
+  <header class="ch">
+    <span class="n">01</span>
+    <span class="cap">Identidade visual</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>O que entrou de novo</h4>
+      <p>Fundo preto, títulos em caixa alta pesada (Anton) e uma cor viva por parte do manual: violeta, amarelo, azul, magenta e ciano.</p>
+    </div>
+    <div class="col depois">
+      <h4>O que eu proponho</h4>
+      <p data-sug>Manter a identidade Estúdio como padrão do manual.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Tirei isso dos seus próprios infográficos dos três pilares, que usam preto, título pesado em caixa alta e uma cor diferente por assunto. A ideia foi fazer o manual parecer com o que você já posta, em vez de ter uma cara própria.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Pode ficar</button>
+    <button class="no" data-no>Não quero, ou quero diferente</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Me diz o que fazer: tirar, mudar, trocar a foto. Do jeito que vier.</label>
+    <textarea rows="4" placeholder="Ex: tira isso / troca a foto por outra / muda o texto para..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="a02" data-id="a02" data-g="novo">
+  <header class="ch">
+    <span class="n">02</span>
+    <span class="cap">Identidade visual</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>O que entrou de novo</h4>
+      <p>Um seletor no canto da tela com três identidades: Estúdio, Galeria e Clássico.</p>
+    </div>
+    <div class="col depois">
+      <h4>O que eu proponho</h4>
+      <p data-sug>Escolher uma das três e tirar o seletor antes de vender.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Serve só para você comparar e escolher. Não é para ficar na versão que vai para o cliente.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Pode ficar</button>
+    <button class="no" data-no>Não quero, ou quero diferente</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Me diz o que fazer: tirar, mudar, trocar a foto. Do jeito que vier.</label>
+    <textarea rows="4" placeholder="Ex: tira isso / troca a foto por outra / muda o texto para..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="a03" data-id="a03" data-g="novo">
+  <header class="ch">
+    <span class="n">03</span>
+    <span class="cap">Estudos de caso</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>O que entrou de novo</h4>
+      <p>As suas quatro decisões viraram um passo a passo: a foto fica parada e o leitor avança de decisão em decisão.</p>
+    </div>
+    <div class="col depois">
+      <h4>O que eu proponho</h4>
+      <p data-sug>Manter os quatro estudos de caso nesse formato de passo a passo.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> O texto é exatamente o que você gravou nos áudios, sem mudar nenhuma palavra. O que mudou foi só o formato, que antes era quatro parágrafos seguidos.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Pode ficar</button>
+    <button class="no" data-no>Não quero, ou quero diferente</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Me diz o que fazer: tirar, mudar, trocar a foto. Do jeito que vier.</label>
+    <textarea rows="4" placeholder="Ex: tira isso / troca a foto por outra / muda o texto para..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="a04" data-id="a04" data-g="novo">
+  <header class="ch">
+    <span class="n">04</span>
+    <span class="cap">8. Os três pilares da exposição</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>O que entrou de novo</h4>
+      <p>Um simulador onde a pessoa escolhe a cena e mexe em velocidade, abertura, ISO, compensação e tripé, e vê se a foto ficaria clara ou escura.</p>
+    </div>
+    <div class="col depois">
+      <h4>O que eu proponho</h4>
+      <p data-sug>Manter o simulador no capítulo 8.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Ideia minha, não estava no que você revisou. A conta é a real de exposição, a mesma que a câmera faz. Serve para a pessoa entender a relação entre os três antes de ir para a câmera.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Pode ficar</button>
+    <button class="no" data-no>Não quero, ou quero diferente</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Me diz o que fazer: tirar, mudar, trocar a foto. Do jeito que vier.</label>
+    <textarea rows="4" placeholder="Ex: tira isso / troca a foto por outra / muda o texto para..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="a05" data-id="a05" data-g="novo">
+  <header class="ch">
+    <span class="n">05</span>
+    <span class="cap">6. A hora certa do dia</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>O que entrou de novo</h4>
+      <p>Um comparador com duas fotos suas, luz suave e luz dura, que troca ao tocar.</p>
+    </div>
+    <div class="col depois">
+      <h4>O que eu proponho</h4>
+      <p data-sug>Manter o comparador de luz no capítulo 6.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Ideia minha. O capítulo fala que não existe luz boa ou ruim, e as duas fotos lado a lado mostram isso mais rápido que o texto.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Pode ficar</button>
+    <button class="no" data-no>Não quero, ou quero diferente</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Me diz o que fazer: tirar, mudar, trocar a foto. Do jeito que vier.</label>
+    <textarea rows="4" placeholder="Ex: tira isso / troca a foto por outra / muda o texto para..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="a06" data-id="a06" data-g="novo">
+  <header class="ch">
+    <span class="n">06</span>
+    <span class="cap">15. A edição honesta</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>O que entrou de novo</h4>
+      <p>Um antes e depois de arrastar, com a edição antiga do retrato do violão e a que você mandou agora.</p>
+    </div>
+    <div class="col depois">
+      <h4>O que eu proponho</h4>
+      <p data-sug>Manter o antes e depois no capítulo da edição.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Ideia da Marina. Peguei a versão antiga que estava no site e alinhei ao enquadramento da nova, senão a comparação mostraria diferença de corte em vez de edição. É a única foto que você re-editou de verdade, por isso só tem uma.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Pode ficar</button>
+    <button class="no" data-no>Não quero, ou quero diferente</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Me diz o que fazer: tirar, mudar, trocar a foto. Do jeito que vier.</label>
+    <textarea rows="4" placeholder="Ex: tira isso / troca a foto por outra / muda o texto para..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="a07" data-id="a07" data-g="novo">
+  <header class="ch">
+    <span class="n">07</span>
+    <span class="cap">Manual inteiro</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>O que entrou de novo</h4>
+      <p>As nove &quot;Hora de praticar&quot; viraram itens que a pessoa pode marcar como feitos.</p>
+    </div>
+    <div class="col depois">
+      <h4>O que eu proponho</h4>
+      <p data-sug>Manter os exercícios marcáveis.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Ideia minha. Transforma o manual em algo que se usa mais de uma vez, em vez de se ler e fechar.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Pode ficar</button>
+    <button class="no" data-no>Não quero, ou quero diferente</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Me diz o que fazer: tirar, mudar, trocar a foto. Do jeito que vier.</label>
+    <textarea rows="4" placeholder="Ex: tira isso / troca a foto por outra / muda o texto para..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="a08" data-id="a08" data-g="novo">
+  <header class="ch">
+    <span class="n">08</span>
+    <span class="cap">Fim do manual</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>O que entrou de novo</h4>
+      <p>Uma galeria horizontal chamada &quot;O olhar do Fabio&quot; com as dez fotos do manual juntas.</p>
+    </div>
+    <div class="col depois">
+      <h4>O que eu proponho</h4>
+      <p data-sug>Manter a galeria no fim.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Ideia minha. Fecha o manual mostrando o seu trabalho reunido, o que também ajuda quem está pensando em contratar.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Pode ficar</button>
+    <button class="no" data-no>Não quero, ou quero diferente</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Me diz o que fazer: tirar, mudar, trocar a foto. Do jeito que vier.</label>
+    <textarea rows="4" placeholder="Ex: tira isso / troca a foto por outra / muda o texto para..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="a09" data-id="a09" data-g="novo">
+  <header class="ch">
+    <span class="n">09</span>
+    <span class="cap">Manual inteiro</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>O que entrou de novo</h4>
+      <p>Fotos que ampliam ao toque, índice lateral, barra de progresso de leitura, movimento nas aberturas de parte e leve inclinação nas fotos dos estudos de caso.</p>
+    </div>
+    <div class="col depois">
+      <h4>O que eu proponho</h4>
+      <p data-sug>Manter esses detalhes de navegação.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Ideia minha. São detalhes de navegação, não mudam nada do conteúdo.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Pode ficar</button>
+    <button class="no" data-no>Não quero, ou quero diferente</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Me diz o que fazer: tirar, mudar, trocar a foto. Do jeito que vier.</label>
+    <textarea rows="4" placeholder="Ex: tira isso / troca a foto por outra / muda o texto para..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="a10" data-id="a10" data-g="novo">
+  <header class="ch">
+    <span class="n">10</span>
+    <span class="cap">Aberturas de parte</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>O que entrou de novo</h4>
+      <p>As seis aberturas de parte agora ocupam a tela inteira e usam só fotos suas.</p>
+    </div>
+    <div class="col depois">
+      <h4>O que eu proponho</h4>
+      <p data-sug>Manter as aberturas em tela cheia, e me dizer se trocaria alguma das fotos escolhidas.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Antes eram faixas baixas que ampliavam a foto e cortavam no meio da cabeça, e duas delas usavam fotos antigas que não eram suas. Escolhi quais fotos entram em cada parte.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Pode ficar</button>
+    <button class="no" data-no>Não quero, ou quero diferente</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Me diz o que fazer: tirar, mudar, trocar a foto. Do jeito que vier.</label>
+    <textarea rows="4" placeholder="Ex: tira isso / troca a foto por outra / muda o texto para..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="a11" data-id="a11" data-g="novo">
+  <header class="ch">
+    <span class="n">11</span>
+    <span class="cap">Capa</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>O que entrou de novo</h4>
+      <p>A capa do manual passou a ser a foto que você mandou como Capa.png.</p>
+    </div>
+    <div class="col depois">
+      <h4>O que eu proponho</h4>
+      <p data-sug>Confirmar que é essa mesmo a capa.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Você mandou o arquivo chamado Capa, então assumi que era para ser a capa.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Pode ficar</button>
+    <button class="no" data-no>Não quero, ou quero diferente</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Me diz o que fazer: tirar, mudar, trocar a foto. Do jeito que vier.</label>
+    <textarea rows="4" placeholder="Ex: tira isso / troca a foto por outra / muda o texto para..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="a12" data-id="a12" data-g="novo">
+  <header class="ch">
+    <span class="n">12</span>
+    <span class="cap">Antes de tudo</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>O que entrou de novo</h4>
+      <p>A carta de abertura foi reescrita com a sua história real: seu pai arquiteto, a faculdade de arquitetura, os anos de construção civil, o curso e os mais de dez anos de profissão.</p>
+    </div>
+    <div class="col depois">
+      <h4>O que eu proponho</h4>
+      <p data-sug>Ler com atenção e me dizer se está do seu jeito.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> O conteúdo é do seu áudio, mas quem escolheu as palavras fui eu. A versão anterior era um rascunho inventado que dizia que você trocou de câmera várias vezes procurando atalho, o que não é verdade e saiu.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Pode ficar</button>
+    <button class="no" data-no>Não quero, ou quero diferente</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Me diz o que fazer: tirar, mudar, trocar a foto. Do jeito que vier.</label>
+    <textarea rows="4" placeholder="Ex: tira isso / troca a foto por outra / muda o texto para..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="a13" data-id="a13" data-g="novo">
+  <header class="ch">
+    <span class="n">13</span>
+    <span class="cap">Estudo de caso: o olhar</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>O que entrou de novo</h4>
+      <p>Frase de fecho que eu escrevi: &quot;Nenhuma dessas quatro decisões tem a ver com a câmera. Todas têm a ver com o que eu escolhi ver antes de disparar.&quot;</p>
+    </div>
+    <div class="col depois">
+      <h4>O que eu proponho</h4>
+      <p data-sug>Manter a frase de fecho.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Não estava no seu áudio. Escrevi para amarrar o estudo de caso com a Parte 1, que é sobre olhar.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Pode ficar</button>
+    <button class="no" data-no>Não quero, ou quero diferente</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Me diz o que fazer: tirar, mudar, trocar a foto. Do jeito que vier.</label>
+    <textarea rows="4" placeholder="Ex: tira isso / troca a foto por outra / muda o texto para..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="a14" data-id="a14" data-g="novo">
+  <header class="ch">
+    <span class="n">14</span>
+    <span class="cap">Estudo de caso: a luz num retrato</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>O que entrou de novo</h4>
+      <p>Um exercício &quot;Hora de praticar&quot; que eu escrevi, mandando apagar as luzes, usar uma fonte só de lado e comparar o rosto inteiro com o close.</p>
+    </div>
+    <div class="col depois">
+      <h4>O que eu proponho</h4>
+      <p data-sug>Manter o exercício, ou me mandar o seu.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Não estava no seu áudio. O capítulo prometia que a pessoa ia repetir na câmera dela, e não tinha o como.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Pode ficar</button>
+    <button class="no" data-no>Não quero, ou quero diferente</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Me diz o que fazer: tirar, mudar, trocar a foto. Do jeito que vier.</label>
+    <textarea rows="4" placeholder="Ex: tira isso / troca a foto por outra / muda o texto para..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="a15" data-id="a15" data-g="novo">
+  <header class="ch">
+    <span class="n">15</span>
+    <span class="cap">12. O retrato</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>O que entrou de novo</h4>
+      <p>Subtítulo &quot;Um retrato de posicionamento, decisão por decisão&quot; e a frase de fecho sobre roupa, pose, luz e fundo apontarem para a mesma direção.</p>
+    </div>
+    <div class="col depois">
+      <h4>O que eu proponho</h4>
+      <p data-sug>Manter o subtítulo e o fecho.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Escrevi os dois. O áudio do Maicon traz as quatro decisões, mas não a conclusão.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Pode ficar</button>
+    <button class="no" data-no>Não quero, ou quero diferente</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Me diz o que fazer: tirar, mudar, trocar a foto. Do jeito que vier.</label>
+    <textarea rows="4" placeholder="Ex: tira isso / troca a foto por outra / muda o texto para..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="a16" data-id="a16" data-g="novo">
+  <header class="ch">
+    <span class="n">16</span>
+    <span class="cap">13. Pouca luz</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>O que entrou de novo</h4>
+      <p>Subtítulo &quot;Quando a luz não é a que você queria&quot; e a frase de fecho &quot;Nenhuma dessas decisões mudou a luz do lugar. Elas mudaram o que eu fiz com ela.&quot;</p>
+    </div>
+    <div class="col depois">
+      <h4>O que eu proponho</h4>
+      <p data-sug>Manter, ou me dizer se esse áudio encaixa melhor em outro capítulo.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Escrevi os dois para encaixar o áudio da externa num capítulo que era sobre pouca luz.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Pode ficar</button>
+    <button class="no" data-no>Não quero, ou quero diferente</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Me diz o que fazer: tirar, mudar, trocar a foto. Do jeito que vier.</label>
+    <textarea rows="4" placeholder="Ex: tira isso / troca a foto por outra / muda o texto para..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="a17" data-id="a17" data-g="novo">
+  <header class="ch">
+    <span class="n">17</span>
+    <span class="cap">8. Os três pilares da exposição</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>O que entrou de novo</h4>
+      <p>A frase &quot;Antes de ir para a câmera, brinque aqui. Escolha uma cena, mexa nos três controles e veja o que aconteceria.&quot;</p>
+    </div>
+    <div class="col depois">
+      <h4>O que eu proponho</h4>
+      <p data-sug>Manter a frase de entrada do simulador.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Escrevi só para apresentar o simulador. Se o simulador sair, essa frase sai junto.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Pode ficar</button>
+    <button class="no" data-no>Não quero, ou quero diferente</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Me diz o que fazer: tirar, mudar, trocar a foto. Do jeito que vier.</label>
+    <textarea rows="4" placeholder="Ex: tira isso / troca a foto por outra / muda o texto para..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="a18" data-id="a18" data-g="novo">
+  <header class="ch">
+    <span class="n">18</span>
+    <span class="cap">15. A edição honesta</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>O que entrou de novo</h4>
+      <p>Dois parágrafos que eu escrevi em volta do antes e depois, sobre o arquivo ser o mesmo e sobre nada ter sido inventado na edição.</p>
+    </div>
+    <div class="col depois">
+      <h4>O que eu proponho</h4>
+      <p data-sug>Ler e me dizer se é isso que você diria.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Escrevi para explicar o que a pessoa está vendo ao arrastar. É a parte onde eu mais falo por você, então vale conferir.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Pode ficar</button>
+    <button class="no" data-no>Não quero, ou quero diferente</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Me diz o que fazer: tirar, mudar, trocar a foto. Do jeito que vier.</label>
+    <textarea rows="4" placeholder="Ex: tira isso / troca a foto por outra / muda o texto para..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="a19" data-id="a19" data-g="novo">
+  <header class="ch">
+    <span class="n">19</span>
+    <span class="cap">2. Ver a luz e 9. Saia do automático</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>O que entrou de novo</h4>
+      <p>Esses dois capítulos ficaram sem foto.</p>
+    </div>
+    <div class="col depois">
+      <h4>O que eu proponho</h4>
+      <p data-sug>Me mandar uma foto para o capítulo 2, de preferência um rosto com luz lateral.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> As fotos que estavam ali não eram suas, eram de banco antigo, e uma estava em baixa qualidade. Tirei em vez de deixar material que não é seu no manual.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Pode ficar</button>
+    <button class="no" data-no>Não quero, ou quero diferente</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Me diz o que fazer: tirar, mudar, trocar a foto. Do jeito que vier.</label>
+    <textarea rows="4" placeholder="Ex: tira isso / troca a foto por outra / muda o texto para..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+<article class="card" id="a20" data-id="a20" data-g="novo">
+  <header class="ch">
+    <span class="n">20</span>
+    <span class="cap">12. O retrato</span>
+    <span class="tag" data-tag></span>
+  </header>
+
+  <div class="par">
+    <div class="col antes">
+      <h4>O que entrou de novo</h4>
+      <p>O retrato do violão saiu do capítulo 12 e agora só aparece no antes e depois do capítulo 15.</p>
+    </div>
+    <div class="col depois">
+      <h4>O que eu proponho</h4>
+      <p data-sug>Manter o violão só no antes e depois.</p>
+    </div>
+  </div>
+
+  <div class="por"><b>Por quê</b> Ele estava aparecendo duas vezes no mesmo manual. O capítulo 12 já tem o retrato de posicionamento do Maicon como estudo de caso.</div>
+
+  <div class="acts">
+    <button class="ok" data-ok>Pode ficar</button>
+    <button class="no" data-no>Não quero, ou quero diferente</button>
+  </div>
+
+  <div class="reescreve" hidden>
+    <label>Me diz o que fazer: tirar, mudar, trocar a foto. Do jeito que vier.</label>
+    <textarea rows="4" placeholder="Ex: tira isso / troca a foto por outra / muda o texto para..."></textarea>
+    <div class="racts">
+      <button class="salvar">Salvar minha versão</button>
+      <button class="cancelar">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="feito" hidden></div>
+</article>
+
+  <div class="fim">
+    Terminou? Me avisa que eu aplico tudo no manual.
+    <br><a class="zap" href="https://wa.me/5541000000000">Avisar a Marina</a>
+  </div>
+</div>
+<div id="toast"></div>
+
+<script>
+(function(){
+  var DB='https://rifa-mae-default-rtdb.firebaseio.com/photoblaster/sugestoes';
+  var d=document, estado={}, filtro='todas', aba='texto';
+  var toast=d.getElementById('toast'), tt;
+  function aviso(m){ toast.textContent=m; toast.classList.add('on');
+    clearTimeout(tt); tt=setTimeout(function(){toast.classList.remove('on');},2600); }
+
+  function salvar(id,dados){
+    estado[id]=dados; pinta(id); conta();
+    fetch(DB+'/'+id+'.json',{method:'PUT',body:JSON.stringify(dados)})
+      .then(function(){aviso('Salvo');})
+      .catch(function(){aviso('Sem conexão, tentando de novo...');
+        setTimeout(function(){salvar(id,dados);},4000);});
+  }
+
+  function pinta(id){
+    var c=d.getElementById(id); if(!c) return;
+    var e=estado[id], tag=c.querySelector('[data-tag]'), acts=c.querySelector('.acts'),
+        feito=c.querySelector('.feito'), re=c.querySelector('.reescreve');
+    c.classList.remove('done-ok','done-no'); tag.className='tag'; tag.textContent='';
+    re.hidden=true;
+    if(!e){ acts.hidden=false; feito.hidden=true; return; }
+    acts.hidden=true; feito.hidden=false;
+    if(e.status==='aprovada'){
+      c.classList.add('done-ok'); tag.classList.add('ok'); tag.textContent='aprovada';
+      feito.innerHTML='<span class="lb">Vai entrar assim</span><span class="txt">'+
+        esc(c.querySelector('[data-sug]').textContent)+'</span>'+
+        '<div><button class="mudar">mudar de ideia</button></div>';
+    } else {
+      c.classList.add('done-no'); tag.classList.add('no'); tag.textContent='tua versão';
+      feito.innerHTML='<span class="lb">Vai entrar assim, escrito por você</span><span class="txt">'+
+        esc(e.texto||'(em branco)')+'</span>'+
+        '<div><button class="mudar">mudar de ideia</button></div>';
+    }
+    feito.querySelector('.mudar').onclick=function(){
+      delete estado[id]; pinta(id); conta();
+      fetch(DB+'/'+id+'.json',{method:'DELETE'});
+    };
+  }
+  function esc(s){var p=d.createElement('p');p.textContent=s;return p.innerHTML;}
+
+  function conta(){
+    var n=Object.keys(estado).length, tot=40;
+    d.getElementById('c-feito').textContent=n;
+    d.getElementById('bar').style.width=(n/tot*100)+'%';
+    aplicaFiltro();
+  }
+  function aplicaFiltro(){
+    d.querySelectorAll('.card').forEach(function(c){
+      var e=estado[c.dataset.id], m=(c.dataset.g===aba);
+      if(m&&filtro==='pendentes') m=!e;
+      if(m&&filtro==='aprovadas') m=!!e&&e.status==='aprovada';
+      if(m&&filtro==='recusadas') m=!!e&&e.status==='recusada';
+      c.classList.toggle('hide',!m);
+    });
+  }
+  d.querySelectorAll('.abas button').forEach(function(b){
+    b.onclick=function(){
+      d.querySelectorAll('.abas button').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on'); aba=b.dataset.aba;
+      d.getElementById('aviso-texto').hidden=(aba!=='texto');
+      d.getElementById('aviso-novo').hidden=(aba!=='novo');
+      aplicaFiltro();
+    };
+  });
+  d.querySelectorAll('.filtros button').forEach(function(b){
+    b.onclick=function(){
+      d.querySelectorAll('.filtros button').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on'); filtro=b.dataset.f; aplicaFiltro();
+    };
+  });
+
+  d.querySelectorAll('.card').forEach(function(c){
+    var id=c.dataset.id, re=c.querySelector('.reescreve'), ta=re.querySelector('textarea');
+    c.querySelector('[data-ok]').onclick=function(){
+      salvar(id,{status:'aprovada',texto:c.querySelector('[data-sug]').textContent,ts:Date.now()});
+    };
+    c.querySelector('[data-no]').onclick=function(){
+      re.hidden=false; c.querySelector('.acts').hidden=true;
+      ta.value=ta.value||c.querySelector('.antes p').textContent; ta.focus();
+    };
+    re.querySelector('.cancelar').onclick=function(){ re.hidden=true; c.querySelector('.acts').hidden=false; };
+    re.querySelector('.salvar').onclick=function(){
+      var t=ta.value.trim();
+      if(!t){ aviso('Escreve alguma coisa primeiro'); ta.focus(); return; }
+      salvar(id,{status:'recusada',texto:t,ts:Date.now()});
+    };
+  });
+
+  // carrega o que já foi decidido
+  fetch(DB+'.json').then(function(r){return r.json();}).then(function(o){
+    if(o) Object.keys(o).forEach(function(k){ estado[k]=o[k]; pinta(k); });
+    conta();
+  }).catch(function(){ conta(); aviso('Não consegui carregar as decisões anteriores'); });
+})();
+</script>
+</body></html>

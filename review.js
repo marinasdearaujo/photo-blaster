@@ -1,4 +1,4 @@
-/* Modo de comentários — Fábio Dombrate
+/* Modo de comentários — Fabio Dombrate
    Ativa com ?review=1 na URL. Toque em qualquer ponto do site deixa um pin.
 
    NOVO: os comentários agora ficam salvos no Firebase (Realtime Database),
@@ -45,7 +45,7 @@
   function genId() { return 'c_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7); }
   function getAuthor() {
     var a = localStorage.getItem(AKEY);
-    if (!a) { a = (prompt('Seu nome (pra identificar os comentários):', 'Fábio') || 'Fábio').trim(); localStorage.setItem(AKEY, a); }
+    if (!a) { a = (prompt('Seu nome (pra identificar os comentários):', 'Fabio') || 'Fabio').trim(); localStorage.setItem(AKEY, a); }
     return a;
   }
 
@@ -154,7 +154,7 @@
     var byPath = {};
     withText.forEach(function (c) { (byPath[c.path] = byPath[c.path] || []).push(c); });
     var names = { '/': 'Início', '/ensaios/': 'Ensaios', '/sobre/': 'Sobre', '/ebook/': 'O Manual', '/manual/': 'O Manual' };
-    var out = 'COMENTÁRIOS DO SITE — Fábio Dombrate\n';
+    var out = 'COMENTÁRIOS DO SITE — Fabio Dombrate\n';
     Object.keys(byPath).forEach(function (p) {
       out += '\n[' + (names[p] || p) + ']\n';
       byPath[p].sort(function (a, b) { return a.n - b.n; }).forEach(function (c) {
@@ -182,7 +182,7 @@
     try { old = JSON.parse(localStorage.getItem(LKEY) || '[]'); } catch (e) {}
     old = old.filter(function (c) { return c && (c.text || '').trim(); });
     if (!old.length) { localStorage.setItem(MKEY, '1'); done(); return; }
-    var author = localStorage.getItem(AKEY) || 'Fábio';
+    var author = localStorage.getItem(AKEY) || 'Fabio';
     var pending = old.length;
     old.forEach(function (c) {
       var obj = { id: genId(), n: c.n || 0, path: c.path || '/', x: c.x, y: c.y,

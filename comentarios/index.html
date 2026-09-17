@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Comentários do site · Fábio Dombrate</title>
+<title>Comentários do site · Fabio Dombrate</title>
 <style>
   :root{
     --bg:#17140f; --panel:#211c15; --card:#2a241b; --line:#3a3327;
@@ -68,7 +68,7 @@
   <header>
     <div>
       <h1><span class="g">Comentários</span> do site</h1>
-      <p class="sub">Fábio Dombrate · dombratefotografia.com.br</p>
+      <p class="sub">Fabio Dombrate · dombratefotografia.com.br</p>
     </div>
     <div class="spacer"></div>
     <div class="live"><span class="dot"></span> <span id="live">carregando…</span></div>
@@ -149,7 +149,7 @@
     var list=document.getElementById('list');
     if(!show.length){
       list.innerHTML = '<div class="empty"><div class="big">🗒️</div>'+
-        (total? 'Nenhum comentário nesse filtro.' : 'Ainda não há comentários.<br>Quando o Fábio comentar, aparece aqui automaticamente.')+'</div>';
+        (total? 'Nenhum comentário nesse filtro.' : 'Ainda não há comentários.<br>Quando o Fabio comentar, aparece aqui automaticamente.')+'</div>';
       return;
     }
 
@@ -198,7 +198,7 @@
     var withText=all.filter(function(c){return (c.text||'').trim();});
     if(!withText.length){ alert('Nenhum comentário ainda.'); return; }
     var byPath={}; withText.forEach(function(c){ (byPath[c.path]=byPath[c.path]||[]).push(c); });
-    var out='COMENTÁRIOS DO SITE — Fábio Dombrate\n';
+    var out='COMENTÁRIOS DO SITE — Fabio Dombrate\n';
     Object.keys(byPath).forEach(function(p){
       out+='\n['+(NAMES[p]||p)+']\n';
       byPath[p].sort(function(a,b){return (a.n||0)-(b.n||0);}).forEach(function(c){
