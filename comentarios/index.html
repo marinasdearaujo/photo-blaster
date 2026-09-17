@@ -48,6 +48,10 @@
   .meta{font-size:12px;color:var(--dim);margin:0 0 3px}
   .meta .who{color:var(--muted);font-weight:600}
   .txt{font-size:15px;color:var(--cream);white-space:pre-wrap;word-wrap:break-word}
+  .note{margin-top:10px;padding:10px 12px;border-left:2px solid #4c9a6a;background:rgba(76,154,106,.10);
+        border-radius:0 8px 8px 0;font-size:13.5px;line-height:1.5;color:var(--cream);opacity:.92}
+  .note b{color:#7dc99b;font-weight:600}
+  .card.done .note{text-decoration:none}
   .acts{display:flex;gap:14px;margin-top:9px}
   .acts button{background:none;border:none;color:var(--dim);font-size:12.5px;font-weight:600;cursor:pointer;padding:0}
   .acts button:hover{color:var(--cream)}
@@ -91,7 +95,7 @@
 <script>
 (function(){
   var DB = 'https://rifa-mae-default-rtdb.firebaseio.com/photoblaster/comentarios';
-  var NAMES = { '/':'Início', '/ensaios/':'Ensaios', '/sobre/':'Sobre', '/ebook/':'O Manual', '/manual/':'O Manual', '/projeto/':'Projeto', '/demo/':'Demo' };
+  var NAMES = { '/':'Início', '/ensaios/':'Ensaios', '/sobre/':'Sobre', '/ebook/':'O Manual', '/manual/':'O Manual (versão atual)', '/manual-v2/':'O Manual (versão nova)', '/tecnicas/':'7 Técnicas', '/projeto/':'Projeto', '/demo/':'Demo' };
   var ORDER = ['/','/ebook/','/manual/','/ensaios/','/sobre/','/projeto/','/demo/'];
   var filter = 'todos';
   var all = [];
@@ -167,6 +171,7 @@
           '<div class="body">'+
             '<div class="meta"><span class="who">'+esc(c.author||'Anônimo')+'</span> · '+ago(c.ts)+'</div>'+
             '<div class="txt">'+esc(c.text)+'</div>'+
+            (c.resolved&&c.resolvedNote ? '<div class="note"><b>✓ '+esc(c.resolvedBy||'Marina')+':</b> '+esc(c.resolvedNote)+'</div>' : '')+
             '<div class="acts">'+
               '<button class="res" onclick="__res(\''+c.id+'\','+(c.resolved?'false':'true')+')">'+(c.resolved?'↩︎ Reabrir':'✓ Resolver')+'</button>'+
               '<button class="rm" onclick="__del(\''+c.id+'\')">Excluir</button>'+
