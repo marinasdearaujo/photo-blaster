@@ -107,6 +107,20 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
 .ci{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s}
 .ci.on{opacity:1}
 .ccap{font-family:var(--disp);font-style:italic;font-size:14px;color:var(--mut);margin-top:10px}
+.modos{margin:36px 0 32px}
+.mdchips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px}
+.mdchips button{border:1px solid var(--line);border-radius:10px;padding:9px 15px;font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--mut);transition:.2s}
+.mdchips button.on{background:var(--c);border-color:var(--c);color:#000}
+.mdp{display:none;gap:20px;align-items:flex-start}
+.mdp.on{display:flex}
+.mdimg{flex:0 0 40%;border-radius:var(--rad);overflow:hidden;background:var(--bg2);align-self:stretch}
+.mdimg img{width:100%;height:100%;object-fit:cover;display:block}
+.mdtxt{flex:1}
+.mdtxt b{font-family:var(--disp);font-size:20px;display:block;margin-bottom:9px;line-height:1.2}
+.mdtxt p{margin:0 0 12px}
+.mdq{font-size:14px;color:var(--mut)}
+.mdq span{color:var(--c);font-weight:600;display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+@media(max-width:640px){.mdp.on{display:block}.mdimg{width:100%;margin-bottom:14px}}
 
 /* simulador */
 .sim{margin:38px 0 34px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:17px}
@@ -317,7 +331,7 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
   <div class="wrap hub">
     <div class="eye">Aprender a ver, antes de aprender a fotografar</div>
     <h1>O Manual Que Não Veio na Caixa</h1>
-    <p class="sub">O mesmo manual, em sete módulos, com 9 exercícios para fazer com a câmera na mão e um lugar para mostrar o que você fez.</p>
+    <p class="sub">O mesmo manual, em sete módulos, com 11 exercícios para fazer com a câmera na mão e um lugar para mostrar o que você fez.</p>
     <div class="painel">
       <div class="pbox"><div class="v" id="st-mod">0</div><div class="l">módulos concluídos</div></div>
       <div class="pbox"><div class="v" id="st-ex">0</div><div class="l">exercícios registrados</div></div>
@@ -331,7 +345,7 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
     <div class="minfo">
       <span class="mnum">Módulo 1</span>
       <h3>Aprender a ver</h3>
-      <div class="mmeta"><span>5 capítulos</span><span>3 exercícios</span></div>
+      <div class="mmeta"><span>6 capítulos</span><span>4 exercícios</span></div>
       <div class="mprog"><div class="mbar" data-bar="1"></div></div>
       <span class="mpct" data-pct="1">não começou</span>
     </div>
@@ -351,7 +365,7 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
     <div class="minfo">
       <span class="mnum">Módulo 3</span>
       <h3>A câmera a serviço do olhar</h3>
-      <div class="mmeta"><span>4 capítulos</span><span>3 exercícios</span></div>
+      <div class="mmeta"><span>5 capítulos</span><span>4 exercícios</span></div>
       <div class="mprog"><div class="mbar" data-bar="3"></div></div>
       <span class="mpct" data-pct="3">não começou</span>
     </div>
@@ -459,13 +473,26 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
     <button class="preg" data-reg>Registrar o que eu fiz</button>
     <div class="pfeito" hidden></div>
   </div>
-<h2 id="c4" data-nav="Esperar o momento"><span class="cn">4</span>Esperar o momento</h2>
+<h2 id="c4" data-nav="A perspectiva muda tudo"><span class="cn">4</span>A perspectiva muda tudo</h2>
+<p class="subhead"><strong>Aproxime-se e dê profundidade à sua fotografia.</strong></p>
+<p>Uma fotografia ganha outra dimensão quando você trabalha com elementos em diferentes distâncias da câmera.</p>
+<figure class="fig"><button class="zoom" data-full="/img/perspectiva-dj.jpg"><img loading="lazy" src="/img/perspectiva-dj.jpg" alt="A mão em primeiro plano exagera as proporções e puxa o olhar para dentro da cena."></button><figcaption>A mão em primeiro plano exagera as proporções e puxa o olhar para dentro da cena.</figcaption></figure>
+<p>Nesta imagem, a mão em primeiro plano chama a atenção, enquanto o DJ e os equipamentos completam a composição. A proximidade exagera as proporções e cria uma sensação de profundidade, fazendo com que o espectador se sinta parte da cena.</p>
+<p class="segredo"><strong>O segredo</strong> Não fotografe apenas o que está à sua frente. Explore o espaço entre a câmera e o assunto. Às vezes, mudar a distância e o ângulo é tudo o que você precisa para transformar uma foto comum em uma imagem interessante.</p>
+<div class="pratica" data-ex="m1-e4">
+    <div class="ptop"><span class="plb">Exercício</span>
+      <label class="pchk"><input type="checkbox" data-done><span>fiz</span></label></div>
+    <p>Aproxime a câmera de um elemento, mantenha o assunto principal um pouco mais distante e observe como a perspectiva transforma a imagem.</p>
+    <button class="preg" data-reg>Registrar o que eu fiz</button>
+    <div class="pfeito" hidden></div>
+  </div>
+<h2 id="c5" data-nav="Esperar o momento"><span class="cn">5</span>Esperar o momento</h2>
 <p>As melhores fotos quase nunca são as primeiras.</p>
 <p>Sebastião Salgado passava semanas com as pessoas que fotografava. Voltava ao mesmo lugar até a luz colaborar, até o gesto acontecer, até a cena dizer tudo de uma vez. As imagens dele emocionam porque ele teve a paciência de esperar a verdade aparecer.</p>
 <p>Você não precisa de mais tempo. Precisa estar presente quando o momento acontecer. Num aniversário, a foto boa é a do riso real, não a do "olha pro passarinho". Num retrato, é o instante em que a pessoa relaxa e esquece a câmera. Com pressa, você faz a foto e vai embora. Com presença, você espera. Às vezes, tudo o que uma boa foto precisa é que você fique mais um pouco.</p>
 <p>Paciência também é técnica. E talvez seja a mais difícil de dominar.</p>
 <hr>
-<h2 id="c5" data-nav="Estudo de caso: o olhar" class="plain">Estudo de caso: o olhar</h2>
+<h2 id="c6" data-nav="Estudo de caso: o olhar" class="plain">Estudo de caso: o olhar</h2>
 <p>Antes de mudar de parte, um exemplo de verdade. Uma foto minha, e as decisões por trás dela.</p>
 <div class="decs"><div class="dhead"><span class="dk">Decisão por decisão</span><span class="dc-n"><b>1</b>/4</span></div>
     <div class="dstage"><button class="zoom" data-full="/img/arqvestido.jpg"><img loading="lazy" src="/img/arqvestido.jpg" alt="O vestido verde: reflexo, linhas e cor conduzindo o olhar."></button><div class="dpins"><button class="pin on" data-i="0">1</button><button class="pin" data-i="1">2</button><button class="pin" data-i="2">3</button><button class="pin" data-i="3">4</button></div></div>
@@ -503,11 +530,11 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
     </div>
   </div>
   <div class="rwrap">
-    <h2 id="c6" data-nav="Um estúdio na sua janela"><span class="cn">5</span>Um estúdio na sua janela</h2>
+    <h2 id="c7" data-nav="Um estúdio na sua janela"><span class="cn">6</span>Um estúdio na sua janela</h2>
 <p>Você não precisa de equipamento caro para fazer um retrato bonito. A melhor luz suave que existe provavelmente está na sua sala agora.</p>
 <p>Uma janela grande, sem sol direto batendo, é uma fonte de luz macia e generosa. Envolve o rosto, cria sombra delicada, valoriza a pele. É praticamente um estúdio que não custou nada.</p>
 <p>Posicione a pessoa de lado para a janela, não de frente. A luz vem de um lado, o outro fica numa sombra suave, e isso cria volume, aquele ar de profundidade. Se a sombra ficou escura demais, ponha algo branco do outro lado, uma cartolina, uma parede clara, para devolver um pouco de luz.</p>
-<div class="pratica" data-ex="m2-e4">
+<div class="pratica" data-ex="m2-e5">
     <div class="ptop"><span class="plb">Exercício</span>
       <label class="pchk"><input type="checkbox" data-done><span>fiz</span></label></div>
     <p>Sente alguém de lado para uma janela iluminada. Fotografe. Depois ponha uma cartolina branca do lado escuro do rosto e fotografe de novo. A segunda foto tem a sombra mais viva. Isso é iluminação de estúdio, feita com o que você tem em casa.</p>
@@ -515,14 +542,14 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
     <div class="pfeito" hidden></div>
   </div>
 <figure class="fig"><button class="zoom" data-full="/img/luz-janela.jpg"><img loading="lazy" src="/img/luz-janela.jpg" alt="Luz de janela, de lado. Um estúdio que não custou nada."></button><figcaption>Luz de janela, de lado. Um estúdio que não custou nada.</figcaption></figure>
-<h2 id="c7" data-nav="A hora certa do dia"><span class="cn">6</span>A hora certa do dia</h2>
+<h2 id="c8" data-nav="A hora certa do dia"><span class="cn">7</span>A hora certa do dia</h2>
 <p>A luz das primeiras e das últimas horas do dia, a hora dourada, é baixa, quente e macia. É a luz preferida de quase todo fotógrafo, e não por acaso.</p>
 <p>O meio-dia, com o sol a pino, é o oposto: luz alta e dura, que cava olheiras e estoura os realces da pele. Se você pode escolher a hora, prefira o fim da tarde. Se não pode, procure uma sombra aberta, embaixo de um toldo ou de uma árvore, e ganhe uma luz mais difusa de graça.</p>
 <p>Mas isso não significa que a luz dura seja ruim. Ela só precisa ser usada com intenção. É uma luz que cria sombras marcadas, muito contraste, textura e sensação de volume. Funciona muito bem em fotografia de arquitetura, preto e branco, ensaios mais dramáticos e até para destacar definição muscular. Na fotografia, não existe apenas luz boa ou ruim. Existe a luz certa para o resultado que você quer criar.</p>
 <figure class="fig"><button class="zoom" data-full="/img/pb-luzdura.jpg"><img loading="lazy" src="/img/pb-luzdura.jpg" alt="Luz dura, preto e branco e sombra marcada. A mesma luz que atrapalha um retrato suave é a que constrói este."></button><figcaption>Luz dura, preto e branco e sombra marcada. A mesma luz que atrapalha um retrato suave é a que constrói este.</figcaption></figure>
 <p>Reparar na hora do dia é entender a luz antes que ela vire um problema e saber transformá-la em solução. É a diferença entre a foto que aconteceu com você e a foto que você escolheu.</p>
 <blockquote class="pullq">Fotógrafo bom não briga com a luz. Ele escolhe.</blockquote>
-<div class="cmp" id="c8">
+<div class="cmp" id="c9">
     <div class="ctabs"><button class="on" data-s="a">Luz suave</button><button data-s="b">Luz dura</button></div>
     <div class="cstage">
       <img class="ci on" data-s="a" loading="lazy" src="/img/luz-janela.jpg" alt="Luz suave">
@@ -530,10 +557,10 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
     </div>
     <p class="ccap">Duas luzes, duas intenções. Toque para alternar.</p>
   </div>
-<h2 id="c9" data-nav="Uma luz só"><span class="cn">7</span>Uma luz só</h2>
+<h2 id="c10" data-nav="Uma luz só"><span class="cn">8</span>Uma luz só</h2>
 <p>À noite, ou num ambiente fechado, a gente acha que precisa de muito equipamento. Precisa do contrário: de controle sobre a única luz que tem.</p>
 <p>Cinema e pintura fazem isso há séculos. Uma fonte só, bem posicionada, cria drama e beleza. Pegue um abajur, uma luminária, até a lanterna do celular. Aproxime do rosto, de lado e um pouco de cima, imitando como a luz natural cai. Quanto mais perto a fonte, mais suave a sombra. Deixe a escuridão fazer parte da foto, porque sombra não é falta de luz, é escolha.</p>
-<div class="pratica" data-ex="m2-e5">
+<div class="pratica" data-ex="m2-e6">
     <div class="ptop"><span class="plb">Exercício</span>
       <label class="pchk"><input type="checkbox" data-done><span>fiz</span></label></div>
     <p>Apague as luzes do quarto. Ilumine um rosto de lado com uma luminária, bem de perto. Fotografe. Depois afaste a luminária e veja a foto ficar chapada. A distância da luz é uma ferramenta na sua mão.</p>
@@ -541,13 +568,13 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
     <div class="pfeito" hidden></div>
   </div>
 <hr>
-<h2 id="c10" data-nav="Estudo de caso: a luz num retrato" class="plain">Estudo de caso: a luz num retrato</h2>
+<h2 id="c11" data-nav="Estudo de caso: a luz num retrato" class="plain">Estudo de caso: a luz num retrato</h2>
 <p>O formato mais forte do manual: eu destrincho a luz de um retrato meu, decisão por decisão, e depois você repete na sua câmera.</p>
 <div class="decs"><div class="dhead"><span class="dk">Decisão por decisão</span><span class="dc-n"><b>1</b>/4</span></div>
     <div class="dstage"><button class="zoom" data-full="/img/retrato-junior.jpg"><img loading="lazy" src="/img/retrato-junior.jpg" alt="O retrato do Júnior: uma luz de lado, a sombra mantida e o fundo entregue à escuridão."></button><div class="dpins"><button class="pin on" data-i="0">1</button><button class="pin" data-i="1">2</button><button class="pin" data-i="2">3</button><button class="pin" data-i="3">4</button></div></div>
     <figcaption>O retrato do Júnior: uma luz de lado, a sombra mantida e o fundo entregue à escuridão.</figcaption><div class="dcards"><div class="dc on"><span class="dn">1</span><div><b>Luz lateral</b><p>Posicionei a luz de lado para criar volume e destacar os traços do rosto. De frente, o rosto achata. De lado, ele ganha relevo.</p></div></div><div class="dc"><span class="dn">2</span><div><b>Sombras mantidas</b><p>Não tentei preencher a sombra. Mantive para aumentar o contraste e dar mais profundidade ao retrato. Meio rosto no escuro aqui é escolha, não erro.</p></div></div><div class="dc"><span class="dn">3</span><div><b>Fundo escuro</b><p>Escolhi um fundo preto para eliminar distrações e concentrar toda a atenção no rosto.</p></div></div><div class="dc"><span class="dn">4</span><div><b>Close</b><p>Aproximei o enquadramento para valorizar o olhar, a expressão e a textura.</p></div></div></div>
     <div class="dnav"><button class="dprev">← anterior</button><button class="dnext">próxima →</button></div></div>
-<div class="pratica" data-ex="m2-e6">
+<div class="pratica" data-ex="m2-e7">
     <div class="ptop"><span class="plb">Exercício</span>
       <label class="pchk"><input type="checkbox" data-done><span>fiz</span></label></div>
     <p>Apague as luzes do ambiente e acenda uma fonte só, de lado, perto do rosto. Afaste a pessoa da parede, para o fundo cair na escuridão sozinho. Fotografe o rosto inteiro, depois chegue mais perto e fotografe só o olhar. Compare as duas e veja o que o close fez com a expressão.</p>
@@ -575,7 +602,7 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
 </section>
 <section class="mod" data-mod="3" style="--c:#2196f3" hidden>
   <div class="mhero">
-    <img class="mbg" loading="lazy" src="/img/zooming.jpg" alt="" style="object-position:50% 50%">
+    <img class="mbg" loading="lazy" src="/img/zooming.jpg" srcset="/img/zooming.jpg 1200w, /img/zooming-lg.jpg 2200w" sizes="100vw" alt="" style="object-position:50% 50%">
     <div class="mscrim"></div>
     <div class="mh-in">
       <button class="voltar" data-ir="0">← todos os módulos</button>
@@ -585,7 +612,7 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
     </div>
   </div>
   <div class="rwrap">
-    <h2 id="c11" data-nav="Os três pilares da exposição"><span class="cn">8</span>Os três pilares da exposição</h2>
+    <h2 id="c12" data-nav="Os três pilares da exposição"><span class="cn">9</span>Os três pilares da exposição</h2>
 <p>Toda fotografia começa com luz. Para controlar como essa luz será registrada pela câmera, existem três ajustes fundamentais: velocidade do obturador, abertura do diafragma e ISO.</p>
 <p>Esses três elementos formam o chamado triângulo da exposição. Eles trabalham juntos para determinar se uma fotografia ficará mais clara ou mais escura, mas cada um também provoca um efeito diferente na imagem. Por isso, aprender exposição não é apenas aprender a clarear uma fotografia. É aprender a decidir como você quer que ela fique.</p>
 <h3>Velocidade do obturador</h3>
@@ -621,7 +648,7 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
 <p>Existe um quarto controle que quase ninguém usa no começo e que resolve metade dos problemas de exposição: a compensação, aquele botão marcado com <strong>+/−</strong>.</p>
 <p>Nos modos automáticos e semiautomáticos, a câmera mede a cena e decide a exposição sozinha. Ela acerta na maior parte do tempo, mas se engana em cenas muito claras ou muito escuras, porque tenta deixar tudo num cinza médio. Fotografe alguém na neve ou na areia e a câmera escurece demais. Fotografe uma cena noturna e ela clareia demais.</p>
 <p>A compensação é você discordando da câmera sem sair do automático. Gire para <strong>+1</strong> e a foto sai mais clara do que a câmera queria. Gire para <strong>−1</strong> e sai mais escura. O ajuste é em passos de luz, normalmente de um terço em um terço.</p>
-<div class="pratica" data-ex="m3-e7">
+<div class="pratica" data-ex="m3-e8">
     <div class="ptop"><span class="plb">Exercício</span>
       <label class="pchk"><input type="checkbox" data-done><span>fiz</span></label></div>
     <p>Fotografe uma parede branca no automático e repare que ela sai cinza. Agora suba a compensação para +1 ou +1,7 e fotografe de novo. A parede fica branca. Você acabou de corrigir a câmera em vez de aceitar o que ela decidiu.</p>
@@ -635,7 +662,7 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
 <p>É por isso que dominar o triângulo da exposição muda a maneira como você fotografa. Em vez de perguntar apenas "qual configuração devo usar?", você começa a perguntar:</p>
 <blockquote class="pullq">Qual resultado eu quero criar?</blockquote>
 <p>E é essa pergunta que transforma configuração em decisão fotográfica.</p>
-<div class="pratica" data-ex="m3-e8">
+<div class="pratica" data-ex="m3-e9">
     <div class="ptop"><span class="plb">Exercício</span>
       <label class="pchk"><input type="checkbox" data-done><span>fiz</span></label></div>
     <p>Abra uma torneira e apoie a câmera. Fotografe a água em 1/1000s e depois em 1/15s. Veja a água congelar na primeira e virar seda na segunda. Depois ajuste abertura e ISO até as duas ficarem com uma claridade parecida. Você acabou de usar os três pilares juntos.</p>
@@ -675,22 +702,53 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
   <div class="sout" id="s-out"></div>
   <p class="snote">Simulação com a conta real de exposição. Serve para entender a relação entre os três, não para substituir o que você vê no visor.</p>
 </div>
-<h2 id="c12" data-nav="Saia do automático, sem medo"><span class="cn">9</span>Saia do automático, sem medo</h2>
+<h2 id="c13" data-nav="Saia do automático, sem medo"><span class="cn">10</span>Saia do automático, sem medo</h2>
 <p>O automático decide tudo por você, e quase sempre decide o seguro, não o bonito.</p>
 <p>Você não precisa saltar direto para o modo manual completo. Existe um caminho do meio, e ele resolve a maior parte das fotos: o modo de prioridade de abertura (o "A" ou "Av" na sua câmera). Nele, você escolhe uma coisa só, o quanto o fundo fica desfocado, e a câmera cuida do resto.</p>
 <p>Abertura bem aberta, aquele número f baixo, e o fundo derrete num borrão suave enquanto o assunto salta. Abertura fechada, e tudo fica nítido, do perto ao longe. É o controle mais poderoso do retrato, e está a um giro de distância.</p>
-<div class="pratica" data-ex="m3-e9">
+<div class="pratica" data-ex="m3-e10">
     <div class="ptop"><span class="plb">Exercício</span>
       <label class="pchk"><input type="checkbox" data-done><span>fiz</span></label></div>
     <p>Ponha a câmera no modo A. Fotografe a mesma pessoa em f/2.8 e depois em f/8. Veja o fundo derreter na primeira e ganhar nitidez na segunda. Você acabou de assumir o controle.</p>
     <button class="preg" data-reg>Registrar o que eu fiz</button>
     <div class="pfeito" hidden></div>
   </div>
-<h2 id="c13" data-nav="O botão mais subestimado"><span class="cn">10</span>O botão mais subestimado</h2>
+<h2 id="c14" data-nav="Os modos, um a um"><span class="cn">11</span>Os modos, um a um</h2>
+<p>No capítulo anterior você girou o disco para o A e viu o fundo desfocar. Agora vale saber o que tem nas outras posições, porque cada letra entrega uma parte da decisão para você e guarda o resto com a câmera.</p>
+<div class="modos" id="md15"><div class="dhead"><span class="dk">Os modos da câmera</span><span class="dc-n"><b>6</b> modos</span></div>
+    <div class="mdchips"><button class="mdchip on" data-i="0">A / Av</button><button class="mdchip" data-i="1">S / Tv</button><button class="mdchip" data-i="2">P</button><button class="mdchip" data-i="3">AUTO</button><button class="mdchip" data-i="4">B</button><button class="mdchip" data-i="5">M</button></div><div class="mdps"><div class="mdp on" data-i="0">
+    
+    <div class="mdtxt"><b>Prioridade de abertura</b><p>Um dos modos favoritos de muitos fotógrafos. Você escolhe a abertura da lente e a câmera faz o resto. Quer aquele fundo desfocado bonito, usa abertura baixa, como f/1.8 ou f/2.8.</p><p class="mdq"><span>Quando usar</span>Retratos, ensaios, fotos artísticas, situações onde o desfoque faz a diferença.</p></div>
+  </div><div class="mdp" data-i="1">
+    
+    <div class="mdtxt"><b>Prioridade de velocidade</b><p>Você escolhe a velocidade do obturador e a câmera calcula o resto. Quer congelar o movimento, velocidades mais altas. Quer criar efeito de movimento, velocidades mais lentas.</p><p class="mdq"><span>Quando usar</span>Esportes, carros, animais, dança, fotografia de ação.</p></div>
+  </div><div class="mdp" data-i="2">
+    
+    <div class="mdtxt"><b>Programa</b><p>Muita gente ignora esse modo, mas ele é um dos mais inteligentes. A câmera ajusta a exposição automaticamente, e mesmo assim você continua controlando várias configurações.</p><p class="mdq"><span>Quando usar</span>Fotografia de rua, viagens, momentos rápidos, quando você quer praticidade sem perder o controle.</p></div>
+  </div><div class="mdp" data-i="3">
+    
+    <div class="mdtxt"><b>Automático</b><p>Aqui a câmera decide tudo: o ISO, a abertura, a velocidade. É ótimo para quem está começando e para momentos rápidos, quando não dá tempo de configurar. O problema é que a câmera não sabe o que você quer criar.</p><p class="mdq"><span>Quando usar</span>Quando o momento não espera.</p></div>
+  </div><div class="mdp" data-i="4">
+    
+    <div class="mdtxt"><b>Bulb</b><p>Esse aqui é quase mágico. O obturador fica aberto pelo tempo que você quiser, sem limite de velocidade.</p><p class="mdq"><span>Quando usar</span>Longa exposição: rastro de luz, e água com efeito sedoso.</p></div>
+  </div><div class="mdp" data-i="5">
+    
+    <div class="mdtxt"><b>Manual</b><p>Aqui o controle é todo seu. Você escolhe o ISO, a abertura e a velocidade. É aqui que você realmente aprende fotografia. No começo parece difícil, depois você percebe que é liberdade total.</p><p class="mdq"><span>Quando usar</span>Ensaios profissionais, estúdio, fotos noturnas, e qualquer situação onde você quer o controle completo da imagem.</p></div>
+  </div></div></div>
+<p>Os modos de cena, aqueles com desenho de rosto, montanha ou corredor, são atalhos: a câmera aplica uma combinação pronta para aquela situação. Funcionam, mas escondem de você qual decisão foi tomada. Quando quiser entender a foto que saiu, volte para as letras.</p>
+<p>E qual é o melhor modo? O melhor modo é aquele que resolve a cena que está na sua frente.</p>
+<div class="pratica" data-ex="m3-e11">
+    <div class="ptop"><span class="plb">Exercício</span>
+      <label class="pchk"><input type="checkbox" data-done><span>fiz</span></label></div>
+    <p>Fotografe a mesma cena quatro vezes, uma em cada modo: P, A, S e M. Anote o que a câmera escolheu em cada uma. As quatro chegam perto do mesmo resultado por caminhos diferentes.</p>
+    <button class="preg" data-reg>Registrar o que eu fiz</button>
+    <div class="pfeito" hidden></div>
+  </div>
+<h2 id="c16" data-nav="O botão mais subestimado"><span class="cn">12</span>O botão mais subestimado</h2>
 <p>Suas fotos saem um pouco escuras ou claras demais, e você não sabe por quê. A câmera está certa pela conta dela, e errada pelo que você queria.</p>
 <p>Existe um botão que resolve isso sem você sair do modo semiautomático: a compensação de exposição, o do símbolo de mais e menos. Ele diz para a câmera "deixa mais claro" ou "mais escuro" do que ela achou. Cena com muito branco, como uma parede clara ou a areia da praia? A câmera escurece sozinha. Empurre para o mais. Cena escura, como um ambiente à noite? Ela clareia demais. Puxe para o menos.</p>
 <p>É o meio-termo perfeito entre deixar a câmera decidir e assumir tudo. Resolve metade das reclamações de "a luz da minha foto saiu errada".</p>
-<h2 id="c14" data-nav="Foco no lugar certo"><span class="cn">11</span>Foco no lugar certo</h2>
+<h2 id="c17" data-nav="Foco no lugar certo"><span class="cn">13</span>Foco no lugar certo</h2>
 <p>Metade das fotos frustrantes é foco no lugar errado. A câmera focou no fundo, ou o assunto se moveu.</p>
 <p>Duas decisões resolvem quase tudo. Primeiro, escolha o modo: foco único para o que está parado, como um retrato posado; foco contínuo para o que se move, como uma criança correndo. Segundo, escolha você o ponto de foco, não deixe a câmera adivinhar. Num retrato, o foco vai no olho mais próximo. Isso é quase sagrado. Um olho fora de foco derruba a imagem inteira.</p>
 <p>O resto é prática. Mas essas duas decisões já colocam a nitidez de volta nas suas mãos.</p>
@@ -725,7 +783,7 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
     </div>
   </div>
   <div class="rwrap">
-    <h2 id="c15" data-nav="O retrato"><span class="cn">12</span>O retrato</h2>
+    <h2 id="c18" data-nav="O retrato"><span class="cn">14</span>O retrato</h2>
 <p>Fotografar uma pessoa é fotografar quem ela é, não só como ela parece.</p>
 <p>Abertura aberta para separar do fundo, foco no olho, luz de janela suave vindo de lado. Fotografe na altura dos olhos dela. E converse, faça rir, distraia, porque o retrato verdadeiro quase sempre acontece no intervalo entre as poses, quando ela relaxa e esquece a câmera.</p>
 <p>Sua paciência é o que traz a foto real. O resto é ajuste.</p>
@@ -735,7 +793,7 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
     <figcaption>Retrato de posicionamento: roupa, pose, luz e fundo dizendo a mesma coisa.</figcaption><div class="dcards"><div class="dc on"><span class="dn">1</span><div><b>A roupa</b><p>Terno e gravata, para transmitir autoridade e profissionalismo. A roupa é a primeira frase do retrato e fala antes do rosto.</p></div></div><div class="dc"><span class="dn">2</span><div><b>A pose</b><p>Corpo inclinado para a frente, olhar direto na câmera. É o que passa confiança.</p></div></div><div class="dc"><span class="dn">3</span><div><b>A luz</b><p>Lateral, com contraste, para esculpir o rosto e dar força ao retrato.</p></div></div><div class="dc"><span class="dn">4</span><div><b>O fundo</b><p>Preto, para eliminar distrações e concentrar toda a atenção na pessoa.</p></div></div></div>
     <div class="dnav"><button class="dprev">← anterior</button><button class="dnext">próxima →</button></div></div>
 <p>Repare que as quatro decisões dizem a mesma coisa. Quando roupa, pose, luz e fundo apontam para a mesma direção, o retrato deixa de ser uma foto bonita e passa a ser um posicionamento.</p>
-<h2 id="c16" data-nav="Pouca luz"><span class="cn">13</span>Pouca luz</h2>
+<h2 id="c19" data-nav="Pouca luz"><span class="cn">15</span>Pouca luz</h2>
 <p>Ambiente escuro não é problema. Muitas vezes, é justamente a pouca luz que dá clima à fotografia.</p>
 <p>Abra a lente ao máximo, mantenha uma velocidade que não deixe a foto tremer, e suba o ISO sem culpa. Uma foto com um pouco de granulado é uma foto. Uma foto tremida, ou o momento perdido por medo, não são.</p>
 <p>E use a luz que já está ali: um palco, uma vela, um letreiro, uma janela iluminada. Aproxime a pessoa dessas fontes e deixe a escuridão ao redor trabalhar a favor da imagem.</p>
@@ -745,7 +803,7 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
     <figcaption>Externa em dia nublado: preto e branco, as luzes do fundo na composição e a fumaça esperada.</figcaption><div class="dcards"><div class="dc on"><span class="dn">1</span><div><b>A luz</b><p>O dia estava nublado, com luz suave e sem muita direção. Em vez de brigar com isso, aproveitei: uma luz assim mantém o rosto equilibrado com o fundo, sem estouro e sem sombra dura.</p></div></div><div class="dc"><span class="dn">2</span><div><b>O preto e branco</b><p>As cores não estavam ajudando a fotografia. Tirei a cor para simplificar a cena e deixar o contraste e a expressão fazerem o trabalho.</p></div></div><div class="dc"><span class="dn">3</span><div><b>O fundo</b><p>Era um fundo meio confuso, mas tinha vários pontos de luz. Mudei o meu posicionamento até que essas luzes virassem parte da composição em vez de bagunça.</p></div></div><div class="dc"><span class="dn">4</span><div><b>A espera</b><p>A cena ainda precisava de alguma coisa. Esperei o momento exato em que ele soltou a fumaça e fotografei. Foi ela que trouxe movimento e deu mais força para a imagem.</p></div></div></div>
     <div class="dnav"><button class="dprev">← anterior</button><button class="dnext">próxima →</button></div></div>
 <p>Nenhuma dessas decisões mudou a luz do lugar. Elas mudaram o que eu fiz com ela.</p>
-<h2 id="c17" data-nav="Movimento"><span class="cn">14</span>Movimento</h2>
+<h2 id="c20" data-nav="Movimento"><span class="cn">16</span>Movimento</h2>
 <p>Movimento é uma escolha, não um acidente.</p>
 <p>Velocidade rápida congela o instante, o pulo, a corrida, o gesto. Velocidade lenta, com a câmera bem firme, transforma movimento em poesia: a água vira seda, as luzes viram riscos. O truque é decidir antes qual das duas histórias você quer contar, e ajustar a câmera para servir a essa decisão.</p>
 <figure class="fig"><button class="zoom" data-full="/img/longa-exposicao.jpg"><img loading="lazy" src="/img/longa-exposicao.jpg" alt="Velocidade lenta, câmera firme: os faróis deixam de ser pontos e viram linha."></button><figcaption>Velocidade lenta, câmera firme: os faróis deixam de ser pontos e viram linha.</figcaption></figure>
@@ -781,11 +839,11 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
     </div>
   </div>
   <div class="rwrap">
-    <h2 id="c18" data-nav="A edição honesta"><span class="cn">15</span>A edição honesta</h2>
+    <h2 id="c21" data-nav="A edição honesta"><span class="cn">17</span>A edição honesta</h2>
 <p>Editar é revelar o que já estava no arquivo, como se fazia no laboratório com o negativo. Não é transformar a foto em outra coisa.</p>
 <p>Ajuste o brilho geral, recupere o detalhe no céu e nas sombras, dê um toque de contraste, acerte a cor para a pele ficar natural. E pare antes de exagerar. A boa edição é invisível: a pessoa olha e acha que a foto saiu assim. Menos é quase sempre mais.</p>
 <p>Esta é uma foto minha, na edição antiga e na que eu faço hoje. O arquivo é o mesmo, a luz é a mesma, o instante é o mesmo. Mudou só o que eu decidi mostrar.</p>
-<div class="ad" id="ad19">
+<div class="ad" id="ad22">
     <div class="adhead"><span class="dk">Arraste para comparar</span></div>
     <div class="adstage">
       <img class="adimg adb" src="/img/violao.jpg" alt="Depois da edição">
@@ -797,7 +855,7 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
     <figcaption>A mesma foto, a edição de antes e a de hoje. Arraste a linha.</figcaption>
   </div>
 <p>Repare que nada foi inventado: o fundo continua preto, a pele continua pele. O que mudou foi o contraste, a temperatura e o quanto eu deixo a escuridão trabalhar.</p>
-<h2 id="c20" data-nav="Não perca suas fotos"><span class="cn">16</span>Não perca suas fotos</h2>
+<h2 id="c23" data-nav="Não perca suas fotos"><span class="cn">18</span>Não perca suas fotos</h2>
 <p>Foto guardada num lugar só é foto que você ainda pode perder.</p>
 <p>Guarde tudo em dois lugares diferentes, o computador e um HD, ou o computador e a nuvem. Formate o cartão só depois de confirmar que as imagens estão salvas nos dois. Parece detalhe, mas é o que separa quem guarda a memória de quem a perde para sempre.</p>
 <hr>
@@ -973,7 +1031,7 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
 <script>
 (function(){
   var DB='https://rifa-mae-default-rtdb.firebaseio.com/photoblaster/comunidade';
-  var d=document, eu=null, dados={prog:{},ex:{}}, MODS=7, TOTEX=9;
+  var d=document, eu=null, dados={prog:{},ex:{}}, MODS=7, TOTEX=11;
   var CORES=["#a855f7","#ffd400","#2196f3","#e935b8","#22d3ee","#a855f7","#22d3ee"];
   var NOMES=["Aprender a ver","A luz como matéria-prima","A câmera a serviço do olhar","Na prática","Depois do clique","Para terminar","Para deixar por perto"];
   var toast=d.getElementById('toast'), tt;
@@ -1309,6 +1367,15 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
     tabs.forEach(function(t){t.onclick=function(){
       tabs.forEach(function(x){x.classList.remove('on');});t.classList.add('on');
       imgs.forEach(function(im){im.classList.toggle('on',im.dataset.s===t.dataset.s);});
+    };});
+  });
+
+  // modos da camera
+  d.querySelectorAll('.modos').forEach(function(box){
+    var chips=box.querySelectorAll('.mdchips button'),paineis=box.querySelectorAll('.mdp');
+    chips.forEach(function(c){c.onclick=function(){
+      chips.forEach(function(x){x.classList.remove('on');});c.classList.add('on');
+      paineis.forEach(function(pn){pn.classList.toggle('on',pn.dataset.i===c.dataset.i);});
     };});
   });
 
