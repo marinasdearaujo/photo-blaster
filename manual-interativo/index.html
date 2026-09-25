@@ -113,13 +113,14 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
 .mdchips button.on{background:var(--c);border-color:var(--c);color:#000}
 .mdp{display:none;gap:20px;align-items:flex-start}
 .mdp.on{display:flex}
-.mdimg{flex:0 0 40%;border-radius:var(--rad);overflow:hidden;background:var(--bg2);align-self:stretch}
-.mdimg img{width:100%;height:100%;object-fit:cover;display:block}
+.mdimg{flex:0 0 40%;border-radius:var(--rad);overflow:hidden;background:var(--bg2);align-self:flex-start}
+.mdimg img{width:100%;height:auto;display:block}
 .mdtxt{flex:1}
 .mdtxt b{font-family:var(--disp);font-size:20px;display:block;margin-bottom:9px;line-height:1.2}
 .mdtxt p{margin:0 0 12px}
 .mdq{font-size:14px;color:var(--mut)}
 .mdq span{color:var(--c);font-weight:600;display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+.mdtip{font-size:13.5px;color:var(--mut);border-left:2px solid var(--line2, #3a3a46);padding-left:12px;margin-top:14px;font-style:italic}
 @media(max-width:640px){.mdp.on{display:block}.mdimg{width:100%;margin-bottom:14px}}
 
 /* simulador */
@@ -714,33 +715,42 @@ th{background:var(--panel);color:var(--c);font-weight:600;font-size:12px;letter-
     <div class="pfeito" hidden></div>
   </div>
 <h2 id="c14" data-nav="Os modos, um a um"><span class="cn">11</span>Os modos, um a um</h2>
-<p>No capítulo anterior você girou o disco para o A e viu o fundo desfocar. Agora vale saber o que tem nas outras posições, porque cada letra entrega uma parte da decisão para você e guarda o resto com a câmera.</p>
-<div class="modos" id="md15"><div class="dhead"><span class="dk">Os modos da câmera</span><span class="dc-n"><b>6</b> modos</span></div>
-    <div class="mdchips"><button class="mdchip on" data-i="0">A / Av</button><button class="mdchip" data-i="1">S / Tv</button><button class="mdchip" data-i="2">P</button><button class="mdchip" data-i="3">AUTO</button><button class="mdchip" data-i="4">B</button><button class="mdchip" data-i="5">M</button></div><div class="mdps"><div class="mdp on" data-i="0">
-    
-    <div class="mdtxt"><b>Prioridade de abertura</b><p>Um dos modos favoritos de muitos fotógrafos. Você escolhe a abertura da lente e a câmera faz o resto. Quer aquele fundo desfocado bonito, usa abertura baixa, como f/1.8 ou f/2.8.</p><p class="mdq"><span>Quando usar</span>Retratos, ensaios, fotos artísticas, situações onde o desfoque faz a diferença.</p></div>
+<p>No capítulo anterior você girou o disco para o Av e viu o fundo desfocar. Agora vale conhecer o resto das posições, porque cada uma entrega uma parte da decisão para você e guarda o resto com a câmera.</p>
+<p>O melhor modo é aquele que resolve a cena que está na sua frente.</p>
+<div class="modos" id="md15"><div class="dhead"><span class="dk">Os modos da câmera</span><span class="dc-n"><b>9</b> modos</span></div>
+    <div class="mdchips"><button class="mdchip on" data-i="0">AUTO</button><button class="mdchip" data-i="1">CA</button><button class="mdchip" data-i="2">SCN</button><button class="mdchip" data-i="3">P</button><button class="mdchip" data-i="4">Av</button><button class="mdchip" data-i="5">Tv</button><button class="mdchip" data-i="6">M</button><button class="mdchip" data-i="7">B</button><button class="mdchip" data-i="8">C1 e C2</button></div><div class="mdps"><div class="mdp on" data-i="0">
+    <button class="zoom mdimg" data-full="/img/modo-auto.jpg"><img loading="lazy" src="/img/modo-auto.jpg" alt="Automático"></button>
+    <div class="mdtxt"><b>Automático</b><p>A câmera decide tudo: abertura, velocidade, ISO e, dependendo do modelo, também o foco, o balanço de branco e o flash.</p><p class="mdq"><span>Quando usar</span>Quando o momento não espera. Registro de família, viagem, uma cena que vai acabar em dois segundos.</p><p class="mdtip">O limite é que ela não sabe o que você quer. Pode fechar a abertura e entregar o fundo nítido bem na hora em que você queria o retrato todo desfocado.</p></div>
   </div><div class="mdp" data-i="1">
-    
-    <div class="mdtxt"><b>Prioridade de velocidade</b><p>Você escolhe a velocidade do obturador e a câmera calcula o resto. Quer congelar o movimento, velocidades mais altas. Quer criar efeito de movimento, velocidades mais lentas.</p><p class="mdq"><span>Quando usar</span>Esportes, carros, animais, dança, fotografia de ação.</p></div>
+    <button class="zoom mdimg" data-full="/img/modo-ca.jpg"><img loading="lazy" src="/img/modo-ca.jpg" alt="Criativo automático"></button>
+    <div class="mdtxt"><b>Criativo automático</b><p>Funciona como o automático, mas te dá controles em linguagem de gente: em vez de escolher f/1.8, você arrasta um controle que diz "fundo mais desfocado". A câmera traduz.</p><p class="mdq"><span>Quando usar</span>Quando você quer mexer no resultado sem ainda saber o nome técnico do que está mexendo.</p><p class="mdtip">É a porta de entrada. Quando entender o que cada controle fez na foto, passe para o Av.</p></div>
   </div><div class="mdp" data-i="2">
-    
-    <div class="mdtxt"><b>Programa</b><p>Muita gente ignora esse modo, mas ele é um dos mais inteligentes. A câmera ajusta a exposição automaticamente, e mesmo assim você continua controlando várias configurações.</p><p class="mdq"><span>Quando usar</span>Fotografia de rua, viagens, momentos rápidos, quando você quer praticidade sem perder o controle.</p></div>
+    <button class="zoom mdimg" data-full="/img/modo-scn.jpg"><img loading="lazy" src="/img/modo-scn.jpg" alt="Cenas"></button>
+    <div class="mdtxt"><b>Cenas</b><p>Você diz o tipo de cena, retrato, paisagem, esporte, noturno, e a câmera monta a configuração. No retrato ela tende a abrir mais; no esporte, a acelerar.</p><p class="mdq"><span>Quando usar</span>Quando você quer o resultado daquele tipo de foto sem configurar nada.</p><p class="mdtip">Vale usar como aula: fotografe no modo cena e depois veja no visor o que a câmera escolheu. Isso ensina mais rápido que ler sobre o assunto.</p></div>
   </div><div class="mdp" data-i="3">
-    
-    <div class="mdtxt"><b>Automático</b><p>Aqui a câmera decide tudo: o ISO, a abertura, a velocidade. É ótimo para quem está começando e para momentos rápidos, quando não dá tempo de configurar. O problema é que a câmera não sabe o que você quer criar.</p><p class="mdq"><span>Quando usar</span>Quando o momento não espera.</p></div>
+    <button class="zoom mdimg" data-full="/img/modo-p.jpg"><img loading="lazy" src="/img/modo-p.jpg" alt="Programa"></button>
+    <div class="mdtxt"><b>Programa</b><p>Muita gente ignora esse modo, mas ele é um dos mais inteligentes. A câmera escolhe a dupla abertura e velocidade, e deixa com você o ISO, a compensação de exposição, o foco e o balanço de branco.</p><p class="mdq"><span>Quando usar</span>Fotografia de rua, viagem, evento. Luz mudando o tempo todo e você precisa de agilidade.</p><p class="mdtip">Quase toda câmera deixa girar um seletor para trocar a combinação de abertura e velocidade sem mudar o brilho da foto. Experimente o P com ISO automático e a compensação de exposição na mão.</p></div>
   </div><div class="mdp" data-i="4">
-    
-    <div class="mdtxt"><b>Bulb</b><p>Esse aqui é quase mágico. O obturador fica aberto pelo tempo que você quiser, sem limite de velocidade.</p><p class="mdq"><span>Quando usar</span>Longa exposição: rastro de luz, e água com efeito sedoso.</p></div>
+    <button class="zoom mdimg" data-full="/img/modo-av.jpg"><img loading="lazy" src="/img/modo-av.jpg" alt="Prioridade de abertura"></button>
+    <div class="mdtxt"><b>Prioridade de abertura</b><p>Um dos modos favoritos de muitos fotógrafos. Você escolhe a abertura e a câmera calcula a velocidade. Aberto, como f/1.8 ou f/2.8, entra mais luz e o fundo derrete. Fechado, como f/8 ou f/11, tudo fica nítido do perto ao longe.</p><p class="mdq"><span>Quando usar</span>Retratos, ensaios, gastronomia, produto, arquitetura, paisagem.</p><p class="mdtip">Cuidado no escuro: para compensar a falta de luz a câmera baixa a velocidade, e aí a foto sai tremida. Olhe sempre o número da velocidade no visor.</p></div>
   </div><div class="mdp" data-i="5">
-    
-    <div class="mdtxt"><b>Manual</b><p>Aqui o controle é todo seu. Você escolhe o ISO, a abertura e a velocidade. É aqui que você realmente aprende fotografia. No começo parece difícil, depois você percebe que é liberdade total.</p><p class="mdq"><span>Quando usar</span>Ensaios profissionais, estúdio, fotos noturnas, e qualquer situação onde você quer o controle completo da imagem.</p></div>
+    <button class="zoom mdimg" data-full="/img/modo-tv.jpg"><img loading="lazy" src="/img/modo-tv.jpg" alt="Prioridade de velocidade"></button>
+    <div class="mdtxt"><b>Prioridade de velocidade</b><p>Você escolhe por quanto tempo o obturador fica aberto e a câmera calcula a abertura. Rápido, como 1/1000, congela. Lento, como 1/15, deixa o movimento borrar de propósito.</p><p class="mdq"><span>Quando usar</span>Esporte, bicho, carro, dança, criança correndo.</p><p class="mdtip">Se você pedir uma velocidade alta demais para a luz que tem, a lente não abre o suficiente e a foto sai escura. Nessa hora, suba o ISO.</p></div>
+  </div><div class="mdp" data-i="6">
+    <button class="zoom mdimg" data-full="/img/modo-m.jpg"><img loading="lazy" src="/img/modo-m.jpg" alt="Manual"></button>
+    <div class="mdtxt"><b>Manual</b><p>O controle é todo seu: abertura, velocidade e ISO. A câmera só mostra o fotômetro e deixa você decidir. É aqui que você realmente aprende fotografia. No começo parece difícil, depois você percebe que é liberdade total.</p><p class="mdq"><span>Quando usar</span>Estúdio, ensaio profissional, noturna, e qualquer cena em que a luz não muda mas o enquadramento sim.</p><p class="mdtip">Num ensaio com flash, depois de acertar a exposição uma vez, você fotografa pose atrás de pose com a mesma configuração. É isso que dá consistência a um trabalho inteiro.</p></div>
+  </div><div class="mdp" data-i="7">
+    <button class="zoom mdimg" data-full="/img/modo-b.jpg"><img loading="lazy" src="/img/modo-b.jpg" alt="Bulb"></button>
+    <div class="mdtxt"><b>Bulb</b><p>Esse aqui é quase mágico. O obturador fica aberto o tempo que você quiser, passando do limite normal da câmera, que costuma ser 30 segundos.</p><p class="mdq"><span>Quando usar</span>Rastro de carro, rastro de estrela, fogos, light painting, água com efeito sedoso.</p><p class="mdtip">Tripé é obrigatório, qualquer tremida estraga o que era para estar parado. Para exposição longa de dia, use um filtro ND, que corta a luz que chega ao sensor.</p></div>
+  </div><div class="mdp" data-i="8">
+    <button class="zoom mdimg" data-full="/img/modo-c1c2.jpg"><img loading="lazy" src="/img/modo-c1c2.jpg" alt="Configuração salva"></button>
+    <div class="mdtxt"><b>Configuração salva</b><p>Não é um modo com receita pronta: é uma memória. Você deixa a câmera do jeito que gosta e salva ali.</p><p class="mdq"><span>Quando usar</span>Quando você repete muito o mesmo tipo de trabalho.</p><p class="mdtip">Se você faz retrato em f/2.8 com foco contínuo e ISO automático toda semana, salve isso no C1. Da próxima vez é um giro de seletor em vez de cinco menus.</p></div>
   </div></div></div>
-<p>Os modos de cena, aqueles com desenho de rosto, montanha ou corredor, são atalhos: a câmera aplica uma combinação pronta para aquela situação. Funcionam, mas escondem de você qual decisão foi tomada. Quando quiser entender a foto que saiu, volte para as letras.</p>
-<p>E qual é o melhor modo? O melhor modo é aquele que resolve a cena que está na sua frente.</p>
+<p>Os nomes mudam de marca para marca. Av e Tv são da Canon; em outras o mesmo modo aparece como A e S. Em algumas câmeras o Bulb não é uma posição do disco, fica dentro do M, depois da velocidade mais lenta.</p>
 <div class="pratica" data-ex="m3-e11">
     <div class="ptop"><span class="plb">Exercício</span>
       <label class="pchk"><input type="checkbox" data-done><span>fiz</span></label></div>
-    <p>Fotografe a mesma cena quatro vezes, uma em cada modo: P, A, S e M. Anote o que a câmera escolheu em cada uma. As quatro chegam perto do mesmo resultado por caminhos diferentes.</p>
+    <p>Fotografe a mesma cena quatro vezes, uma em cada modo: P, Av, Tv e M. Anote o que a câmera escolheu em cada uma. As quatro chegam perto do mesmo resultado por caminhos diferentes.</p>
     <button class="preg" data-reg>Registrar o que eu fiz</button>
     <div class="pfeito" hidden></div>
   </div>
