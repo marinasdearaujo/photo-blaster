@@ -4,114 +4,347 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>O Manual Que Não Veio na Caixa · Fabio Dombrate</title>
-<meta name="description" content="Os recursos escondidos da sua câmera e o olhar para usá-los como um fotógrafo de verdade. O ebook de Fabio Dombrate.">
-<link rel="stylesheet" href="/css/site.css">
+<meta name="description" content="Um manual de fotografia que você usa, não só lê: simulador de exposição, exercícios com a sua foto e o Fabio comentando o que você fez.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--bg2:#0b0b0e;--panel:#101015;--line:#23232b;--line2:#34343f;
+  --txt:#f2f2f4;--mut:#8e8e99;--acc:#d946c4;--ok:#4ade80;
+  --disp:'Anton',Impact,sans-serif;--body:'Inter',system-ui,sans-serif;--maxw:1040px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--txt);font-family:var(--body);font-weight:300;line-height:1.75;
+  font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.narrow{max-width:660px}
+h1,h2,h3,.dn{font-family:var(--disp);font-weight:400;text-transform:uppercase;line-height:1.02;text-wrap:balance}
+.eyebrow{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--acc)}
+.mut{color:var(--mut)}
+
+/* topo */
+.topo{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(0,0,0,.86);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topo .in{max-width:var(--maxw);margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:14px}
+.fd{width:30px;height:30px;border:1.5px solid var(--acc);border-radius:5px;display:grid;place-items:center;
+  font-family:var(--disp);font-size:13px;color:var(--acc);flex:0 0 auto}
+.topo b{font-family:var(--disp);font-weight:400;font-size:15px;letter-spacing:.04em}
+.topo .volta{margin-left:auto;font-size:12.5px;color:var(--mut)}
+
+/* hero */
+.hero{padding:120px 0 0}
+.hgrid{display:grid;grid-template-columns:1fr 380px;gap:52px;align-items:center}
+h1{font-size:clamp(38px,6.6vw,70px);margin:16px 0 20px}
+h1 i{font-style:normal;color:var(--acc)}
+.lead{font-size:18px;color:var(--txt);max-width:46ch;line-height:1.55}
+.hcapa{border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 24px;border-radius:5px;
+  font-size:14.5px;font-weight:600;letter-spacing:.02em;transition:.18s;border:1px solid transparent;cursor:pointer}
+.btn-p{background:var(--acc);color:#000}
+.btn-p:hover{filter:brightness(1.12)}
+.btn-s{border-color:var(--line2);color:var(--txt)}
+.btn-s:hover{border-color:var(--txt)}
+.sob{font-size:12.5px;color:var(--mut);margin-top:14px}
+
+/* numeros */
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-top:70px}
+.nums div{background:var(--bg2);padding:18px 20px}
+.nums b{font-family:var(--disp);font-weight:400;font-size:30px;display:block;line-height:1}
+.nums span{font-size:12.5px;color:var(--mut);display:block;margin-top:5px}
+
+section{padding:86px 0}
+h2{font-size:clamp(25px,4vw,38px);margin-bottom:14px}
+h2 i{font-style:normal;color:var(--acc)}
+.sub{color:var(--mut);max-width:58ch;font-size:15.5px}
+
+/* demo */
+.demo{background:var(--bg2);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:34px;
+  display:grid;grid-template-columns:1fr 290px}
+.dstage{position:relative;background:#000;min-height:300px;overflow:hidden}
+.dstage img{width:100%;height:100%;object-fit:cover;transition:filter .18s}
+.dgrain{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .18s;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E")}
+.dctl{padding:24px 24px 26px;border-left:1px solid var(--line)}
+.dctl .lb{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--mut);
+  display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px}
+.dctl .lb b{font-family:var(--body);font-weight:600;font-size:14px;color:var(--txt);letter-spacing:0;text-transform:none}
+.dctl input[type=range]{width:100%;margin-bottom:20px;accent-color:var(--acc)}
+.dnota{font-size:12.5px;color:var(--mut);border-top:1px solid var(--line);padding-top:14px;line-height:1.5}
+
+/* modulos */
+.mods{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:14px;margin-top:34px}
+.mod{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--bg2)}
+.mod .im{aspect-ratio:16/10;overflow:hidden;background:#000}
+.mod .im img{width:100%;height:100%;object-fit:cover;opacity:.82}
+.mod .tx{padding:14px 16px 17px}
+.mod .n{font-family:var(--disp);font-size:11px;letter-spacing:.14em;color:var(--c)}
+.mod h3{font-size:16px;margin:5px 0 6px;letter-spacing:.01em}
+.mod p{font-size:13px;color:var(--mut);line-height:1.5}
+
+/* feedback */
+.destaque{border:1px solid var(--acc);border-radius:8px;padding:34px 32px;
+  background:linear-gradient(170deg,rgba(217,70,196,.09),transparent 65%);margin-top:34px}
+.destaque h3{font-size:21px;margin-bottom:12px}
+.destaque p{max-width:56ch;font-size:15.5px}
+
+/* preco */
+.caixa{max-width:460px;margin:34px auto 0;border:1px solid var(--line2);border-radius:8px;
+  background:var(--panel);padding:30px 30px 32px}
+.caixa .tag{display:inline-block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;
+  color:#000;background:var(--acc);padding:4px 10px;border-radius:3px;margin-bottom:16px}
+.caixa .nome{font-family:var(--disp);font-size:20px;line-height:1.15;margin-bottom:6px}
+.caixa .de{font-size:14px;color:var(--mut)}
+.caixa .de s{opacity:.7}
+.caixa .val{font-family:var(--disp);font-size:52px;color:var(--acc);line-height:1;margin:6px 0 4px}
+.caixa .vez{font-size:13px;color:var(--mut);margin-bottom:22px}
+.bump{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0;margin-bottom:22px;
+  font-size:13.5px;color:var(--mut);line-height:1.6}
+.bump b{color:var(--txt);font-weight:600;display:block;margin-bottom:3px}
+.caixa .btn{width:100%;justify-content:center}
+.garantia{font-size:12.5px;color:var(--mut);text-align:center;margin-top:16px;line-height:1.5}
+
+/* faq */
+.faq{margin-top:34px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{padding:18px 0;font-size:16px;font-weight:500;cursor:pointer;list-style:none;
+  display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';font-family:var(--disp);color:var(--acc);font-size:20px;line-height:1}
+.faq details[open] summary::after{content:'–'}
+.faq p{padding:0 0 20px;color:var(--mut);max-width:62ch;font-size:15px}
+
+footer{border-top:1px solid var(--line);padding:34px 0 50px;font-size:13px;color:var(--mut)}
+footer .lin{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center}
+footer a{color:var(--mut)}
+footer a:hover{color:var(--txt)}
+
+@media(max-width:860px){
+  .hgrid{grid-template-columns:1fr;gap:34px}
+  .hcapa{max-width:320px}
+  .demo{grid-template-columns:1fr}
+  .dctl{border-left:none;border-top:1px solid var(--line)}
+  .dstage{min-height:240px}
+}
+@media(max-width:560px){.hero{padding-top:96px}section{padding:62px 0}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
 </head>
 <body>
 
-<header class="nav">
-  <div class="nav-in">
-    <a href="/" class="brand"><span class="mono">FD</span><span class="nm"><b>Fabio Dombrate</b><small>Fotografia de posicionamento</small></span></a>
-    <nav class="nav-links">
-      <a href="/">Início</a>
-      <a href="/sobre/">Sobre</a>
-      <a href="/ensaios/">Ensaios</a>
-      <a href="/ebook/" class="active">O Manual</a>
-      <a href="https://wa.me/5541000000000">Contato</a>
-    </nav>
+<header class="topo">
+  <div class="in">
+    <span class="fd">FD</span>
+    <b>Fabio Dombrate</b>
+    <a href="/" class="volta">voltar ao site</a>
   </div>
 </header>
 
 <!-- HERO -->
-<section class="hero" style="padding:0">
-  <div class="htxt" style="padding-left:max(34px, calc((100vw - 1160px)/2 + 34px))">
-    <div class="eyebrow">O Manual Que Não Veio na Caixa</div>
-    <h1 class="display mt-m">Sua câmera é melhor<br>do que você <span class="it">imagina.</span></h1>
-    <p class="lead mt-m" style="max-width:440px">Os recursos escondidos da sua câmera e o olhar para usá-los como um fotógrafo de verdade.</p>
-    <div class="cta-row"><a href="KIWIFY_URL" class="btn btn-gold">Quero o Manual <span class="ar">→</span></a></div>
-    <p class="mt-s" style="font-size:12px;color:var(--cmuted);letter-spacing:.06em">Leitura online, no celular ou no computador · com atualizações vitalícias</p>
-  </div>
-  <div class="himg"><img src="/img/pb-mulher.jpg" alt=""></div>
-</section>
-
-<!-- PROMESSA (cream) -->
-<section class="cream">
-  <div class="narrow center">
-    <p class="pull" style="color:var(--ink)">Mais do que ensinar botões, este material<br>quer te fazer <span class="it">se apaixonar pela fotografia.</span></p>
-    <p class="mt-m" style="font-size:16.5px">Fotografar é eternizar o presente. Este é o manual que eu queria ter recebido quando comecei: o que explica pra que serve cada coisa, quando usar, e como enxergar antes de apertar o botão.</p>
-  </div>
-</section>
-
-<!-- O QUE TEM (dark) -->
-<section class="dark">
+<div class="hero">
   <div class="wrap">
-    <div class="eyebrow center">O que você vai encontrar</div>
-    <div class="steps mt-l">
-      <div><div class="n">i</div><h4>Aprender a ver</h4><p>O olhar, a intenção e a composição. A alma da fotografia.</p></div>
-      <div><div class="n">ii</div><h4>A luz</h4><p>A matéria-prima, lida e trabalhada com o que você já tem.</p></div>
-      <div><div class="n">iii</div><h4>A câmera</h4><p>Os três pilares da exposição, com infográficos, e os recursos que libertam o seu olhar.</p></div>
-      <div><div class="n">iv</div><h4>Na prática</h4><p>Receitas por situação, edição honesta e bônus para consulta.</p></div>
+    <div class="hgrid">
+      <div>
+        <div class="eyebrow">O Manual Que Não Veio na Caixa</div>
+        <h1>Um manual de fotografia que você <i>usa</i>, não só lê.</h1>
+        <p class="lead">Dezoito capítulos, um simulador de exposição para mexer, exercícios onde você registra a sua própria foto, e eu comentando o que você fez.</p>
+        <div class="ctas">
+          <a href="CHECKOUT_URL" class="btn btn-p">Quero o manual completo</a>
+          <a href="MODULO1_URL" class="btn btn-s">Começar de graça pelo módulo 1</a>
+        </div>
+        <p class="sob">Abre no celular e no computador, sem instalar nada. Atualizações inclusas.</p>
+      </div>
+      <div class="hcapa"><img src="/img/capa-manual-02.jpg" srcset="/img/capa-manual-02.jpg 1351w, /img/capa-manual-02-lg.jpg 2200w" sizes="(max-width:860px) 320px, 380px" alt="Capa do manual"></div>
+    </div>
+
+    <div class="nums">
+      <div><b>18</b><span>capítulos em 7 módulos</span></div>
+      <div><b>11</b><span>exercícios para fazer</span></div>
+      <div><b>26</b><span>fotos minhas, explicadas</span></div>
+      <div><b>9</b><span>modos da câmera, um a um</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- DEMO -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Por que não é um PDF</div>
+    <h2>Mexa aqui e veja <i>o que acontece.</i></h2>
+    <p class="sub">Esta é uma amostra do simulador que está no capítulo 9. No manual ele tem a conta completa da exposição, com velocidade, abertura, ISO e o medidor em pontos.</p>
+
+    <div class="demo">
+      <div class="dstage">
+        <img id="foto" src="/img/retrato-junior.jpg" alt="Retrato usado na amostra do simulador">
+        <div class="dgrain" id="grao"></div>
+      </div>
+      <div class="dctl">
+        <div class="lb"><span>ISO</span><b id="viso">100</b></div>
+        <input type="range" id="siso" min="0" max="6" value="0" step="1" aria-label="ISO">
+
+        <div class="lb"><span>Velocidade</span><b id="vvel">1/250</b></div>
+        <input type="range" id="svel" min="0" max="6" value="3" step="1" aria-label="Velocidade do obturador">
+
+        <p class="dnota" id="nota">Exposição equilibrada. Mexa nos controles e veja a foto escurecer, clarear e ganhar ruído.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- PRA QUEM (cream) -->
-<section class="cream">
-  <div class="narrow center">
+<!-- MODULOS -->
+<section style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="eyebrow">O que tem dentro</div>
+    <h2>Sete módulos, na ordem que <i>faz sentido.</i></h2>
+    <p class="sub">Do olhar para a luz, da luz para a câmera, e da câmera para a rua. Cada módulo termina com algo para você fotografar.</p>
+
+    <div class="mods">
+      <div class="mod" style="--c:#a855f7"><div class="im"><img src="/img/dupla-exposicao.jpg" alt=""></div>
+        <div class="tx"><div class="n">MÓDULO 1</div><h3>Aprender a ver</h3>
+        <p>A pergunta antes do clique, a luz, a composição, a perspectiva e a paciência.</p></div></div>
+
+      <div class="mod" style="--c:#ffd400"><div class="im"><img src="/img/luz-janela.jpg" alt=""></div>
+        <div class="tx"><div class="n">MÓDULO 2</div><h3>A luz como matéria-prima</h3>
+        <p>O estúdio que já existe na sua janela, a hora certa do dia e o que uma luz só resolve.</p></div></div>
+
+      <div class="mod" style="--c:#2196f3"><div class="im"><img src="/img/zooming.jpg" alt=""></div>
+        <div class="tx"><div class="n">MÓDULO 3</div><h3>A câmera a serviço do olhar</h3>
+        <p>Os três pilares da exposição, o simulador, os nove modos do disco e o foco no lugar certo.</p></div></div>
+
+      <div class="mod" style="--c:#e935b8"><div class="im"><img src="/img/retrato-posicionamento.jpg" alt=""></div>
+        <div class="tx"><div class="n">MÓDULO 4</div><h3>Na prática</h3>
+        <p>Retrato, pouca luz e movimento. Pontos de partida para situações que você vai viver.</p></div></div>
+
+      <div class="mod" style="--c:#22d3ee"><div class="im"><img src="/img/retrato-externo.jpg" alt=""></div>
+        <div class="tx"><div class="n">MÓDULO 5</div><h3>Depois do clique</h3>
+        <p>Edição honesta, com antes e depois de verdade, e como não perder as suas fotos.</p></div></div>
+
+      <div class="mod" style="--c:#a855f7"><div class="im"><img src="/img/pb-luzdura.jpg" alt=""></div>
+        <div class="tx"><div class="n">MÓDULO 6</div><h3>Para terminar</h3>
+        <p>O que fica depois que a técnica vira hábito.</p></div></div>
+
+      <div class="mod" style="--c:#22d3ee"><div class="im"><img src="/img/longa-exposicao.jpg" alt=""></div>
+        <div class="tx"><div class="n">MÓDULO 7</div><h3>Bônus, para deixar por perto</h3>
+        <p>As fichas de consulta rápida, para abrir na hora da foto.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEEDBACK -->
+<section>
+  <div class="wrap narrow">
+    <div class="eyebrow">O que nenhum ebook faz</div>
+    <h2>Você fotografa, eu <i>comento.</i></h2>
+    <p class="sub">Em onze pontos do manual eu paro e peço uma foto sua. Você registra ali mesmo, pelo celular, e ela fica guardada no seu diário.</p>
+    <div class="destaque">
+      <h3>E eu respondo algumas dessas fotos</h3>
+      <p>Não é um robô dizendo que ficou ótima. Sou eu olhando a sua foto e dizendo o que eu teria feito diferente, do mesmo jeito que explico as minhas no manual. Como é o meu tempo, isso tem um limite por semana, e por isso o número de vagas do lançamento é pequeno.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRA QUEM -->
+<section style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap narrow">
     <div class="eyebrow">Para quem é</div>
-    <h2 class="sec-title mt-s">Para quem tem uma câmera e sente que ela poderia <span class="it">mais.</span></h2>
-    <p class="mt-m" style="font-size:16.5px">Iniciantes, hobbistas e criadores de conteúdo que fotografam no automático e querem, enfim, entender o que têm na mão. Não é sobre teoria chata. É sobre olhar.</p>
+    <h2>Para quem tem uma câmera e sente que ela <i>poderia mais.</i></h2>
+    <p class="sub" style="margin-top:14px">Se você fotografa no automático e já desconfia que o problema não é o equipamento, é aqui. Serve para quem está começando e para quem já fotografa há um tempo mas nunca entendeu direito o que cada controle faz.</p>
+    <p class="sub" style="margin-top:14px">Não serve para quem quer um atalho. Tem exercício, e ele só funciona se você sair com a câmera.</p>
   </div>
 </section>
 
-<!-- EXTRA / UPSELL (dark) -->
-<section class="dark" id="extra">
-  <div class="narrow center">
-    <div class="eyebrow">Extra do Manual</div>
-    <h2 class="sec-title mt-s">7 Técnicas Fotográficas para <span class="it">explorar na prática.</span></h2>
-    <p class="mt-m" style="font-size:16.5px;color:var(--cmuted)">Panning, longa exposição, HDR, zooming, dupla exposição, ICM e light painting. Técnicas que transformam movimento, luz e tempo em linguagem, e quase todas acontecem direto na câmera.</p>
-    <div class="steps mt-l" style="text-align:left">
-      <div><div class="n">i</div><h4>7 técnicas criativas</h4><p>Cada uma com o que é, onde brilha e o passo a passo.</p></div>
-      <div><div class="n">ii</div><h4>Ficha rápida</h4><p>Velocidade, tripé e onde usar, num olhar.</p></div>
-      <div><div class="n">iii</div><h4>O segredo</h4><p>O detalhe que separa o acerto da foto só tremida.</p></div>
-      <div><div class="n">iv</div><h4>Desafio de 7 dias</h4><p>Uma técnica por dia, pra sair do papel.</p></div>
-    </div>
-    <p class="mt-l" style="font-size:14px;color:var(--gold);letter-spacing:.04em">Adicione no checkout, junto com o Manual, por + R$ 19.</p>
-  </div>
-</section>
-
-<!-- COMPRA (darker) -->
-<section class="darker">
-  <div class="narrow center">
-    <div class="pkg feat" style="max-width:440px;margin:0 auto;text-align:left">
-      <div class="tagf">Lançamento</div>
-      <div class="name serif">O Manual Que Não Veio na Caixa</div>
-      <div class="fotos">Leitura online · infográficos · cheat sheet · checklist</div>
-      <div class="desc" style="margin-bottom:6px">De <span style="text-decoration:line-through">R$ 67</span> por</div>
-      <div class="serif" style="font-size:44px;color:var(--gold);line-height:1;margin-bottom:20px">R$ 47</div>
-      <div style="border-top:1px solid var(--line);padding-top:16px;margin-bottom:20px;font-size:14px;color:var(--cmuted);line-height:1.6">
-        <span style="color:var(--gold);letter-spacing:.14em;text-transform:uppercase;font-size:10.5px;display:block;margin-bottom:4px">+ Adicione o extra</span>
-        <span style="color:#fff">7 Técnicas Fotográficas para Explorar na Prática</span> por + R$ 19, marcando a opção no checkout.
-      </div>
-      <a href="KIWIFY_URL" class="btn btn-gold" style="justify-content:center">Quero o Manual <span class="ar">→</span></a>
-    </div>
-  </div>
-</section>
-
-<footer class="ft">
+<!-- PRECO -->
+<section>
   <div class="wrap">
-    <div class="row">
-      <a href="/" class="brand"><span class="mono">FD</span><span class="nm"><b>Fabio Dombrate</b><small>Fotógrafo · Curitiba</small></span></a>
-      <div class="social">
-        <a href="https://instagram.com/fabio.dombrate" target="_blank" rel="noopener">IG</a>
-        <a href="https://wa.me/5541000000000">WA</a>
-        <a href="mailto:contato@dombratefotografia.com.br">@</a>
-      </div>
+    <div class="narrow" style="margin:0 auto;text-align:center">
+      <div class="eyebrow">O preço</div>
+      <h2>Menos do que uma lente que você <i>não vai usar.</i></h2>
     </div>
-    <div class="base">© 2026 Fabio Dombrate · Dombrate Fotografia · Elegância com propósito.</div>
+
+    <div class="caixa">
+      <span class="tag">Lançamento</span>
+      <div class="nome">O Manual Que Não Veio na Caixa</div>
+      <div class="de">De <s>R$ 97</s> por</div>
+      <div class="val">R$ 67</div>
+      <div class="vez">Pagamento único, no Pix ou no cartão. O acesso não expira.</div>
+
+      <div class="bump">
+        <b>+ 7 Técnicas Fotográficas, por mais R$ 27</b>
+        Panning, longa exposição, HDR, zooming, dupla exposição, ICM e light painting, cada uma com o passo a passo e um desafio de sete dias. É só marcar a opção no checkout.
+      </div>
+
+      <a href="CHECKOUT_URL" class="btn btn-p">Quero o manual</a>
+      <p class="garantia">Sete dias de garantia. Se não for para você, devolvo o valor inteiro, sem perguntar o motivo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="background:var(--bg2);border-top:1px solid var(--line)">
+  <div class="wrap narrow">
+    <div class="eyebrow">Antes de comprar</div>
+    <h2>O que costumam me <i>perguntar.</i></h2>
+    <div class="faq">
+      <details><summary>Isso não tem de graça no YouTube?</summary>
+        <p>Tem, e muita coisa boa. O que não tem é alguém olhando a foto que você fez e dizendo o que mudar. Vídeo solto ensina o conceito, mas quem tenta sozinho em casa trava no primeiro detalhe e desiste. O manual tem a ordem das coisas, o exercício depois de cada ideia e eu do outro lado.</p></details>
+      <details><summary>Preciso de uma câmera cara?</summary>
+        <p>Não. Quase tudo aqui funciona em qualquer câmera que deixe sair do automático, inclusive as mais simples. Boa parte do módulo 1 e do módulo 2 funciona até no celular, porque é sobre olhar e sobre luz.</p></details>
+      <details><summary>É um PDF? Dá para baixar?</summary>
+        <p>Não é PDF, e é de propósito. O simulador, os comparadores de arrastar e o registro dos exercícios não cabem num arquivo. Você abre pelo navegador, no celular ou no computador, e continua de onde parou.</p></details>
+      <details><summary>Quanto tempo leva?</summary>
+        <p>Dá para ler em algumas noites, mas não é essa a ideia. Os exercícios pedem que você saia com a câmera entre um módulo e outro, então o ritmo é seu.</p></details>
+      <details><summary>Vou mesmo receber a sua resposta nos exercícios?</summary>
+        <p>Nas vagas do lançamento, sim, e é por isso que elas são poucas. Prefiro responder pouca gente de verdade a prometer para todo mundo e não dar conta.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="lin">
+      <span>© 2026 Fabio Dombrate · Curitiba</span>
+      <span>
+        <a href="https://instagram.com/fabio.dombrate" target="_blank" rel="noopener">Instagram</a> ·
+        <a href="/">Site</a> ·
+        <a href="mailto:contato@dombratefotografia.com.br">E-mail</a>
+      </span>
+    </div>
   </div>
 </footer>
 
+<script>
+(function(){
+  var ISOS=[100,200,400,800,1600,6400,12800];
+  var VELS=['1/2000','1/1000','1/500','1/250','1/125','1/60','1/30'];
+  var foto=document.getElementById('foto'), grao=document.getElementById('grao');
+  var siso=document.getElementById('siso'), svel=document.getElementById('svel');
+  var viso=document.getElementById('viso'), vvel=document.getElementById('vvel'), nota=document.getElementById('nota');
+  if(!foto) return;
+
+  function pinta(){
+    var i=+siso.value, v=+svel.value;
+    viso.textContent=ISOS[i];
+    vvel.textContent=VELS[v];
+    // cada passo de ISO dobra a luz; cada passo de velocidade tambem. 3 e o equilibrio.
+    var passos=(i)+(v-3);
+    var brilho=Math.pow(1.26,passos);
+    foto.style.filter='brightness('+Math.min(2.1,Math.max(.32,brilho)).toFixed(2)+')';
+    grao.style.opacity=(i*0.055).toFixed(3);
+    var t;
+    if(passos>2) t='Clara demais. Baixe o ISO ou acelere o obturador.';
+    else if(passos<-2) t='Escura demais. Suba o ISO ou deixe o obturador mais lento.';
+    else if(i>=4) t='Exposição ok, mas repare no ruído que o ISO alto trouxe.';
+    else t='Exposição equilibrada.';
+    nota.textContent=t+' No manual essa conta aparece em pontos, com a abertura junto.';
+  }
+  siso.addEventListener('input',pinta);
+  svel.addEventListener('input',pinta);
+  pinta();
+})();
+</script>
 <script src="/review.js"></script>
 </body>
 </html>
